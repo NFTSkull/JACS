@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
 import { Pallet } from '@/data/pallets';
@@ -26,15 +25,9 @@ export default function ProductCard({ product, type, locale }: ProductCardProps)
       viewport={{ once: true }}
       className="card group hover:shadow-xl transition-all duration-300"
     >
-      {/* Product Image */}
-      <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
-        <Image
-          src={product.imagen}
-          alt={product.nombre}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+      {/* Product Image Placeholder */}
+      <div className="relative h-48 mb-4 overflow-hidden rounded-lg bg-gray-ui flex items-center justify-center">
+        <span className="text-gray-500 font-medium">Imagen del producto</span>
       </div>
 
       {/* Product Info */}
