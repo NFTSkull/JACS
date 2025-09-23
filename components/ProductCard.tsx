@@ -4,7 +4,8 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Download } from 'lucide-react';
-import { Pallet, Box } from '@/data/pallets';
+import { Pallet } from '@/data/pallets';
+import { Box } from '@/data/boxes';
 
 interface ProductCardProps {
   product: Pallet | Box;

@@ -5,7 +5,8 @@ import IndustriesSection from '@/components/IndustriesSection';
 import ProductCard from '@/components/ProductCard';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
-import { pallets, boxes } from '@/data/pallets';
+import { pallets } from '@/data/pallets';
+import { boxes } from '@/data/boxes';
 
 interface HomePageProps {
   params: { locale: string };

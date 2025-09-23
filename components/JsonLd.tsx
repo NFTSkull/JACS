@@ -1,4 +1,5 @@
-import { pallets, boxes } from '@/data/pallets';
+import { pallets } from '@/data/pallets';
+import { boxes } from '@/data/boxes';
 
 export function OrganizationJsonLd() {
   const organizationData = {
