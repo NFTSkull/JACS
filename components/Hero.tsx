@@ -1,13 +1,10 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
-  const t = useTranslations('hero');
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -26,7 +23,7 @@ export default function Hero() {
           className="max-w-4xl mx-auto"
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            {t('title')}
+            Tarimas y Cajas de Plástico de Clase Mundial
           </h1>
           
           <motion.p
@@ -35,7 +32,7 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto"
           >
-            {t('subtitle')}
+            Soluciones higiénicas, durables y listas para exportación
           </motion.p>
 
           <motion.div
@@ -48,7 +45,7 @@ export default function Hero() {
               href="/productos/tarimas"
               className="btn-primary text-lg px-8 py-4 flex items-center space-x-2 group"
             >
-              <span>{t('cta_pallets')}</span>
+              <span>Explorar Tarimas</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </Link>
             
@@ -56,7 +53,7 @@ export default function Hero() {
               href="/productos/cajas-agricolas"
               className="btn-ghost text-lg px-8 py-4 text-white border-white hover:bg-white hover:text-primary"
             >
-              {t('cta_boxes')}
+              Ver Cajas Agrícolas
             </Link>
           </motion.div>
         </motion.div>
