@@ -2,29 +2,26 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const t = useTranslations('navigation');
-  const locale = useLocale();
 
   const menuItems = [
-    { href: '/', label: t('home') },
-    { href: '/productos', label: t('products'), hasSubmenu: true },
-    { href: '/industrias', label: t('industries') },
-    { href: '/empresa', label: t('company') },
-    { href: '/certificaciones', label: t('certifications') },
-    { href: '/blog', label: t('blog') },
-    { href: '/contacto', label: t('contact') },
+    { href: '/', label: 'Inicio' },
+    { href: '/productos', label: 'Productos', hasSubmenu: true },
+    { href: '/industrias', label: 'Industrias' },
+    { href: '/empresa', label: 'Empresa' },
+    { href: '/certificaciones', label: 'Certificaciones' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/contacto', label: 'Contacto' },
   ];
 
   const submenuItems = [
-    { href: '/productos/tarimas', label: t('pallets') },
-    { href: '/productos/cajas-agricolas', label: t('boxes') },
+    { href: '/productos/tarimas', label: 'Tarimas' },
+    { href: '/productos/cajas-agricolas', label: 'Cajas Agrícolas' },
   ];
 
   return (
@@ -32,7 +29,7 @@ export default function SiteHeader() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center">
+          <Link href="/" className="flex items-center">
             <div className="text-2xl font-bold text-primary">
               JACS <span className="text-gray-charcoal">Plastics</span>
             </div>
@@ -43,7 +40,7 @@ export default function SiteHeader() {
             {menuItems.map((item) => (
               <div key={item.href} className="relative">
                 <Link
-                  href={`/${locale}${item.href}`}
+                  href={item.href}
                   className="text-gray-charcoal hover:text-primary transition-colors duration-200 font-medium"
                 >
                   {item.label}
@@ -54,7 +51,7 @@ export default function SiteHeader() {
                       {submenuItems.map((subItem) => (
                         <Link
                           key={subItem.href}
-                          href={`/${locale}${subItem.href}`}
+                          href={subItem.href}
                           className="block px-4 py-2 text-gray-charcoal hover:text-primary hover:bg-gray-ui transition-colors duration-200"
                         >
                           {subItem.label}
@@ -75,7 +72,7 @@ export default function SiteHeader() {
                 onClick={() => setIsLangOpen(!isLangOpen)}
                 className="flex items-center space-x-1 text-gray-charcoal hover:text-primary transition-colors duration-200"
               >
-                <span className="uppercase font-medium">{locale}</span>
+                <span className="uppercase font-medium">ES</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
               
@@ -110,10 +107,10 @@ export default function SiteHeader() {
 
             {/* CTA Button */}
             <Link
-              href={`/${locale}/contacto`}
+              href="/contacto"
               className="btn-primary"
             >
-              {t('quote')}
+              Cotiza ahora
             </Link>
           </div>
 
@@ -139,7 +136,7 @@ export default function SiteHeader() {
                 {menuItems.map((item) => (
                   <div key={item.href}>
                     <Link
-                      href={`/${locale}${item.href}`}
+                      href={item.href}
                       className="block text-gray-charcoal hover:text-primary transition-colors duration-200 font-medium"
                       onClick={() => setIsMenuOpen(false)}
                     >
@@ -150,7 +147,7 @@ export default function SiteHeader() {
                         {submenuItems.map((subItem) => (
                           <Link
                             key={subItem.href}
-                            href={`/${locale}${subItem.href}`}
+                            href={subItem.href}
                             className="block text-gray-charcoal hover:text-primary transition-colors duration-200"
                             onClick={() => setIsMenuOpen(false)}
                           >
@@ -166,18 +163,14 @@ export default function SiteHeader() {
                 <div className="flex space-x-4 pt-4 border-t border-gray-ui">
                   <Link
                     href="/es"
-                    className={`px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
-                      locale === 'es' ? 'bg-primary text-white' : 'text-gray-charcoal hover:text-primary'
-                    }`}
+                    className="px-4 py-2 rounded-lg font-medium transition-colors duration-200 bg-primary text-white"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     ES
                   </Link>
                   <Link
                     href="/en"
-                    className={`px-4 py-2 rounded-lg font-medium transition-colors duration-200 ${
-                      locale === 'en' ? 'bg-primary text-white' : 'text-gray-charcoal hover:text-primary'
-                    }`}
+                    className="px-4 py-2 rounded-lg font-medium transition-colors duration-200 text-gray-charcoal hover:text-primary"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     EN
@@ -186,11 +179,11 @@ export default function SiteHeader() {
 
                 {/* Mobile CTA Button */}
                 <Link
-                  href={`/${locale}/contacto`}
+                  href="/contacto"
                   className="block w-full btn-primary text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {t('quote')}
+                  Cotiza ahora
                 </Link>
               </div>
             </motion.div>

@@ -1,7 +1,6 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
-import { Analytics } from '@/components/Analytics';
 import { inter, rubik } from '@/lib/fonts';
 import '../globals.css';
 
@@ -27,12 +26,6 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
-      <head>
-        <Analytics 
-          gaId={process.env.NEXT_PUBLIC_GA_ID}
-          metaPixelId={process.env.NEXT_PUBLIC_META_PIXEL_ID}
-        />
-      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           {children}
