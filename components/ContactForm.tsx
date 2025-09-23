@@ -1,48 +1,52 @@
 'use client';
 
 import { useState } from 'react';
-import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle } from 'lucide-react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-
-const contactSchema = z.object({
-  name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
-  company: z.string().min(2, 'La empresa debe tener al menos 2 caracteres'),
-  email: z.string().email('Email inválido'),
-  phone: z.string().min(10, 'El teléfono debe tener al menos 10 dígitos'),
-  product: z.string().min(1, 'Selecciona un producto'),
-  volume: z.string().min(1, 'Especifica el volumen'),
-  message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
-  honeypot: z.string().max(0, 'Bot detected'), // Honeypot field
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const t = useTranslations('contact.form');
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-    reset,
-  } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    product: '',
+    volume: '',
+    message: '',
   });
 
-  const onSubmit = async (data: ContactFormData) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Form data:', data);
+      console.log('Form data:', formData);
       setIsSubmitted(true);
-      reset();
+      setFormData({
+        name: '',
+        company: '',
+        email: '',
+        phone: '',
+        product: '',
+        volume: '',
+        message: '',
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -79,95 +83,89 @@ export default function ContactForm() {
       className="card"
     >
       <h3 className="text-2xl font-semibold text-gray-charcoal mb-6">
-        {t('title')}
+        Solicita tu Cotización
       </h3>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        {/* Honeypot field - hidden */}
-        <input
-          type="text"
-          {...register('honeypot')}
-          style={{ display: 'none' }}
-          tabIndex={-1}
-          autoComplete="off"
-        />
-
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-gray-charcoal mb-2">
-              {t('name')} *
+              Nombre *
             </label>
             <input
               type="text"
               id="name"
-              {...register('name')}
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
               className="w-full px-4 py-3 border border-gray-ui rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200"
               placeholder="Tu nombre completo"
             />
-            {errors.name && (
-              <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
-            )}
           </div>
 
           <div>
             <label htmlFor="company" className="block text-sm font-medium text-gray-charcoal mb-2">
-              {t('company')} *
+              Empresa *
             </label>
             <input
               type="text"
               id="company"
-              {...register('company')}
+              name="company"
+              value={formData.company}
+              onChange={handleInputChange}
+              required
               className="w-full px-4 py-3 border border-gray-ui rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200"
               placeholder="Nombre de tu empresa"
             />
-            {errors.company && (
-              <p className="mt-1 text-sm text-red-500">{errors.company.message}</p>
-            )}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-charcoal mb-2">
-              {t('email')} *
+              Email *
             </label>
             <input
               type="email"
               id="email"
-              {...register('email')}
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
               className="w-full px-4 py-3 border border-gray-ui rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200"
               placeholder="tu@email.com"
             />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
-            )}
           </div>
 
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-gray-charcoal mb-2">
-              {t('phone')} *
+              Teléfono *
             </label>
             <input
               type="tel"
               id="phone"
-              {...register('phone')}
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              required
               className="w-full px-4 py-3 border border-gray-ui rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200"
               placeholder="(55) 1234 5678"
             />
-            {errors.phone && (
-              <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
-            )}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="product" className="block text-sm font-medium text-gray-charcoal mb-2">
-              {t('product')} *
+              Producto de interés *
             </label>
             <select
               id="product"
-              {...register('product')}
+              name="product"
+              value={formData.product}
+              onChange={handleInputChange}
+              required
               className="w-full px-4 py-3 border border-gray-ui rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200"
             >
               <option value="">Selecciona un producto</option>
@@ -177,42 +175,39 @@ export default function ContactForm() {
               <option value="caja-allende">Caja Allende</option>
               <option value="otros">Otros productos</option>
             </select>
-            {errors.product && (
-              <p className="mt-1 text-sm text-red-500">{errors.product.message}</p>
-            )}
           </div>
 
           <div>
             <label htmlFor="volume" className="block text-sm font-medium text-gray-charcoal mb-2">
-              {t('volume')} *
+              Volumen estimado *
             </label>
             <input
               type="text"
               id="volume"
-              {...register('volume')}
+              name="volume"
+              value={formData.volume}
+              onChange={handleInputChange}
+              required
               className="w-full px-4 py-3 border border-gray-ui rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200"
               placeholder="Ej: 100 unidades/mes"
             />
-            {errors.volume && (
-              <p className="mt-1 text-sm text-red-500">{errors.volume.message}</p>
-            )}
           </div>
         </div>
 
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-gray-charcoal mb-2">
-            {t('message')} *
+            Mensaje *
           </label>
           <textarea
             id="message"
+            name="message"
             rows={4}
-            {...register('message')}
+            value={formData.message}
+            onChange={handleInputChange}
+            required
             className="w-full px-4 py-3 border border-gray-ui rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 resize-none"
             placeholder="Cuéntanos más sobre tus necesidades..."
           />
-          {errors.message && (
-            <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
-          )}
         </div>
 
         <button
@@ -225,7 +220,7 @@ export default function ContactForm() {
           ) : (
             <Send className="w-5 h-5" />
           )}
-          <span>{isSubmitting ? 'Enviando...' : t('submit')}</span>
+          <span>{isSubmitting ? 'Enviando...' : 'Enviar mensaje'}</span>
         </button>
       </form>
     </motion.div>
