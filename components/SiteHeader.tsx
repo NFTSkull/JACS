@@ -12,10 +12,6 @@ export default function SiteHeader() {
   const menuItems = [
     { href: '/', label: 'Inicio' },
     { href: '/productos', label: 'Productos', hasSubmenu: true },
-    { href: '/industrias', label: 'Industrias' },
-    { href: '/empresa', label: 'Empresa' },
-    { href: '/certificaciones', label: 'Certificaciones' },
-    { href: '/blog', label: 'Blog' },
     { href: '/contacto', label: 'Contacto' },
   ];
 

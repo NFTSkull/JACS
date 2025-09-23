@@ -1,13 +1,9 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, Globe } from 'lucide-react';
 
 export default function Footer() {
-  const t = useTranslations('footer');
-  const contactT = useTranslations('contact.info');
-
   return (
     <footer className="bg-gray-charcoal text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -18,7 +14,8 @@ export default function Footer() {
               JACS <span className="text-primary">Plastics</span>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
-              {t('description')}
+              Líder en la fabricación de tarimas plásticas y cajas agrícolas de alta calidad. 
+              Soluciones higiénicas y durables para la industria.
             </p>
           </div>
 
@@ -46,28 +43,28 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                 <div>
-                  <div className="text-gray-300">CDMX: {contactT('cdmx_phone')}</div>
-                  <div className="text-gray-300">MTY: {contactT('mty_phone')}</div>
+                  <div className="text-gray-300">CDMX: (55) 7583 8165</div>
+                  <div className="text-gray-300">MTY: (81) 2527 4019</div>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-primary flex-shrink-0" />
                 <a 
-                  href={`mailto:${contactT('sales_email')}`}
+                  href="mailto:ventas@jacs.mx"
                   className="text-gray-300 hover:text-white transition-colors duration-200"
                 >
-                  {contactT('sales_email')}
+                  ventas@jacs.mx
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Globe className="w-4 h-4 text-primary flex-shrink-0" />
                 <a 
-                  href={`https://${contactT('website')}`}
+                  href="https://www.jacsplastics.mx"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 hover:text-white transition-colors duration-200"
                 >
-                  {contactT('website')}
+                  www.jacsplastics.mx
                 </a>
               </div>
             </div>
@@ -97,7 +94,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-600 mt-8 pt-8 text-center text-sm text-gray-300">
-          <p>&copy; 2024 JACS Plastics. {t('rights')}</p>
+          <p>&copy; 2024 JACS Plastics. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

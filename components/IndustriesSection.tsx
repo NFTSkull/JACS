@@ -1,36 +1,40 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Utensils, Wheat, ShoppingCart, Pill, Ship } from 'lucide-react';
 
 const industries = [
   {
     key: 'food',
+    name: 'Alimentos',
     icon: Utensils,
     color: 'text-orange-500',
     bgColor: 'bg-orange-50',
   },
   {
     key: 'agriculture',
+    name: 'Agroindustria',
     icon: Wheat,
     color: 'text-green-500',
     bgColor: 'bg-green-50',
   },
   {
     key: 'retail',
+    name: 'Retail & CEDIS',
     icon: ShoppingCart,
     color: 'text-blue-500',
     bgColor: 'bg-blue-50',
   },
   {
     key: 'pharmaceutical',
+    name: 'Farmacéutica',
     icon: Pill,
     color: 'text-purple-500',
     bgColor: 'bg-purple-50',
   },
   {
     key: 'export',
+    name: 'Exportación',
     icon: Ship,
     color: 'text-indigo-500',
     bgColor: 'bg-indigo-50',
@@ -38,8 +42,6 @@ const industries = [
 ];
 
 export default function IndustriesSection() {
-  const t = useTranslations('industries');
-
   return (
     <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,7 +53,7 @@ export default function IndustriesSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-charcoal mb-4">
-            {t('title')}
+            Industrias que Atendemos
           </h2>
         </motion.div>
 
@@ -71,7 +73,7 @@ export default function IndustriesSection() {
                   <Icon className={`w-8 h-8 ${industry.color}`} />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-charcoal group-hover:text-primary transition-colors duration-200">
-                  {t(industry.key)}
+                  {industry.name}
                 </h3>
               </motion.div>
             );
