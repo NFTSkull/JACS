@@ -7,11 +7,9 @@ import { ArrowRight } from 'lucide-react';
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Gradient */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-primary/85 to-primary-dark/85">
-          <div className="absolute inset-0 bg-[url('/images/hero-bg.webp')] bg-cover bg-center bg-no-repeat opacity-20"></div>
-        </div>
+        <div className="w-full h-full bg-gradient-to-br from-primary/85 to-primary-dark/85"></div>
       </div>
 
       {/* Content */}

@@ -4,6 +4,11 @@ import './globals.css';
 export const metadata = {
   title: 'JACS Plastics - Tarimas y Cajas de Plástico de Clase Mundial',
   description: 'Soluciones higiénicas, durables y listas para exportación. Tarimas plásticas y cajas agrícolas en polipropileno reciclado.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
