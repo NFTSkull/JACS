@@ -2,34 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: system-ui, sans-serif;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: system-ui, sans-serif;
-  }
+:root {
+  --primary: #0A4D8C;
+  --primary-dark: #083A6B;
+  --gray-charcoal: #1F2937;
+  --gray-ui: #E5E7EB;
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors duration-200;
-  }
-  
-  .btn-secondary {
-    @apply bg-white text-primary border-2 border-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors duration-200;
-  }
-  
-  .btn-ghost {
-    @apply text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-ui transition-colors duration-200;
-  }
-  
-  .card {
-    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-ui;
-  }
-  
-  .gradient-overlay {
-    @apply bg-gradient-to-br from-primary/85 to-primary-dark/85;
-  }
+body {
+  font-family: system-ui, sans-serif;
+  background-color: white;
+  color: var(--gray-charcoal);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--gray-ui);
 }

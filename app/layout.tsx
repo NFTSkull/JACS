@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'JACS Plastics - Tarimas y Cajas de Plástico de Clase Mundial',
-  description: 'Soluciones higiénicas, durables y listas para exportación. Tarimas plásticas y cajas agrícolas en polipropileno reciclado.',
+  title: 'JACS Plastics - Tarimas y Cajas de Plástico',
+  description: 'Soluciones higiénicas, durables y listas para exportación.',
 };
 
 export default function RootLayout({
@@ -12,12 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <head>
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-      </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
