@@ -7,7 +7,7 @@ export function OrganizationJsonLd() {
     "@type": "Organization",
     "name": "JACS Plastics",
     "url": "https://www.jacsplastics.mx",
-    "logo": "https://www.jacsplastics.mx/logo.png",
+    "logo": "https://www.jacsplastics.mx/favicon.svg",
     "description": "Fabricante de tarimas plásticas y cajas agrícolas en polipropileno reciclado",
     "foundingDate": "2010",
     "address": [
@@ -63,7 +63,7 @@ export function ProductJsonLd({ product, type }: { product: any; type: 'pallet' 
     "@type": "Product",
     "name": product.nombre,
     "description": product.descripcion,
-    "image": `https://www.jacsplastics.mx${product.imagen}`,
+    "image": "https://www.jacsplastics.mx/favicon.svg",
     "brand": {
       "@type": "Brand",
       "name": "JACS Plastics"
