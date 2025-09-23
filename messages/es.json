@@ -1,0 +1,93 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "products": "Productos",
+    "pallets": "Tarimas",
+    "boxes": "Cajas Agrícolas",
+    "industries": "Industrias",
+    "company": "Empresa",
+    "certifications": "Certificaciones",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "quote": "Cotiza ahora"
+  },
+  "hero": {
+    "title": "Tarimas y Cajas de Plástico de Clase Mundial",
+    "subtitle": "Soluciones higiénicas, durables y listas para exportación",
+    "cta_pallets": "Explorar Tarimas",
+    "cta_boxes": "Ver Cajas Agrícolas"
+  },
+  "benefits": {
+    "title": "Beneficios de Nuestros Productos",
+    "hygiene": {
+      "title": "Higiene",
+      "description": "Fácil de lavar y sanitizar, sin absorción de humedad u olores"
+    },
+    "durability": {
+      "title": "Durabilidad",
+      "description": "Resistente al desgaste y condiciones adversas"
+    },
+    "weight": {
+      "title": "Peso Constante",
+      "description": "Peso uniforme sin variaciones por humedad"
+    },
+    "chemical": {
+      "title": "Resistencia a Químicos",
+      "description": "Compatible con productos químicos y sanitizantes"
+    },
+    "recyclable": {
+      "title": "Reciclables",
+      "description": "Material reciclado, amigable con el medio ambiente"
+    }
+  },
+  "products": {
+    "featured": "Productos Destacados",
+    "pallets": {
+      "title": "Tarimas de Plástico",
+      "intro": "Tarimas plásticas en polipropileno reciclado: sanitizables, sin clavos ni astillas, sin absorción de humedad u olores; ideales para logística y exportación."
+    },
+    "boxes": {
+      "title": "Cajas Agrícolas",
+      "intro": "Cajas plásticas con ventilación ideal para conservar frescura; apilables, de alta resistencia y personalizables."
+    }
+  },
+  "industries": {
+    "title": "Industrias que Atendemos",
+    "food": "Alimentos",
+    "agriculture": "Agro",
+    "retail": "Retail & CEDIS",
+    "pharmaceutical": "Farmacéutica",
+    "export": "Exportación"
+  },
+  "company": {
+    "title": "Empresa",
+    "history": "Historia",
+    "mission": "Misión",
+    "vision": "Visión",
+    "values": "Valores",
+    "branches": "Sucursales"
+  },
+  "contact": {
+    "title": "Contacto",
+    "form": {
+      "name": "Nombre",
+      "company": "Empresa",
+      "email": "Email",
+      "phone": "Teléfono",
+      "product": "Producto de interés",
+      "volume": "Volumen estimado",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje"
+    },
+    "info": {
+      "sales_email": "ventas@jacs.mx",
+      "website": "www.jacsplastics.mx",
+      "cdmx_phone": "(55) 7583 8165",
+      "mty_phone": "(81) 2527 4019"
+    }
+  },
+  "footer": {
+    "description": "JACS Plastics - Soluciones en plástico para la industria",
+    "rights": "Todos los derechos reservados"
+  }
+}
