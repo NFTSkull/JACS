@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Shield, Zap, Weight, FlaskConical, Recycle } from 'lucide-react';
 
@@ -7,36 +8,28 @@ const benefits = [
   {
     key: 'hygiene',
     icon: Shield,
-    title: 'Higiene',
-    description: 'Fácil de lavar y sanitizar, sin absorción de humedad u olores'
   },
   {
     key: 'durability',
     icon: Zap,
-    title: 'Durabilidad',
-    description: 'Resistente al desgaste y condiciones adversas'
   },
   {
     key: 'weight',
     icon: Weight,
-    title: 'Peso Constante',
-    description: 'Peso uniforme sin variaciones por humedad'
   },
   {
     key: 'chemical',
     icon: FlaskConical,
-    title: 'Resistencia a Químicos',
-    description: 'Compatible con productos químicos y sanitizantes'
   },
   {
     key: 'recyclable',
     icon: Recycle,
-    title: 'Reciclables',
-    description: 'Material reciclado, amigable con el medio ambiente'
   },
 ];
 
 export default function BenefitsSection() {
+  const t = useTranslations('benefits');
+
   return (
     <section className="py-16 bg-gray-ui">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,7 +41,7 @@ export default function BenefitsSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-charcoal mb-4">
-            Beneficios de Nuestros Productos
+            {t('title')}
           </h2>
         </motion.div>
 
@@ -68,10 +61,10 @@ export default function BenefitsSection() {
                   <Icon className="w-8 h-8 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-gray-charcoal mb-2">
-                  {benefit.title}
+                  {t(`${benefit.key}.title`)}
                 </h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  {benefit.description}
+                  {t(`${benefit.key}.description`)}
                 </p>
               </motion.div>
             );
