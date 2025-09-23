@@ -1,4 +1,3 @@
-import { inter, rubik } from '@/lib/fonts';
 import './globals.css';
 
 export const metadata = {
@@ -12,7 +11,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={`${inter.variable} ${rubik.variable}`}>
+    <html lang="es">
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      </head>
       <body>
         {children}
       </body>
