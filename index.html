@@ -5,238 +5,986 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JACS Plastics - Tarimas y Cajas de Plástico de Clase Mundial</title>
     <meta name="description" content="Soluciones higiénicas, durables y listas para exportación. Tarimas plásticas y cajas agrícolas en polipropileno reciclado.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏭</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230A4D8C'/><text x='16' y='20' font-family='Arial,sans-serif' font-size='14' font-weight='bold' text-anchor='middle' fill='white'>J</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         :root {
             --primary: #0A4D8C;
             --primary-dark: #083A6B;
+            --primary-light: #1E6BA8;
             --gray-charcoal: #1F2937;
+            --gray-dark: #374151;
+            --gray-medium: #6B7280;
+            --gray-light: #F3F4F6;
             --gray-ui: #E5E7EB;
+            --accent: #059669;
+            --warning: #D97706;
         }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-charcoal);
+            overflow-x: hidden;
+        }
+        
+        .font-display {
+            font-family: 'Roboto', system-ui, sans-serif;
+        }
+        
         .btn-primary {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 8px;
             font-weight: 600;
-            transition: background-color 0.2s;
+            font-size: 16px;
+            transition: all 0.3s ease;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(10, 77, 140, 0.3);
         }
+        
         .btn-primary:hover {
-            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(10, 77, 140, 0.4);
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
         }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(10, 77, 140, 0.3);
+        }
+        
         .card {
             background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 50%, var(--primary-light) 100%);
+            position: relative;
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .section-divider {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .icon-container {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(5, 150, 105, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .icon-container:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, rgba(10, 77, 140, 0.2), rgba(5, 150, 105, 0.2));
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-image {
+            height: 240px;
+            background: linear-gradient(135deg, var(--gray-light), var(--gray-ui));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .form-input {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid var(--gray-ui);
             border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--gray-ui);
+            padding: 16px 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 77, 140, 0.1);
+            background: white;
+        }
+        
+        .form-textarea {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid var(--gray-ui);
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            width: 100%;
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(10, 77, 140, 0.1);
+            background: white;
+        }
+        
+        @media (max-width: 768px) {
+            .card {
+                padding: 24px;
+            }
+            
+            .product-card {
+                margin-bottom: 24px;
+            }
         }
     </style>
 </head>
 <body class="font-sans bg-white text-gray-900">
     <!-- Header -->
-    <header class="bg-white shadow-lg sticky top-0 z-50">
+    <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="text-2xl font-bold" style="color: var(--primary);">
-                    JACS <span style="color: var(--gray-charcoal);">Plastics</span>
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
+                        <span class="text-white font-bold text-lg">J</span>
+                    </div>
+                    <div class="font-display">
+                        <div class="text-2xl font-bold" style="color: var(--primary);">JACS</div>
+                        <div class="text-sm font-medium" style="color: var(--gray-medium);">Plastics</div>
+                    </div>
                 </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#inicio" class="text-gray-600 hover:text-blue-600">Inicio</a>
-                    <a href="#productos" class="text-gray-600 hover:text-blue-600">Productos</a>
-                    <a href="#contacto" class="text-gray-600 hover:text-blue-600">Contacto</a>
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a href="#inicio" class="nav-link font-medium" style="color: var(--gray-charcoal);">Inicio</a>
+                    <a href="#productos" class="nav-link font-medium" style="color: var(--gray-charcoal);">Productos</a>
+                    <a href="#beneficios" class="nav-link font-medium" style="color: var(--gray-charcoal);">Beneficios</a>
+                    <a href="#contacto" class="nav-link font-medium" style="color: var(--gray-charcoal);">Contacto</a>
                 </nav>
-                <a href="#contacto" class="btn-primary">Cotiza ahora</a>
+                <div class="flex items-center space-x-4">
+                    <a href="#contacto" class="btn-primary">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        Cotiza ahora
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Hero -->
-    <section id="inicio" class="relative min-h-screen flex items-center justify-center" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.85), rgba(8, 58, 107, 0.85));">
-        <div class="text-center text-white max-w-4xl mx-auto px-4">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                Tarimas y Cajas de Plástico de Clase Mundial
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 opacity-90">
-                Soluciones higiénicas, durables y listas para exportación
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="#productos" class="btn-primary text-lg px-8 py-4">Explorar Tarimas</a>
-                <a href="#productos" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-600 transition-colors">
-                    Ver Cajas Agrícolas
-                </a>
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
+            <div class="fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
+                    <i data-lucide="award" class="w-4 h-4 mr-2"></i>
+                    <span class="text-sm font-medium">Líder en Soluciones Plásticas</span>
+                </div>
+                <h1 class="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                    Tarimas y Cajas de<br>
+                    <span class="text-gradient bg-white bg-clip-text text-transparent">Plástico de Clase Mundial</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
+                    Soluciones higiénicas, durables y listas para exportación. 
+                    Productos de polipropileno reciclado para la industria moderna.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#productos" class="btn-primary text-lg px-10 py-4">
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        Explorar Productos
+                    </a>
+                    <a href="#contacto" class="btn-secondary text-lg px-10 py-4 bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        Solicitar Cotización
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 fade-in stagger-1">
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-white mb-2">15+</div>
+                    <div class="text-sm opacity-80">Años de Experiencia</div>
+                </div>
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-white mb-2">500+</div>
+                    <div class="text-sm opacity-80">Clientes Satisfechos</div>
+                </div>
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-white mb-2">2</div>
+                    <div class="text-sm opacity-80">Sucursales</div>
+                </div>
+                <div class="stats-card rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold text-white mb-2">100%</div>
+                    <div class="text-sm opacity-80">Material Reciclado</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 floating">
+            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white/70 rounded-full mt-2 animate-bounce"></div>
             </div>
         </div>
     </section>
 
     <!-- Benefits -->
-    <section class="py-16" style="background-color: var(--gray-ui);">
+    <section id="beneficios" class="py-24 section-divider" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: var(--gray-charcoal);">
-                Beneficios de Nuestros Productos
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-                <div class="card text-center">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4" style="background-color: rgba(10, 77, 140, 0.1);">
-                        <div class="w-full h-full flex items-center justify-center text-2xl">🛡️</div>
+            <div class="text-center mb-20 fade-in">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                    Beneficios de Nuestros Productos
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Soluciones innovadoras que transforman la industria con tecnología de vanguardia
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+                <div class="card text-center fade-in stagger-1">
+                    <div class="icon-container">
+                        <i data-lucide="shield-check" style="color: var(--primary);" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2" style="color: var(--gray-charcoal);">Higiene</h3>
-                    <p class="text-gray-600 text-sm">Fácil de lavar y sanitizar, sin absorción de humedad u olores</p>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Higiene Superior</h3>
+                    <p class="text-gray-600 leading-relaxed">Fácil de lavar y sanitizar, sin absorción de humedad u olores. Cumple con los más altos estándares sanitarios.</p>
                 </div>
-                <div class="card text-center">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4" style="background-color: rgba(10, 77, 140, 0.1);">
-                        <div class="w-full h-full flex items-center justify-center text-2xl">⚡</div>
+                <div class="card text-center fade-in stagger-2">
+                    <div class="icon-container">
+                        <i data-lucide="zap" style="color: var(--primary);" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2" style="color: var(--gray-charcoal);">Durabilidad</h3>
-                    <p class="text-gray-600 text-sm">Resistente al desgaste y condiciones adversas</p>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Durabilidad Extrema</h3>
+                    <p class="text-gray-600 leading-relaxed">Resistente al desgaste y condiciones adversas. Diseñado para operaciones industriales intensivas.</p>
                 </div>
-                <div class="card text-center">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4" style="background-color: rgba(10, 77, 140, 0.1);">
-                        <div class="w-full h-full flex items-center justify-center text-2xl">⚖️</div>
+                <div class="card text-center fade-in stagger-3">
+                    <div class="icon-container">
+                        <i data-lucide="scale" style="color: var(--primary);" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2" style="color: var(--gray-charcoal);">Peso Constante</h3>
-                    <p class="text-gray-600 text-sm">Peso uniforme sin variaciones por humedad</p>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Peso Constante</h3>
+                    <p class="text-gray-600 leading-relaxed">Peso uniforme sin variaciones por humedad. Optimiza la logística y el transporte.</p>
                 </div>
-                <div class="card text-center">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4" style="background-color: rgba(10, 77, 140, 0.1);">
-                        <div class="w-full h-full flex items-center justify-center text-2xl">🧪</div>
+                <div class="card text-center fade-in stagger-4">
+                    <div class="icon-container">
+                        <i data-lucide="flask-conical" style="color: var(--primary);" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2" style="color: var(--gray-charcoal);">Resistencia a Químicos</h3>
-                    <p class="text-gray-600 text-sm">Compatible con productos químicos y sanitizantes</p>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Resistencia Química</h3>
+                    <p class="text-gray-600 leading-relaxed">Compatible con productos químicos y sanitizantes. Ideal para industrias farmacéuticas y alimentarias.</p>
                 </div>
-                <div class="card text-center">
-                    <div class="w-16 h-16 rounded-full mx-auto mb-4" style="background-color: rgba(10, 77, 140, 0.1);">
-                        <div class="w-full h-full flex items-center justify-center text-2xl">♻️</div>
+                <div class="card text-center fade-in stagger-4">
+                    <div class="icon-container">
+                        <i data-lucide="recycle" style="color: var(--accent);" class="w-8 h-8"></i>
                     </div>
-                    <h3 class="text-lg font-semibold mb-2" style="color: var(--gray-charcoal);">Reciclables</h3>
-                    <p class="text-gray-600 text-sm">Material reciclado, amigable con el medio ambiente</p>
+                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">100% Reciclable</h3>
+                    <p class="text-gray-600 leading-relaxed">Material reciclado, amigable con el medio ambiente. Contribuye a la economía circular.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products -->
-    <section id="productos" class="py-16">
+    <section id="productos" class="py-24 section-divider">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" style="color: var(--gray-charcoal);">
-                Productos Destacados
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="card">
-                    <div class="h-48 mb-4 rounded-lg flex items-center justify-center" style="background-color: var(--gray-ui);">
-                        <span class="text-gray-500 font-medium">Imagen del producto</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2" style="color: var(--gray-charcoal);">Tarima JS-01</h3>
-                    <p class="text-gray-600 text-sm mb-4">48" × 40" • 3,000 kg • 9.7 kg</p>
-                    <a href="#contacto" class="btn-primary w-full text-center">Ver detalles</a>
+            <div class="text-center mb-20 fade-in">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                    Nuestros Productos
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Soluciones especializadas en polipropileno reciclado para cada necesidad industrial
+                </p>
+            </div>
+            
+            <!-- Tarimas Section -->
+            <div class="mb-20 fade-in">
+                <div class="text-center mb-12">
+                    <h3 class="font-display text-3xl font-bold mb-4" style="color: var(--primary);">Tarimas de Plástico</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Tarimas sanitizables, sin clavos ni astillas, sin absorción de humedad u olores
+                    </p>
                 </div>
-                <div class="card">
-                    <div class="h-48 mb-4 rounded-lg flex items-center justify-center" style="background-color: var(--gray-ui);">
-                        <span class="text-gray-500 font-medium">Imagen del producto</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="product-card fade-in stagger-1">
+                        <div class="product-image">
+                            <div class="text-center">
+                                <i data-lucide="package" class="w-16 h-16 mx-auto mb-4" style="color: var(--primary);"></i>
+                                <span class="text-gray-500 font-medium">Tarima JS-01</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-01</h4>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(10, 77, 140, 0.1); color: var(--primary);">Rackeable</span>
+                            </div>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Dimensiones:</span>
+                                    <span class="font-semibold">48" × 40"</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Carga Estática:</span>
+                                    <span class="font-semibold">3,000 kg</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Peso:</span>
+                                    <span class="font-semibold">9.7 kg</span>
+                                </div>
+                            </div>
+                            <a href="#contacto" class="btn-primary w-full justify-center">
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                Solicitar Cotización
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2" style="color: var(--gray-charcoal);">Tarima JS-15</h3>
-                    <p class="text-gray-600 text-sm mb-4">1.20m × 1.00m • 1,000 kg • 6.7 kg</p>
-                    <a href="#contacto" class="btn-primary w-full text-center">Ver detalles</a>
+                    
+                    <div class="product-card fade-in stagger-2">
+                        <div class="product-image">
+                            <div class="text-center">
+                                <i data-lucide="package" class="w-16 h-16 mx-auto mb-4" style="color: var(--primary);"></i>
+                                <span class="text-gray-500 font-medium">Tarima JS-15</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-15</h4>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(5, 150, 105, 0.1); color: var(--accent);">One-way</span>
+                            </div>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Dimensiones:</span>
+                                    <span class="font-semibold">1.20m × 1.00m</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Carga Estática:</span>
+                                    <span class="font-semibold">1,000 kg</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Peso:</span>
+                                    <span class="font-semibold">6.7 kg</span>
+                                </div>
+                            </div>
+                            <a href="#contacto" class="btn-primary w-full justify-center">
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                Solicitar Cotización
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card fade-in stagger-3">
+                        <div class="product-image">
+                            <div class="text-center">
+                                <i data-lucide="package" class="w-16 h-16 mx-auto mb-4" style="color: var(--primary);"></i>
+                                <span class="text-gray-500 font-medium">Tarima JS-32</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-32</h4>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(217, 119, 6, 0.1); color: var(--warning);">Uso Pesado</span>
+                            </div>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Dimensiones:</span>
+                                    <span class="font-semibold">1.20m × 1.00m</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Carga Estática:</span>
+                                    <span class="font-semibold">5,000 kg</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Peso:</span>
+                                    <span class="font-semibold">14 kg</span>
+                                </div>
+                            </div>
+                            <a href="#contacto" class="btn-primary w-full justify-center">
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                Solicitar Cotización
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card">
-                    <div class="h-48 mb-4 rounded-lg flex items-center justify-center" style="background-color: var(--gray-ui);">
-                        <span class="text-gray-500 font-medium">Imagen del producto</span>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2" style="color: var(--gray-charcoal);">Tarima JS-32</h3>
-                    <p class="text-gray-600 text-sm mb-4">1.20m × 1.00m • 5,000 kg • 14 kg</p>
-                    <a href="#contacto" class="btn-primary w-full text-center">Ver detalles</a>
+            </div>
+            
+            <!-- Cajas Section -->
+            <div class="fade-in">
+                <div class="text-center mb-12">
+                    <h3 class="font-display text-3xl font-bold mb-4" style="color: var(--primary);">Cajas Agrícolas</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Ventilación ideal para conservar frescura; apilables, de alta resistencia y personalizables
+                    </p>
                 </div>
-                <div class="card">
-                    <div class="h-48 mb-4 rounded-lg flex items-center justify-center" style="background-color: var(--gray-ui);">
-                        <span class="text-gray-500 font-medium">Imagen del producto</span>
+                <div class="max-w-2xl mx-auto">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="text-center">
+                                <i data-lucide="box" class="w-16 h-16 mx-auto mb-4" style="color: var(--accent);"></i>
+                                <span class="text-gray-500 font-medium">Caja Allende</span>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Caja Allende</h4>
+                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(5, 150, 105, 0.1); color: var(--accent);">Apilable</span>
+                            </div>
+                            <div class="space-y-2 mb-6">
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Capacidad:</span>
+                                    <span class="font-semibold">30 kg</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Dimensiones:</span>
+                                    <span class="font-semibold">54×35×32 cm</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Peso:</span>
+                                    <span class="font-semibold">2.0 kg</span>
+                                </div>
+                                <div class="flex justify-between text-sm">
+                                    <span class="text-gray-600">Personalización:</span>
+                                    <span class="font-semibold">Alto relieve / Hot stamping</span>
+                                </div>
+                            </div>
+                            <a href="#contacto" class="btn-primary w-full justify-center">
+                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                Solicitar Cotización
+                            </a>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2" style="color: var(--gray-charcoal);">Caja Allende</h3>
-                    <p class="text-gray-600 text-sm mb-4">54×35×32 cm • 30 kg • 2.0 kg</p>
-                    <a href="#contacto" class="btn-primary w-full text-center">Ver detalles</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact -->
-    <section id="contacto" class="py-16" style="background-color: var(--gray-ui);">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="card">
-                <h2 class="text-2xl font-semibold mb-6 text-center" style="color: var(--gray-charcoal);">
+    <section id="contacto" class="py-24 section-divider" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
                     Solicita tu Cotización
                 </h2>
-                <form class="space-y-6" onsubmit="handleSubmit(event)">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="text" placeholder="Nombre *" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <input type="text" placeholder="Empresa *" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Obtén una cotización personalizada para tus necesidades industriales
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="card fade-in stagger-1">
+                    <h3 class="text-2xl font-bold mb-8" style="color: var(--gray-charcoal);">
+                        <i data-lucide="send" class="w-6 h-6 inline mr-3" style="color: var(--primary);"></i>
+                        Envíanos un mensaje
+                    </h3>
+                    <form class="space-y-6" onsubmit="handleSubmit(event)">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" style="color: var(--gray-charcoal);">Nombre *</label>
+                                <input type="text" placeholder="Tu nombre completo" required class="form-input">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" style="color: var(--gray-charcoal);">Empresa *</label>
+                                <input type="text" placeholder="Nombre de tu empresa" required class="form-input">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" style="color: var(--gray-charcoal);">Email *</label>
+                                <input type="email" placeholder="tu@email.com" required class="form-input">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2" style="color: var(--gray-charcoal);">Teléfono *</label>
+                                <input type="tel" placeholder="(55) 1234 5678" required class="form-input">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" style="color: var(--gray-charcoal);">Producto de interés *</label>
+                            <select required class="form-input">
+                                <option value="">Selecciona un producto</option>
+                                <option value="tarima-js-01">Tarima JS-01</option>
+                                <option value="tarima-js-15">Tarima JS-15</option>
+                                <option value="tarima-js-32">Tarima JS-32</option>
+                                <option value="caja-allende">Caja Allende</option>
+                                <option value="otros">Otros productos</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-2" style="color: var(--gray-charcoal);">Mensaje *</label>
+                            <textarea placeholder="Cuéntanos más sobre tus necesidades..." required class="form-textarea"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full text-lg py-4">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="space-y-8 fade-in stagger-2">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                            <i data-lucide="phone" class="w-6 h-6 inline mr-3" style="color: var(--primary);"></i>
+                            Información de Contacto
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(10, 77, 140, 0.1);">
+                                    <i data-lucide="phone" style="color: var(--primary);" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2" style="color: var(--gray-charcoal);">Teléfonos</h4>
+                                    <div class="space-y-1 text-gray-600">
+                                        <div>CDMX: <span class="font-semibold">(55) 7583 8165</span></div>
+                                        <div>MTY: <span class="font-semibold">(81) 2527 4019</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(10, 77, 140, 0.1);">
+                                    <i data-lucide="mail" style="color: var(--primary);" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2" style="color: var(--gray-charcoal);">Email</h4>
+                                    <div class="text-gray-600">
+                                        <a href="mailto:ventas@jacs.mx" class="font-semibold hover:text-primary transition-colors">ventas@jacs.mx</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(10, 77, 140, 0.1);">
+                                    <i data-lucide="globe" style="color: var(--primary);" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2" style="color: var(--gray-charcoal);">Sitio Web</h4>
+                                    <div class="text-gray-600">
+                                        <a href="https://www.jacsplastics.mx" class="font-semibold hover:text-primary transition-colors">www.jacsplastics.mx</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <input type="email" placeholder="Email *" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <input type="tel" placeholder="Teléfono *" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500">
+                    
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                            <i data-lucide="map-pin" class="w-6 h-6 inline mr-3" style="color: var(--primary);"></i>
+                            Nuestras Sucursales
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(5, 150, 105, 0.1);">
+                                    <i data-lucide="building" style="color: var(--accent);" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2" style="color: var(--gray-charcoal);">Ciudad de México</h4>
+                                    <div class="text-gray-600 text-sm">
+                                        <div>Av. Insurgentes Sur 1234</div>
+                                        <div>Col. Del Valle, CDMX</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: rgba(5, 150, 105, 0.1);">
+                                    <i data-lucide="building" style="color: var(--accent);" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-2" style="color: var(--gray-charcoal);">Monterrey</h4>
+                                    <div class="text-gray-600 text-sm">
+                                        <div>Av. Constitución 5678</div>
+                                        <div>Col. Centro, Monterrey, NL</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <textarea rows="4" placeholder="Mensaje *" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"></textarea>
-                    <button type="submit" class="btn-primary w-full text-lg py-4">Enviar mensaje</button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer style="background-color: var(--gray-charcoal);" class="text-white py-12">
+    <footer style="background: linear-gradient(135deg, var(--gray-charcoal) 0%, var(--gray-dark) 100%);" class="text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="text-2xl font-bold mb-4">
-                        JACS <span style="color: var(--primary);">Plastics</span>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <!-- Company Info -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
+                            <span class="text-white font-bold text-xl">J</span>
+                        </div>
+                        <div class="font-display">
+                            <div class="text-2xl font-bold">JACS</div>
+                            <div class="text-sm font-medium opacity-80">Plastics</div>
+                        </div>
                     </div>
-                    <p class="text-gray-300 text-sm">
-                        Líder en fabricación de tarimas y cajas de plástico de alta calidad.
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Líder en fabricación de tarimas y cajas de plástico de alta calidad. 
+                        Soluciones innovadoras para la industria moderna.
                     </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        </a>
+                    </div>
                 </div>
+                
+                <!-- Products -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Productos</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#productos" class="text-gray-300 hover:text-white">Tarimas de Plástico</a></li>
-                        <li><a href="#productos" class="text-gray-300 hover:text-white">Cajas Agrícolas</a></li>
+                    <h3 class="text-lg font-bold mb-6 flex items-center">
+                        <i data-lucide="package" class="w-5 h-5 mr-2" style="color: var(--primary);"></i>
+                        Productos
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#productos" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i data-lucide="chevron-right" class="w-4 h-4 mr-2"></i>
+                            Tarimas de Plástico
+                        </a></li>
+                        <li><a href="#productos" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i data-lucide="chevron-right" class="w-4 h-4 mr-2"></i>
+                            Cajas Agrícolas
+                        </a></li>
+                        <li><a href="#beneficios" class="text-gray-300 hover:text-white transition-colors flex items-center">
+                            <i data-lucide="chevron-right" class="w-4 h-4 mr-2"></i>
+                            Beneficios
+                        </a></li>
                     </ul>
                 </div>
+                
+                <!-- Contact -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Contacto</h3>
-                    <div class="space-y-2 text-sm text-gray-300">
-                        <div>CDMX: (55) 7583 8165</div>
-                        <div>MTY: (81) 2527 4019</div>
-                        <div>ventas@jacs.mx</div>
+                    <h3 class="text-lg font-bold mb-6 flex items-center">
+                        <i data-lucide="phone" class="w-5 h-5 mr-2" style="color: var(--primary);"></i>
+                        Contacto
+                    </h3>
+                    <div class="space-y-4 text-sm">
+                        <div class="flex items-start space-x-3">
+                            <i data-lucide="phone" class="w-4 h-4 mt-1 opacity-60"></i>
+                            <div>
+                                <div class="font-semibold">CDMX</div>
+                                <div class="text-gray-300">(55) 7583 8165</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i data-lucide="phone" class="w-4 h-4 mt-1 opacity-60"></i>
+                            <div>
+                                <div class="font-semibold">Monterrey</div>
+                                <div class="text-gray-300">(81) 2527 4019</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i data-lucide="mail" class="w-4 h-4 mt-1 opacity-60"></i>
+                            <div>
+                                <div class="text-gray-300">ventas@jacs.mx</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
+                <!-- Locations -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Sucursales</h3>
-                    <div class="space-y-2 text-sm text-gray-300">
+                    <h3 class="text-lg font-bold mb-6 flex items-center">
+                        <i data-lucide="map-pin" class="w-5 h-5 mr-2" style="color: var(--primary);"></i>
+                        Ubicaciones
+                    </h3>
+                    <div class="space-y-4 text-sm">
                         <div>
-                            <strong>CDMX</strong><br />
-                            Av. Insurgentes Sur 1234
+                            <div class="font-semibold mb-1">Ciudad de México</div>
+                            <div class="text-gray-300 leading-relaxed">
+                                Av. Insurgentes Sur 1234<br>
+                                Col. Del Valle, CDMX
+                            </div>
                         </div>
                         <div>
-                            <strong>Monterrey</strong><br />
-                            Av. Constitución 5678
+                            <div class="font-semibold mb-1">Monterrey</div>
+                            <div class="text-gray-300 leading-relaxed">
+                                Av. Constitución 5678<br>
+                                Col. Centro, Monterrey, NL
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-600 mt-8 pt-8 text-center text-sm text-gray-300">
-                <p>&copy; 2024 JACS Plastics. Todos los derechos reservados.</p>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-600 mt-12 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <p class="text-gray-300 text-sm">
+                        &copy; 2024 JACS Plastics. Todos los derechos reservados.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">Política de Privacidad</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">Términos de Servicio</a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors">Cookies</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Handle form submission
         function handleSubmit(event) {
             event.preventDefault();
-            alert('¡Mensaje enviado! Nos pondremos en contacto contigo pronto.');
-            event.target.reset();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message
+            const button = event.target.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            
+            button.innerHTML = '<i data-lucide="check" class="w-5 h-5"></i> Enviando...';
+            button.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('¡Mensaje enviado exitosamente! Nos pondremos en contacto contigo pronto.');
+                event.target.reset();
+                button.innerHTML = originalText;
+                button.disabled = false;
+                lucide.createIcons();
+            }, 2000);
         }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Add stagger delay to elements
+        document.querySelectorAll('.stagger-1').forEach(el => {
+            el.style.transitionDelay = '0.1s';
+        });
+        document.querySelectorAll('.stagger-2').forEach(el => {
+            el.style.transitionDelay = '0.2s';
+        });
+        document.querySelectorAll('.stagger-3').forEach(el => {
+            el.style.transitionDelay = '0.3s';
+        });
+        document.querySelectorAll('.stagger-4').forEach(el => {
+            el.style.transitionDelay = '0.4s';
+        });
+        
+        // Header scroll effect
+        let lastScrollY = window.scrollY;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.backdropFilter = 'blur(20px)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            }
+            lastScrollY = window.scrollY;
+        });
     </script>
 </body>
 </html>
