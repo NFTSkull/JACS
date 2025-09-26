@@ -455,6 +455,233 @@
                 transform: translateY(-10px);
             }
         }
+        
+        /* Innovative Benefits Section Styles */
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(10, 77, 140, 0.15);
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(10, 77, 140, 0.2);
+        }
+        
+        .benefit-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+        
+        .benefit-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(10, 77, 140, 0.3);
+        }
+        
+        .benefit-badge {
+            background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(10, 77, 140, 0.05));
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(10, 77, 140, 0.2);
+        }
+        
+        .benefit-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .benefit-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-charcoal);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        
+        .benefit-description {
+            color: var(--gray-medium);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            flex: 1;
+            font-size: 15px;
+        }
+        
+        .benefit-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: auto;
+        }
+        
+        .spec-item {
+            display: flex;
+            flex-direction: column;
+            padding: 12px;
+            background: rgba(248, 250, 252, 0.8);
+            border-radius: 12px;
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+        
+        .spec-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--gray-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        
+        .spec-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .performance-summary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 24px;
+            padding: 32px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .performance-summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"dots\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\"><circle cx=\"10\" cy=\"10\" r=\"1\" fill=\"rgba(255,255,255,0.1)\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23dots)\"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .performance-header {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 32px;
+        }
+        
+        .performance-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .performance-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .metric-item {
+            text-align: center;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.8));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .metric-label {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .benefit-specs {
+                grid-template-columns: 1fr;
+            }
+            
+            .performance-metrics {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .performance-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefit-header {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-white text-gray-900">
@@ -617,62 +844,176 @@
     </section>
 
     <!-- Benefits -->
-    <section id="beneficios" class="py-32 section-divider" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-24 fade-in">
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-8">
-                    <i data-lucide="star" class="w-4 h-4 mr-2" style="color: var(--primary);"></i>
-                    <span class="text-sm font-semibold" style="color: var(--primary);">Ventajas Competitivas</span>
+    <section id="beneficios" class="py-32 relative overflow-hidden" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-[0.02]">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"tech\" width=\"50\" height=\"50\" patternUnits=\"userSpaceOnUse\"><path d=\"M 50 0 L 0 0 0 50\" fill=\"none\" stroke=\"%23000\" stroke-width=\"0.5\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23tech)\"/></svg>');"></div>
+        </div>
+        
+        <div class="max-w-8xl mx-auto px-6 relative z-10">
+            <!-- Header Section -->
+            <div class="text-center mb-20 fade-in">
+                <div class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 mb-8 shadow-sm">
+                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mr-3"></div>
+                    <i data-lucide="award" class="w-5 h-5 mr-3" style="color: var(--primary);"></i>
+                    <span class="text-sm font-bold tracking-wide" style="color: var(--primary);">VENTAJAS COMPETITIVAS TÉCNICAS</span>
                 </div>
-                <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style="color: var(--gray-charcoal);">
+                <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight" style="color: var(--gray-charcoal);">
                     Beneficios Técnicos y
-                    <span class="block text-3xl md:text-4xl lg:text-5xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-var(--primary) to-var(--accent)">Operacionales</span>
+                    <span class="block text-4xl md:text-5xl lg:text-6xl mt-3 text-transparent bg-clip-text bg-gradient-to-r from-var(--primary) via-blue-600 to-var(--accent)">Operacionales</span>
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-medium">
+                <p class="text-xl md:text-2xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-medium">
                     Soluciones industriales avanzadas que optimizan procesos operativos con 
-                    <span class="font-semibold">tecnología de punta y estándares de calidad internacional</span>
+                    <span class="font-bold text-gray-800">tecnología de punta y estándares de calidad internacional</span>
                 </p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-                <div class="card text-center fade-in stagger-1 group">
-                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="shield-check" style="color: var(--primary);" class="w-10 h-10"></i>
+            
+            <!-- Interactive Benefits Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+                <!-- Benefit 1: Higiene Industrial -->
+                <div class="benefit-card group fade-in stagger-1">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i data-lucide="shield-check" class="w-8 h-8"></i>
+                        </div>
+                        <div class="benefit-badge">HACCP • FDA</div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Higiene Industrial</h3>
-                    <p class="text-gray-600 leading-relaxed text-base">Superficie no porosa que permite sanitización completa. Cumple con normativas HACCP, FDA y estándares internacionales de inocuidad alimentaria.</p>
-                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Higiene Industrial</h3>
+                        <p class="benefit-description">Superficie no porosa que permite sanitización completa. Cumple con normativas HACCP, FDA y estándares internacionales de inocuidad alimentaria.</p>
+                        <div class="benefit-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Certificación</span>
+                                <span class="spec-value">FDA Grade</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Estándar</span>
+                                <span class="spec-value">HACCP</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card text-center fade-in stagger-2 group">
-                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="zap" style="color: var(--primary);" class="w-10 h-10"></i>
+                
+                <!-- Benefit 2: Resistencia Mecánica -->
+                <div class="benefit-card group fade-in stagger-2">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i data-lucide="zap" class="w-8 h-8"></i>
+                        </div>
+                        <div class="benefit-badge">Industrial Grade</div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Resistencia Mecánica</h3>
-                    <p class="text-gray-600 leading-relaxed text-base">Material de polipropileno de alta densidad con refuerzos estructurales. Garantiza integridad en operaciones de almacenamiento y transporte industrial.</p>
-                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Resistencia Mecánica</h3>
+                        <p class="benefit-description">Material de polipropileno de alta densidad con refuerzos estructurales. Garantiza integridad en operaciones de almacenamiento y transporte industrial.</p>
+                        <div class="benefit-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Material</span>
+                                <span class="spec-value">PP-HD</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Refuerzos</span>
+                                <span class="spec-value">Estructurales</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card text-center fade-in stagger-3 group">
-                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="scale" style="color: var(--primary);" class="w-10 h-10"></i>
+                
+                <!-- Benefit 3: Peso Estándar -->
+                <div class="benefit-card group fade-in stagger-3">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i data-lucide="scale" class="w-8 h-8"></i>
+                        </div>
+                        <div class="benefit-badge">±0% Variación</div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Peso Estándar</h3>
-                    <p class="text-gray-600 leading-relaxed text-base">Peso constante sin variaciones por condiciones ambientales. Facilita cálculo de fletes, optimización logística y control preciso de inventarios.</p>
-                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Peso Estándar</h3>
+                        <p class="benefit-description">Peso constante sin variaciones por condiciones ambientales. Facilita cálculo de fletes, optimización logística y control preciso de inventarios.</p>
+                        <div class="benefit-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Precisión</span>
+                                <span class="spec-value">±0%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Aplicación</span>
+                                <span class="spec-value">Logística</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card text-center fade-in stagger-4 group">
-                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="flask-conical" style="color: var(--primary);" class="w-10 h-10"></i>
+                
+                <!-- Benefit 4: Compatibilidad Química -->
+                <div class="benefit-card group fade-in stagger-4">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i data-lucide="flask-conical" class="w-8 h-8"></i>
+                        </div>
+                        <div class="benefit-badge">Chemical Resistant</div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Compatibilidad Química</h3>
-                    <p class="text-gray-600 leading-relaxed text-base">Resistente a ácidos, álcalis y solventes industriales. Certificado para uso en sectores farmacéutico, alimentario y químico bajo normativas internacionales.</p>
-                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Compatibilidad Química</h3>
+                        <p class="benefit-description">Resistente a ácidos, álcalis y solventes industriales. Certificado para uso en sectores farmacéutico, alimentario y químico bajo normativas internacionales.</p>
+                        <div class="benefit-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Sectores</span>
+                                <span class="spec-value">3+ Industrias</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Resistencia</span>
+                                <span class="spec-value">Química</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card text-center fade-in stagger-4 group">
-                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="recycle" style="color: var(--accent);" class="w-10 h-10"></i>
+                
+                <!-- Benefit 5: Sostenibilidad -->
+                <div class="benefit-card group fade-in stagger-5">
+                    <div class="benefit-header">
+                        <div class="benefit-icon">
+                            <i data-lucide="recycle" class="w-8 h-8"></i>
+                        </div>
+                        <div class="benefit-badge">ESG Certified</div>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Sostenibilidad</h3>
-                    <p class="text-gray-600 leading-relaxed text-base">Material 100% reciclable con certificación de economía circular. Contribuye a objetivos ESG y cumplimiento de normativas ambientales corporativas.</p>
-                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
+                    <div class="benefit-content">
+                        <h3 class="benefit-title">Sostenibilidad</h3>
+                        <p class="benefit-description">Material 100% reciclable con certificación de economía circular. Contribuye a objetivos ESG y cumplimiento de normativas ambientales corporativas.</p>
+                        <div class="benefit-specs">
+                            <div class="spec-item">
+                                <span class="spec-label">Reciclabilidad</span>
+                                <span class="spec-value">100%</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label">Certificación</span>
+                                <span class="spec-value">ESG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Performance Summary Card -->
+                <div class="performance-summary fade-in stagger-6">
+                    <div class="performance-header">
+                        <h3 class="performance-title">Rendimiento Integral</h3>
+                        <p class="performance-subtitle">Métricas de excelencia operacional</p>
+                    </div>
+                    <div class="performance-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">Cumplimiento Normativo</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">15+</div>
+                            <div class="metric-label">Años de Experiencia</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">500+</div>
+                            <div class="metric-label">Empresas Satisfechas</div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">24/7</div>
+                            <div class="metric-label">Soporte Técnico</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
