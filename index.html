@@ -703,9 +703,34 @@
                 </div>
                 
                 <!-- Navigation -->
-                <nav class="hidden lg:flex items-center space-x-10">
+                <nav class="hidden lg:flex items-center space-x-8">
                     <a href="#inicio" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">INICIO</a>
-                    <a href="#productos" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">PRODUCTOS</a>
+                    <div class="relative group">
+                        <button class="nav-link text-sm font-medium tracking-wide flex items-center space-x-1" style="color: var(--gray-charcoal);">
+                            <span>PRODUCTOS</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white/98 backdrop-blur-md border border-gray-200/50 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-4">
+                                <a href="tarima-js-01.html" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    <div class="font-semibold">Tarima JS-01</div>
+                                    <div class="text-xs text-gray-500">Estándar Rackeable</div>
+                                </a>
+                                <a href="tarima-js-15.html" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    <div class="font-semibold">Tarima JS-15</div>
+                                    <div class="text-xs text-gray-500">One-way Exportación</div>
+                                </a>
+                                <a href="tarima-js-32.html" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    <div class="font-semibold">Tarima JS-32</div>
+                                    <div class="text-xs text-gray-500">Uso Pesado</div>
+                                </a>
+                                <a href="caja-allende.html" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    <div class="font-semibold">Caja Allende</div>
+                                    <div class="text-xs text-gray-500">Agrícola Apilable</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <a href="#beneficios" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">BENEFICIOS</a>
                     <a href="#contacto" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">CONTACTO</a>
                 </nav>

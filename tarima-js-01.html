@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarima JS-01 - Tarima Estándar Rackeable | JACS Plastics</title>
+    <meta name="description" content="Tarima JS-01 de polipropileno reciclado. Ideal para almacenamiento rackeable, 48×40 pulgadas, carga estática 3,000 kg. Certificada FDA y HACCP.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230A4D8C'/><text x='16' y='20' font-family='Arial,sans-serif' font-size='14' font-weight='bold' text-anchor='middle' fill='white'>J</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --primary: #0A4D8C;
+            --primary-dark: #052F5F;
+            --primary-light: #1E6BA8;
+            --gray-charcoal: #1A1D29;
+            --gray-dark: #2D3142;
+            --gray-medium: #4A5568;
+            --gray-light: #F7FAFC;
+            --gray-ui: #E2E8F0;
+            --accent: #0D9488;
+            --accent-light: #14B8A6;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--gray-charcoal);
+            overflow-x: hidden;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            font-family: 'Source Sans Pro', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(10, 77, 140, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(10, 77, 140, 0.4);
+        }
+        
+        .product-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+        }
+        
+        .spec-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(229, 231, 235, 0.5);
+            border-radius: 20px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .spec-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 12px 0;
+            letter-spacing: 0.05em;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 1px;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-900">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100/80">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-4">
+                    <div class="relative group">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                            <span class="text-white font-bold text-lg">J</span>
+                        </div>
+                    </div>
+                    <div class="font-display">
+                        <div class="text-2xl font-bold tracking-tight" style="color: var(--gray-charcoal);">JACS</div>
+                        <div class="text-xs font-medium tracking-widest uppercase" style="color: var(--gray-medium);">PLASTICS</div>
+                    </div>
+                </div>
+                
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">INICIO</a>
+                    <div class="relative group">
+                        <button class="nav-link text-sm font-medium tracking-wide flex items-center space-x-1" style="color: var(--primary);">
+                            <span>PRODUCTOS</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute top-full left-0 mt-2 w-64 bg-white/98 backdrop-blur-md border border-gray-200/50 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <div class="py-4">
+                                <a href="tarima-js-01.html" class="block px-6 py-3 text-sm font-medium bg-blue-50 text-primary">
+                                    <div class="font-semibold">Tarima JS-01</div>
+                                    <div class="text-xs text-primary/70">Estándar Rackeable</div>
+                                </a>
+                                <a href="tarima-js-15.html" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    <div class="font-semibold">Tarima JS-15</div>
+                                    <div class="text-xs text-gray-500">One-way Exportación</div>
+                                </a>
+                                <a href="tarima-js-32.html" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    <div class="font-semibold">Tarima JS-32</div>
+                                    <div class="text-xs text-gray-500">Uso Pesado</div>
+                                </a>
+                                <a href="caja-allende.html" class="block px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors">
+                                    <div class="font-semibold">Caja Allende</div>
+                                    <div class="text-xs text-gray-500">Agrícola Apilable</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="index.html#beneficios" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">BENEFICIOS</a>
+                    <a href="index.html#contacto" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">CONTACTO</a>
+                </nav>
+                
+                <div class="flex items-center space-x-4">
+                    <a href="index.html#contacto" class="btn-primary text-sm px-6 py-3">
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        COTIZAR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Hero -->
+    <section class="product-hero py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-8">
+                        <i data-lucide="package" class="w-4 h-4 mr-2" style="color: var(--primary);"></i>
+                        <span class="text-sm font-semibold" style="color: var(--primary);">Tarima Estándar</span>
+                    </div>
+                    <h1 class="font-display text-5xl md:text-6xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                        Tarima JS-01
+                        <span class="block text-3xl md:text-4xl mt-2 text-transparent bg-clip-text bg-gradient-to-r from-var(--primary) to-var(--accent)">Rackeable</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        Tarima de polipropileno reciclado diseñada para almacenamiento rackeable industrial. 
+                        <span class="font-semibold">Certificada FDA y HACCP</span> para aplicaciones alimentarias y farmacéuticas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contacto" class="btn-primary">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            Solicitar Cotización
+                        </a>
+                        <a href="#especificaciones" class="btn-secondary">
+                            <i data-lucide="info" class="w-5 h-5"></i>
+                            Ver Especificaciones
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="assets/images/products/tarima-js-01.png" alt="Tarima JS-01 - Tarima estándar rackeable" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specifications -->
+    <section id="especificaciones" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                    Especificaciones Técnicas
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Características técnicas detalladas y aplicaciones industriales
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="spec-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mr-4">
+                            <i data-lucide="ruler" class="w-6 h-6" style="color: var(--primary);"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: var(--gray-charcoal);">Dimensiones</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Largo:</span>
+                            <span class="font-semibold">48 pulgadas</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Ancho:</span>
+                            <span class="font-semibold">40 pulgadas</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Altura:</span>
+                            <span class="font-semibold">5.5 pulgadas</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mr-4">
+                            <i data-lucide="weight" class="w-6 h-6" style="color: var(--accent);"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: var(--gray-charcoal);">Capacidades</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Carga Estática:</span>
+                            <span class="font-semibold">3,000 kg</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Carga Dinámica:</span>
+                            <span class="font-semibold">1,500 kg</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Peso Propio:</span>
+                            <span class="font-semibold">9.7 kg</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="spec-card">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center mr-4">
+                            <i data-lucide="shield-check" class="w-6 h-6" style="color: var(--primary);"></i>
+                        </div>
+                        <h3 class="text-xl font-bold" style="color: var(--gray-charcoal);">Certificaciones</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">FDA:</span>
+                            <span class="font-semibold text-green-600">Aprobado</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">HACCP:</span>
+                            <span class="font-semibold text-green-600">Certificado</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">ISO 9001:</span>
+                            <span class="font-semibold text-green-600">Certificado</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications -->
+    <section class="py-24" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                    Aplicaciones Industriales
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Sectores y usos específicos de la Tarima JS-01
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="package" class="w-8 h-8" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" style="color: var(--gray-charcoal);">Almacenamiento</h3>
+                    <p class="text-gray-600 text-sm">Ideal para sistemas de racking industrial y almacenes automatizados</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="truck" class="w-8 h-8" style="color: var(--accent);"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" style="color: var(--gray-charcoal);">Transporte</h3>
+                    <p class="text-gray-600 text-sm">Optimizada para transporte terrestre y marítimo de mercancías</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="leaf" class="w-8 h-8" style="color: var(--primary);"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" style="color: var(--gray-charcoal);">Alimentario</h3>
+                    <p class="text-gray-600 text-sm">Certificada para uso en industria alimentaria y bebidas</p>
+                </div>
+                
+                <div class="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div class="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="flask-conical" class="w-8 h-8" style="color: var(--accent);"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2" style="color: var(--gray-charcoal);">Farmacéutico</h3>
+                    <p class="text-gray-600 text-sm">Adecuada para productos farmacéuticos y químicos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contacto" class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="font-display text-4xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                Solicita tu Cotización
+            </h2>
+            <p class="text-xl text-gray-600 mb-12">
+                Obtén una propuesta personalizada para la Tarima JS-01
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="tel:+525575838165" class="btn-primary">
+                    <i data-lucide="phone" class="w-5 h-5"></i>
+                    Llamar Ahora
+                </a>
+                <a href="mailto:ventas@jacs.mx" class="btn-secondary">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    Enviar Email
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: linear-gradient(135deg, var(--gray-charcoal) 0%, var(--gray-dark) 100%);" class="text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-4 mb-8">
+                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
+                        <span class="text-white font-bold text-2xl">J</span>
+                    </div>
+                    <div class="font-display">
+                        <div class="text-3xl font-bold">JACS</div>
+                        <div class="text-sm font-semibold opacity-80 tracking-wider uppercase">PLASTICS</div>
+                    </div>
+                </div>
+                <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Líder en fabricación de tarimas y cajas de plástico de alta calidad. 
+                    Soluciones innovadoras para la industria moderna.
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="tel:+525575838165" class="text-gray-300 hover:text-white transition-colors">
+                        <i data-lucide="phone" class="w-5 h-5 inline mr-2"></i>
+                        (55) 7583 8165
+                    </a>
+                    <a href="mailto:ventas@jacs.mx" class="text-gray-300 hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5 inline mr-2"></i>
+                        ventas@jacs.mx
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
