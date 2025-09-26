@@ -314,21 +314,22 @@
         
         .nav-link {
             position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 8px 0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 12px 0;
+            letter-spacing: 0.05em;
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: 8px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 2px;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 1px;
         }
         
         .nav-link:hover::after {
@@ -336,7 +337,7 @@
         }
         
         .nav-link:hover {
-            transform: translateY(-2px);
+            color: var(--primary);
         }
         
         .form-input {
@@ -400,42 +401,123 @@
                 height: 180px;
             }
         }
+        
+        /* Header Professional Styles */
+        .header-logo {
+            transition: all 0.3s ease;
+        }
+        
+        .header-logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .header-phone {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .header-phone:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: rgba(10, 77, 140, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .header-cta {
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(10, 77, 140, 0.25);
+        }
+        
+        /* Mobile Menu Animations */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-white text-gray-900">
     <!-- Header -->
-    <header class="bg-white/98 backdrop-blur-xl shadow-lg sticky top-0 z-50 border-b border-gray-200/50">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-            <div class="flex justify-between items-center h-24">
-                <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                            <span class="text-white font-bold text-xl">J</span>
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100/80">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-4 header-logo">
+                    <div class="relative group">
+                        <div class="w-11 h-11 rounded-xl flex items-center justify-center shadow-sm" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                            <span class="text-white font-bold text-lg">J</span>
                         </div>
-                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-var(--accent) to-var(--accent-light) rounded-full border-2 border-white"></div>
                     </div>
                     <div class="font-display">
-                        <div class="text-3xl font-bold" style="color: var(--primary); letter-spacing: -0.02em;">JACS</div>
-                        <div class="text-sm font-semibold tracking-wider uppercase" style="color: var(--gray-medium);">Plastics</div>
+                        <div class="text-2xl font-bold tracking-tight" style="color: var(--gray-charcoal);">JACS</div>
+                        <div class="text-xs font-medium tracking-widest uppercase" style="color: var(--gray-medium);">PLASTICS</div>
                     </div>
                 </div>
-                <nav class="hidden lg:flex items-center space-x-12">
-                    <a href="#inicio" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Inicio</a>
-                    <a href="#productos" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Productos</a>
-                    <a href="#beneficios" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Beneficios</a>
-                    <a href="#contacto" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Contacto</a>
+                
+                <!-- Navigation -->
+                <nav class="hidden lg:flex items-center space-x-10">
+                    <a href="#inicio" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">INICIO</a>
+                    <a href="#productos" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">PRODUCTOS</a>
+                    <a href="#beneficios" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">BENEFICIOS</a>
+                    <a href="#contacto" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">CONTACTO</a>
                 </nav>
-                <div class="flex items-center space-x-6">
-                    <div class="hidden xl:flex items-center space-x-2 text-sm" style="color: var(--gray-medium);">
-                        <i data-lucide="phone" class="w-4 h-4"></i>
-                        <span>(55) 7583 8165</span>
+                
+                <!-- CTA Section -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden lg:flex items-center space-x-3 px-4 py-2 rounded-lg bg-gray-50/80 header-phone">
+                        <i data-lucide="phone" class="w-4 h-4" style="color: var(--primary);"></i>
+                        <div class="text-sm">
+                            <div class="font-semibold" style="color: var(--gray-charcoal);">CDMX</div>
+                            <div class="text-xs" style="color: var(--gray-medium);">(55) 7583 8165</div>
+                        </div>
                     </div>
-                    <a href="#contacto" class="btn-primary">
-                        <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        Cotiza ahora
+                    <a href="#contacto" class="btn-primary text-sm px-6 py-3 header-cta hidden sm:flex">
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        COTIZAR
                     </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu" class="w-5 h-5" style="color: var(--gray-charcoal);"></i>
+                    </button>
                 </div>
             </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 bg-white/98 backdrop-blur-md">
+                <div class="px-8 py-6 space-y-4">
+                    <a href="#inicio" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">INICIO</a>
+                    <a href="#productos" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">PRODUCTOS</a>
+                    <a href="#beneficios" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">BENEFICIOS</a>
+                    <a href="#contacto" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">CONTACTO</a>
+                    <div class="pt-4 border-t border-gray-100">
+                        <a href="#contacto" class="btn-primary text-sm px-6 py-3 w-full justify-center">
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                            COTIZAR
+                        </a>
+                    </div>
+                </div>
         </div>
     </header>
 
@@ -1248,6 +1330,30 @@
                 header.style.backdropFilter = 'blur(10px)';
             }
             lastScrollY = window.scrollY;
+        });
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const isHidden = mobileMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.style.animation = 'slideDown 0.3s ease-out';
+            } else {
+                mobileMenu.style.animation = 'slideUp 0.3s ease-out';
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300);
+            }
+        }
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.add('hidden');
+            });
         });
     </script>
 </body>
