@@ -4,14 +4,14 @@ Sitio web institucional para JACS Plastics México, especializado en tarimas pl�
 
 ## 🚀 Características
 
-- **Next.js 14** con App Router
-- **TypeScript** para type safety
-- **TailwindCSS** + **shadcn/ui** para estilos
-- **next-intl** para internacionalización (ES/EN)
-- **Framer Motion** para animaciones
-- **SEO técnico** completo
-- **GA4** y **Meta Pixel** integrados
-- **Responsive design** optimizado
+- **HTML5** semántico y accesible
+- **TailwindCSS** para estilos responsivos
+- **Lucide Icons** para iconografía moderna
+- **Imágenes optimizadas** para web
+- **Diseño responsive** mobile-first
+- **Animaciones CSS** suaves y profesionales
+- **SEO optimizado** con metadatos completos
+- **Formularios funcionales** con validación
 
 ## 🎨 Identidad Visual
 
@@ -36,89 +36,66 @@ Sitio web institucional para JACS Plastics México, especializado en tarimas pl�
 ### Cajas Agrícolas
 - **Caja Allende**: 30 kg, ventilación ideal, apilable
 
-## 🛠️ Instalación
+## 🛠️ Instalación y Uso
 
+### Opción 1: Servidor Local Simple
 ```bash
-# Instalar dependencias
-npm install
+# Abrir el archivo index.html directamente en el navegador
+open index.html
+```
 
-# Configurar variables de entorno
-cp .env.example .env.local
+### Opción 2: Servidor HTTP Local
+```bash
+# Usando Python (si está instalado)
+python -m http.server 8000
 
-# Ejecutar en desarrollo
-npm run dev
+# Usando Node.js (si está instalado)
+npx serve .
 
-# Construir para producción
-npm run build
-npm start
+# Luego abrir: http://localhost:8000
 ```
 
 ## 📁 Estructura del Proyecto
 
 ```
-├── app/
-│   ├── [locale]/
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── productos/
-│   │   ├── empresa/
-│   │   ├── contacto/
-│   │   ├── tarimas-plasticas/
-│   │   └── cajas-agricolas/
-│   ├── sitemap.ts
-│   └── robots.ts
-├── components/
-│   ├── SiteHeader.tsx
-│   ├── Hero.tsx
-│   ├── ProductCard.tsx
-│   ├── ContactForm.tsx
-│   ├── Footer.tsx
-│   ├── Analytics.tsx
-│   └── JsonLd.tsx
-├── data/
-│   ├── pallets.ts
-│   └── boxes.ts
-├── messages/
-│   ├── es.json
-│   └── en.json
-└── public/
-    └── images/
+JACS Plastics/
+├── index.html              # Página principal
+├── README.md              # Documentación
+├── assets/
+│   └── images/
+│       ├── hero/
+│       │   └── hero.png   # Imagen principal del hero
+│       └── products/
+│           ├── caja-allende.png      # Caja agrícola
+│           ├── tarima-js-01.png      # Tarima estándar
+│           ├── tarima-js-15.png      # Tarima one-way
+│           ├── tarima-js-32.png      # Tarima con ceja
+│           └── tarimas-generales.png # Gama completa
+├── caja agricola.png      # Imagen original
+├── hero.png               # Imagen original
+├── tarima con ceja.png    # Imagen original
+├── tarima estandar.png    # Imagen original
+├── tarima one way.png     # Imagen original
+└── tarimas.png            # Imagen original
 ```
 
-## 🌐 Internacionalización
+## 🖼️ Implementación de Imágenes
 
-El sitio soporta español (ES) e inglés (EN) con:
-- Selector de idioma en el header
-- URLs localizadas (`/es/`, `/en/`)
-- Metadatos SEO por idioma
-- Hreflang automático
+### Imágenes Implementadas
+- **Hero**: Imagen de fondo con efecto parallax en la sección principal
+- **Productos**: Imágenes específicas para cada producto con efectos hover
+- **Showcase**: Sección adicional con gama completa de productos
 
-## 🔍 SEO
+### Optimizaciones
+- **Responsive**: Imágenes se adaptan a diferentes tamaños de pantalla
+- **Performance**: Efectos de parallax deshabilitados en móviles
+- **Accesibilidad**: Alt text descriptivo para todas las imágenes
+- **Efectos**: Zoom sutil y mejoras de contraste en hover
 
-- **Metadatos dinámicos** por página
-- **Open Graph** y **Twitter Cards**
-- **Sitemap.xml** automático
-- **Robots.txt** configurado
-- **JSON-LD** estructurado
-- **Canonical URLs**
-- **Hreflang** para idiomas
-
-## 📊 Analytics
-
-- **Google Analytics 4** integrado
-- **Meta Pixel** para Facebook Ads
-- Tracking de conversiones
-- Eventos personalizados
-
-## 🎯 Landing Pages para Ads
-
-- `/tarimas-plasticas` - Landing para tarimas
-- `/cajas-agricolas` - Landing para cajas agrícolas
-
-Ambas incluyen:
-- Formulario de cotización above-the-fold
-- Tabla comparativa de productos
-- CTAs optimizados para conversión
+### Estructura de Assets
+- Organización por categorías (hero/products)
+- Nombres descriptivos y consistentes
+- Imágenes originales preservadas como respaldo
 
 ## 📱 Responsive Design
 
@@ -135,15 +112,17 @@ Ambas incluyen:
 - **Compresión Brotli**
 - **Cache headers** optimizados
 
-## 🔧 Scripts Disponibles
+## 🚀 Características Implementadas
 
-```bash
-npm run dev      # Desarrollo
-npm run build    # Construcción
-npm run start    # Producción
-npm run lint     # Linting
-npm run typecheck # Type checking
-```
+### ✅ Completado
+- [x] Implementación de imagen hero con efecto parallax
+- [x] Imágenes de productos en tarjetas específicas
+- [x] Sección showcase con gama completa
+- [x] Efectos hover y transiciones suaves
+- [x] Diseño responsive optimizado
+- [x] Estructura de assets organizada
+- [x] Alt text para accesibilidad
+- [x] Optimizaciones de performance móvil
 
 ## 📞 Contacto
 

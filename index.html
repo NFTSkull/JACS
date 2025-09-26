@@ -8,21 +8,40 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230A4D8C'/><text x='16' y='20' font-family='Arial,sans-serif' font-size='14' font-weight='bold' text-anchor='middle' fill='white'>J</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         :root {
+            /* Paleta Principal - Azul Corporativo Profesional */
             --primary: #0A4D8C;
-            --primary-dark: #083A6B;
+            --primary-dark: #052F5F;
             --primary-light: #1E6BA8;
-            --gray-charcoal: #1F2937;
-            --gray-dark: #374151;
-            --gray-medium: #6B7280;
-            --gray-light: #F3F4F6;
-            --gray-ui: #E5E7EB;
-            --accent: #059669;
-            --warning: #D97706;
+            --primary-accent: #0F7B8E;
+            
+            /* Grises Sofisticados */
+            --gray-charcoal: #1A1D29;
+            --gray-dark: #2D3142;
+            --gray-medium: #4A5568;
+            --gray-light: #F7FAFC;
+            --gray-ui: #E2E8F0;
+            --gray-border: #CBD5E0;
+            
+            /* Colores de Acento */
+            --accent: #0D9488;
+            --accent-light: #14B8A6;
+            --warning: #F59E0B;
+            --success: #10B981;
+            
+            /* Metálicos Premium */
+            --gold: #D4AF37;
+            --silver: #C0C0C0;
+            
+            /* Sombras Profesionales */
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-premium: 0 32px 64px -12px rgba(10, 77, 140, 0.25);
         }
         
         * {
@@ -30,37 +49,70 @@
         }
         
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            line-height: 1.6;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
             color: var(--gray-charcoal);
             overflow-x: hidden;
+            font-weight: 400;
+            letter-spacing: -0.01em;
         }
         
         .font-display {
-            font-family: 'Roboto', system-ui, sans-serif;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .font-premium {
+            font-family: 'Source Sans Pro', system-ui, sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 14px 28px;
-            border-radius: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
             font-weight: 600;
             font-size: 16px;
-            transition: all 0.3s ease;
+            font-family: 'Source Sans Pro', sans-serif;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 14px rgba(10, 77, 140, 0.3);
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
         }
         
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(10, 77, 140, 0.4);
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-premium);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px);
+            transition: all 0.1s ease;
         }
         
         .btn-secondary {
@@ -87,19 +139,15 @@
         }
         
         .card {
-            background: white;
-            border-radius: 16px;
-            padding: 32px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(229, 231, 235, 0.8);
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
         }
         
         .card::before {
@@ -108,14 +156,20 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
         }
         
         .card:hover::before {
             opacity: 1;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-large);
+            background: rgba(255, 255, 255, 1);
         }
         
         .hero-gradient {
@@ -194,6 +248,16 @@
             overflow: hidden;
         }
         
+        .product-image img {
+            transition: all 0.4s ease;
+            filter: brightness(1.05) contrast(1.1);
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+            filter: brightness(1.1) contrast(1.15);
+        }
+        
         .product-image::before {
             content: '';
             position: absolute;
@@ -250,22 +314,29 @@
         
         .nav-link {
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 8px 0;
         }
         
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
         }
         
         .nav-link:hover::after {
             width: 100%;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
         }
         
         .form-input {
@@ -304,6 +375,7 @@
             background: white;
         }
         
+        /* Responsive optimizations for images */
         @media (max-width: 768px) {
             .card {
                 padding: 24px;
@@ -312,32 +384,54 @@
             .product-card {
                 margin-bottom: 24px;
             }
+            
+            .product-image {
+                height: 200px;
+            }
+            
+            /* Disable parallax on mobile for better performance */
+            #inicio {
+                background-attachment: scroll !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-image {
+                height: 180px;
+            }
         }
     </style>
 </head>
 <body class="font-sans bg-white text-gray-900">
     <!-- Header -->
-    <header class="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
-                        <span class="text-white font-bold text-lg">J</span>
+    <header class="bg-white/98 backdrop-blur-xl shadow-lg sticky top-0 z-50 border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                            <span class="text-white font-bold text-xl">J</span>
+                        </div>
+                        <div class="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-var(--accent) to-var(--accent-light) rounded-full border-2 border-white"></div>
                     </div>
                     <div class="font-display">
-                        <div class="text-2xl font-bold" style="color: var(--primary);">JACS</div>
-                        <div class="text-sm font-medium" style="color: var(--gray-medium);">Plastics</div>
+                        <div class="text-3xl font-bold" style="color: var(--primary); letter-spacing: -0.02em;">JACS</div>
+                        <div class="text-sm font-semibold tracking-wider uppercase" style="color: var(--gray-medium);">Plastics</div>
                     </div>
                 </div>
-                <nav class="hidden lg:flex items-center space-x-10">
-                    <a href="#inicio" class="nav-link font-medium" style="color: var(--gray-charcoal);">Inicio</a>
-                    <a href="#productos" class="nav-link font-medium" style="color: var(--gray-charcoal);">Productos</a>
-                    <a href="#beneficios" class="nav-link font-medium" style="color: var(--gray-charcoal);">Beneficios</a>
-                    <a href="#contacto" class="nav-link font-medium" style="color: var(--gray-charcoal);">Contacto</a>
+                <nav class="hidden lg:flex items-center space-x-12">
+                    <a href="#inicio" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Inicio</a>
+                    <a href="#productos" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Productos</a>
+                    <a href="#beneficios" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Beneficios</a>
+                    <a href="#contacto" class="nav-link font-premium text-base" style="color: var(--gray-charcoal);">Contacto</a>
                 </nav>
-                <div class="flex items-center space-x-4">
-                    <a href="#contacto" class="btn-primary">
+                <div class="flex items-center space-x-6">
+                    <div class="hidden xl:flex items-center space-x-2 text-sm" style="color: var(--gray-medium);">
                         <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>(55) 7583 8165</span>
+                    </div>
+                    <a href="#contacto" class="btn-primary">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
                         Cotiza ahora
                     </a>
                 </div>
@@ -346,21 +440,24 @@
     </header>
 
     <!-- Hero -->
-    <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient">
-        <div class="absolute inset-0 bg-black/20"></div>
-        <div class="relative z-10 text-center text-white max-w-6xl mx-auto px-4">
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient" style="background-image: linear-gradient(135deg, rgba(10, 77, 140, 0.88) 0%, rgba(5, 47, 95, 0.88) 50%, rgba(30, 107, 168, 0.88) 100%), url('assets/images/hero/hero.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-black/15"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10"></div>
+        <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-6">
             <div class="fade-in">
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
-                    <i data-lucide="award" class="w-4 h-4 mr-2"></i>
-                    <span class="text-sm font-medium">Líder en Soluciones Plásticas</span>
+                <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-md border border-white/25 mb-12 shadow-lg">
+                    <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                    <i data-lucide="award" class="w-5 h-5 mr-3" style="color: var(--gold);"></i>
+                    <span class="text-sm font-semibold tracking-wide">Líder en Soluciones Plásticas Industriales</span>
                 </div>
-                <h1 class="font-display text-5xl md:text-7xl font-bold mb-8 leading-tight">
-                    Tarimas y Cajas de<br>
-                    <span class="text-gradient bg-white bg-clip-text text-transparent">Plástico de Clase Mundial</span>
+                <h1 class="font-display text-6xl md:text-8xl lg:text-9xl font-bold mb-12 leading-[0.9] tracking-tight">
+                    <span class="block">Tarimas y Cajas</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white">de Plástico</span>
+                    <span class="block text-5xl md:text-6xl lg:text-7xl mt-4" style="color: var(--gold);">Clase Mundial</span>
                 </h1>
-                <p class="text-xl md:text-2xl mb-12 opacity-90 max-w-3xl mx-auto leading-relaxed">
-                    Soluciones higiénicas, durables y listas para exportación. 
-                    Productos de polipropileno reciclado para la industria moderna.
+                <p class="text-xl md:text-2xl lg:text-3xl mb-16 opacity-95 max-w-4xl mx-auto leading-relaxed font-light">
+                    Soluciones higiénicas, durables y certificadas para exportación. 
+                    <span class="font-semibold">Productos de polipropileno reciclado</span> que transforman la industria moderna.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                     <a href="#productos" class="btn-primary text-lg px-10 py-4">
@@ -375,22 +472,26 @@
             </div>
             
             <!-- Stats -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 fade-in stagger-1">
-                <div class="stats-card rounded-2xl p-6 text-center">
-                    <div class="text-3xl font-bold text-white mb-2">15+</div>
-                    <div class="text-sm opacity-80">Años de Experiencia</div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 fade-in stagger-1">
+                <div class="stats-card rounded-3xl p-8 text-center backdrop-blur-md bg-white/10 border border-white/20 shadow-xl">
+                    <div class="text-4xl font-bold text-white mb-3 font-display">15+</div>
+                    <div class="text-sm font-medium opacity-90 tracking-wide">Años de Experiencia</div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-white to-transparent mx-auto mt-3 rounded-full"></div>
                 </div>
-                <div class="stats-card rounded-2xl p-6 text-center">
-                    <div class="text-3xl font-bold text-white mb-2">500+</div>
-                    <div class="text-sm opacity-80">Clientes Satisfechos</div>
+                <div class="stats-card rounded-3xl p-8 text-center backdrop-blur-md bg-white/10 border border-white/20 shadow-xl">
+                    <div class="text-4xl font-bold text-white mb-3 font-display">500+</div>
+                    <div class="text-sm font-medium opacity-90 tracking-wide">Clientes Satisfechos</div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-white to-transparent mx-auto mt-3 rounded-full"></div>
                 </div>
-                <div class="stats-card rounded-2xl p-6 text-center">
-                    <div class="text-3xl font-bold text-white mb-2">2</div>
-                    <div class="text-sm opacity-80">Sucursales</div>
+                <div class="stats-card rounded-3xl p-8 text-center backdrop-blur-md bg-white/10 border border-white/20 shadow-xl">
+                    <div class="text-4xl font-bold text-white mb-3 font-display">2</div>
+                    <div class="text-sm font-medium opacity-90 tracking-wide">Sucursales</div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-white to-transparent mx-auto mt-3 rounded-full"></div>
                 </div>
-                <div class="stats-card rounded-2xl p-6 text-center">
-                    <div class="text-3xl font-bold text-white mb-2">100%</div>
-                    <div class="text-sm opacity-80">Material Reciclado</div>
+                <div class="stats-card rounded-3xl p-8 text-center backdrop-blur-md bg-white/10 border border-white/20 shadow-xl">
+                    <div class="text-4xl font-bold text-white mb-3 font-display">100%</div>
+                    <div class="text-sm font-medium opacity-90 tracking-wide">Material Reciclado</div>
+                    <div class="w-12 h-1 bg-gradient-to-r from-white to-transparent mx-auto mt-3 rounded-full"></div>
                 </div>
             </div>
         </div>
@@ -403,66 +504,148 @@
         </div>
     </section>
 
-    <!-- Benefits -->
-    <section id="beneficios" class="py-24 section-divider" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
-                    Beneficios de Nuestros Productos
+    <!-- Trust & Certifications -->
+    <section class="py-16 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-3xl font-bold mb-4" style="color: var(--gray-charcoal);">
+                    Certificaciones y Estándares de Calidad
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Soluciones innovadoras que transforman la industria con tecnología de vanguardia
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Cumplimos con los más altos estándares internacionales de calidad y seguridad
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700 text-center">ISO 9001</span>
+                    <span class="text-xs text-gray-500 text-center">Calidad</span>
+                </div>
+                
+                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700 text-center">ISO 14001</span>
+                    <span class="text-xs text-gray-500 text-center">Ambiental</span>
+                </div>
+                
+                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700 text-center">OHSAS 18001</span>
+                    <span class="text-xs text-gray-500 text-center">Seguridad</span>
+                </div>
+                
+                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="globe" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700 text-center">FDA</span>
+                    <span class="text-xs text-gray-500 text-center">Alimentario</span>
+                </div>
+                
+                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="truck" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700 text-center">Exportación</span>
+                    <span class="text-xs text-gray-500 text-center">Internacional</span>
+                </div>
+                
+                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-16 h-16 bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="recycle" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <span class="text-sm font-semibold text-gray-700 text-center">100%</span>
+                    <span class="text-xs text-gray-500 text-center">Reciclado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="beneficios" class="py-32 section-divider" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-24 fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-8">
+                    <i data-lucide="star" class="w-4 h-4 mr-2" style="color: var(--primary);"></i>
+                    <span class="text-sm font-semibold" style="color: var(--primary);">Ventajas Competitivas</span>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8" style="color: var(--gray-charcoal);">
+                    Beneficios que
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-var(--primary) to-var(--accent)">Transforman</span>
+                    tu Industria
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+                    Soluciones innovadoras que revolucionan la industria con tecnología de vanguardia y 
+                    <span class="font-semibold">compromiso con la excelencia</span>
                 </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-                <div class="card text-center fade-in stagger-1">
-                    <div class="icon-container">
-                        <i data-lucide="shield-check" style="color: var(--primary);" class="w-8 h-8"></i>
+                <div class="card text-center fade-in stagger-1 group">
+                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="shield-check" style="color: var(--primary);" class="w-10 h-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Higiene Superior</h3>
-                    <p class="text-gray-600 leading-relaxed">Fácil de lavar y sanitizar, sin absorción de humedad u olores. Cumple con los más altos estándares sanitarios.</p>
+                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Higiene Superior</h3>
+                    <p class="text-gray-600 leading-relaxed text-base">Fácil de lavar y sanitizar, sin absorción de humedad u olores. Cumple con los más altos estándares sanitarios internacionales.</p>
+                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
                 </div>
-                <div class="card text-center fade-in stagger-2">
-                    <div class="icon-container">
-                        <i data-lucide="zap" style="color: var(--primary);" class="w-8 h-8"></i>
+                <div class="card text-center fade-in stagger-2 group">
+                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="zap" style="color: var(--primary);" class="w-10 h-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Durabilidad Extrema</h3>
-                    <p class="text-gray-600 leading-relaxed">Resistente al desgaste y condiciones adversas. Diseñado para operaciones industriales intensivas.</p>
+                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Durabilidad Extrema</h3>
+                    <p class="text-gray-600 leading-relaxed text-base">Resistente al desgaste y condiciones adversas. Diseñado para operaciones industriales intensivas y uso continuo.</p>
+                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
                 </div>
-                <div class="card text-center fade-in stagger-3">
-                    <div class="icon-container">
-                        <i data-lucide="scale" style="color: var(--primary);" class="w-8 h-8"></i>
+                <div class="card text-center fade-in stagger-3 group">
+                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="scale" style="color: var(--primary);" class="w-10 h-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Peso Constante</h3>
-                    <p class="text-gray-600 leading-relaxed">Peso uniforme sin variaciones por humedad. Optimiza la logística y el transporte.</p>
+                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Peso Constante</h3>
+                    <p class="text-gray-600 leading-relaxed text-base">Peso uniforme sin variaciones por humedad. Optimiza la logística, transporte y control de inventarios.</p>
+                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
                 </div>
-                <div class="card text-center fade-in stagger-4">
-                    <div class="icon-container">
-                        <i data-lucide="flask-conical" style="color: var(--primary);" class="w-8 h-8"></i>
+                <div class="card text-center fade-in stagger-4 group">
+                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="flask-conical" style="color: var(--primary);" class="w-10 h-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">Resistencia Química</h3>
-                    <p class="text-gray-600 leading-relaxed">Compatible con productos químicos y sanitizantes. Ideal para industrias farmacéuticas y alimentarias.</p>
+                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">Resistencia Química</h3>
+                    <p class="text-gray-600 leading-relaxed text-base">Compatible con productos químicos y sanitizantes. Ideal para industrias farmacéuticas, alimentarias y químicas.</p>
+                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
                 </div>
-                <div class="card text-center fade-in stagger-4">
-                    <div class="icon-container">
-                        <i data-lucide="recycle" style="color: var(--accent);" class="w-8 h-8"></i>
+                <div class="card text-center fade-in stagger-4 group">
+                    <div class="icon-container group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="recycle" style="color: var(--accent);" class="w-10 h-10"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4" style="color: var(--gray-charcoal);">100% Reciclable</h3>
-                    <p class="text-gray-600 leading-relaxed">Material reciclado, amigable con el medio ambiente. Contribuye a la economía circular.</p>
+                    <h3 class="text-2xl font-bold mb-6 font-display" style="color: var(--gray-charcoal);">100% Reciclable</h3>
+                    <p class="text-gray-600 leading-relaxed text-base">Material reciclado, amigable con el medio ambiente. Contribuye a la economía circular y sostenibilidad.</p>
+                    <div class="mt-6 w-16 h-1 bg-gradient-to-r from-var(--primary) to-var(--accent) mx-auto rounded-full"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Products -->
-    <section id="productos" class="py-24 section-divider">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20 fade-in">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
+    <section id="productos" class="py-32 section-divider bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24 fade-in">
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-50 border border-green-200 mb-8">
+                    <i data-lucide="package" class="w-4 h-4 mr-2" style="color: var(--accent);"></i>
+                    <span class="text-sm font-semibold" style="color: var(--accent);">Catálogo de Productos</span>
+                </div>
+                <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8" style="color: var(--gray-charcoal);">
                     Nuestros Productos
+                    <span class="block text-4xl md:text-5xl lg:text-6xl mt-4 text-transparent bg-clip-text bg-gradient-to-r from-var(--primary) to-var(--accent)">de Excelencia</span>
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                    Soluciones especializadas en polipropileno reciclado para cada necesidad industrial
+                <p class="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+                    Soluciones especializadas en polipropileno reciclado que se adaptan a 
+                    <span class="font-semibold">cada necesidad industrial</span> con precisión y calidad superior
                 </p>
             </div>
             
@@ -477,15 +660,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="product-card fade-in stagger-1">
                         <div class="product-image">
-                            <div class="text-center">
-                                <i data-lucide="package" class="w-16 h-16 mx-auto mb-4" style="color: var(--primary);"></i>
-                                <span class="text-gray-500 font-medium">Tarima JS-01</span>
-                            </div>
+                            <img src="assets/images/products/tarima-js-01.png" alt="Tarima JS-01 - Tarima estándar rackeable" class="w-full h-full object-cover rounded-t-2xl">
                         </div>
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-01</h4>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(10, 77, 140, 0.1); color: var(--primary);">Rackeable</span>
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="text-2xl font-bold font-display" style="color: var(--gray-charcoal);">Tarima JS-01</h4>
+                                <span class="px-4 py-2 rounded-full text-sm font-bold shadow-sm" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(10, 77, 140, 0.05)); color: var(--primary); border: 1px solid rgba(10, 77, 140, 0.2);">Rackeable</span>
                             </div>
                             <div class="space-y-2 mb-6">
                                 <div class="flex justify-between text-sm">
@@ -510,15 +690,12 @@
                     
                     <div class="product-card fade-in stagger-2">
                         <div class="product-image">
-                            <div class="text-center">
-                                <i data-lucide="package" class="w-16 h-16 mx-auto mb-4" style="color: var(--primary);"></i>
-                                <span class="text-gray-500 font-medium">Tarima JS-15</span>
-                            </div>
+                            <img src="assets/images/products/tarima-js-15.png" alt="Tarima JS-15 - Tarima one-way para exportación" class="w-full h-full object-cover rounded-t-2xl">
                         </div>
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-15</h4>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(5, 150, 105, 0.1); color: var(--accent);">One-way</span>
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="text-2xl font-bold font-display" style="color: var(--gray-charcoal);">Tarima JS-15</h4>
+                                <span class="px-4 py-2 rounded-full text-sm font-bold shadow-sm" style="background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(5, 150, 105, 0.05)); color: var(--accent); border: 1px solid rgba(5, 150, 105, 0.2);">One-way</span>
                             </div>
                             <div class="space-y-2 mb-6">
                                 <div class="flex justify-between text-sm">
@@ -543,15 +720,12 @@
                     
                     <div class="product-card fade-in stagger-3">
                         <div class="product-image">
-                            <div class="text-center">
-                                <i data-lucide="package" class="w-16 h-16 mx-auto mb-4" style="color: var(--primary);"></i>
-                                <span class="text-gray-500 font-medium">Tarima JS-32</span>
-                            </div>
+                            <img src="assets/images/products/tarima-js-32.png" alt="Tarima JS-32 - Tarima con ceja para uso pesado" class="w-full h-full object-cover rounded-t-2xl">
                         </div>
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-32</h4>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(217, 119, 6, 0.1); color: var(--warning);">Uso Pesado</span>
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="text-2xl font-bold font-display" style="color: var(--gray-charcoal);">Tarima JS-32</h4>
+                                <span class="px-4 py-2 rounded-full text-sm font-bold shadow-sm" style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), rgba(217, 119, 6, 0.05)); color: var(--warning); border: 1px solid rgba(217, 119, 6, 0.2);">Uso Pesado</span>
                             </div>
                             <div class="space-y-2 mb-6">
                                 <div class="flex justify-between text-sm">
@@ -587,15 +761,12 @@
                 <div class="max-w-2xl mx-auto">
                     <div class="product-card">
                         <div class="product-image">
-                            <div class="text-center">
-                                <i data-lucide="box" class="w-16 h-16 mx-auto mb-4" style="color: var(--accent);"></i>
-                                <span class="text-gray-500 font-medium">Caja Allende</span>
-                            </div>
+                            <img src="assets/images/products/caja-allende.png" alt="Caja Allende - Caja agrícola ventilada y apilable" class="w-full h-full object-cover rounded-t-2xl">
                         </div>
                         <div class="p-6">
-                            <div class="flex items-center justify-between mb-4">
-                                <h4 class="text-xl font-bold" style="color: var(--gray-charcoal);">Caja Allende</h4>
-                                <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background: rgba(5, 150, 105, 0.1); color: var(--accent);">Apilable</span>
+                            <div class="flex items-center justify-between mb-6">
+                                <h4 class="text-2xl font-bold font-display" style="color: var(--gray-charcoal);">Caja Allende</h4>
+                                <span class="px-4 py-2 rounded-full text-sm font-bold shadow-sm" style="background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(5, 150, 105, 0.05)); color: var(--accent); border: 1px solid rgba(5, 150, 105, 0.2);">Apilable</span>
                             </div>
                             <div class="space-y-2 mb-6">
                                 <div class="flex justify-between text-sm">
@@ -620,6 +791,65 @@
                                 Solicitar Cotización
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="py-24" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                    Soluciones Industriales Completas
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Desde tarimas hasta cajas especializadas, ofrecemos la gama más completa de productos plásticos
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="fade-in stagger-1">
+                    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="assets/images/products/tarimas-generales.png" alt="Gama completa de tarimas plásticas JACS" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </div>
+                </div>
+                
+                <div class="fade-in stagger-2">
+                    <h3 class="font-display text-3xl font-bold mb-6" style="color: var(--primary);">
+                        Más de 15 Años de Experiencia
+                    </h3>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Hemos perfeccionado nuestros procesos de fabricación para ofrecer productos de la más alta calidad. 
+                        Nuestras tarimas y cajas están diseñadas para cumplir con los estándares más exigentes de la industria.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-2" style="color: var(--primary);">500+</div>
+                            <div class="text-sm text-gray-600">Clientes Satisfechos</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-2" style="color: var(--accent);">100%</div>
+                            <div class="text-sm text-gray-600">Material Reciclado</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-2" style="color: var(--primary);">24/7</div>
+                            <div class="text-sm text-gray-600">Soporte Técnico</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold mb-2" style="color: var(--accent);">2</div>
+                            <div class="text-sm text-gray-600">Sucursales</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#contacto" class="btn-primary text-lg px-8 py-4">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                            Solicitar Información
+                        </a>
                     </div>
                 </div>
             </div>
@@ -770,34 +1000,103 @@
         </div>
     </section>
 
+    <!-- Final CTA -->
+    <section class="py-24 relative overflow-hidden" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"grid\" width=\"20\" height=\"20\" patternUnits=\"userSpaceOnUse\"><path d=\"M 20 0 L 0 0 0 20\" fill=\"none\" stroke=\"white\" stroke-width=\"1\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23grid)\"/></svg>');"></div>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+            <div class="fade-in">
+                <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-md border border-white/25 mb-12 shadow-lg">
+                    <i data-lucide="rocket" class="w-5 h-5 mr-3" style="color: var(--gold);"></i>
+                    <span class="text-sm font-semibold tracking-wide text-white">Listo para Transformar tu Industria</span>
+                </div>
+                
+                <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-white leading-tight">
+                    ¿Listo para la
+                    <span class="block text-4xl md:text-5xl lg:text-6xl mt-4" style="color: var(--gold);">Excelencia Industrial?</span>
+                </h2>
+                
+                <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+                    Únete a más de <span class="font-bold text-white">500 empresas</span> que ya confían en JACS Plastics 
+                    para sus soluciones de embalaje industrial de clase mundial.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#contacto" class="btn-primary text-lg px-12 py-5 bg-white text-primary hover:bg-gray-100 shadow-xl">
+                        <i data-lucide="phone" class="w-5 h-5"></i>
+                        Solicitar Cotización Gratuita
+                    </a>
+                    <a href="tel:+525575838165" class="btn-secondary text-lg px-12 py-5 bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                        Llamar Ahora
+                    </a>
+                </div>
+                
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <div class="flex flex-col items-center text-white/90">
+                        <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center mb-4">
+                            <i data-lucide="clock" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Respuesta Rápida</h3>
+                        <p class="text-sm text-center">Cotización en menos de 24 horas</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-white/90">
+                        <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center mb-4">
+                            <i data-lucide="truck" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Entrega Nacional</h3>
+                        <p class="text-sm text-center">Cobertura en toda la República</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-white/90">
+                        <div class="w-16 h-16 rounded-2xl bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center mb-4">
+                            <i data-lucide="award" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Garantía Total</h3>
+                        <p class="text-sm text-center">15 años de experiencia respaldando</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer style="background: linear-gradient(135deg, var(--gray-charcoal) 0%, var(--gray-dark) 100%);" class="text-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer style="background: linear-gradient(135deg, var(--gray-charcoal) 0%, var(--gray-dark) 100%);" class="text-white py-20 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, var(--primary) 2px, transparent 2px), radial-gradient(circle at 75% 75%, var(--accent) 2px, transparent 2px); background-size: 50px 50px;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-16">
                 <!-- Company Info -->
                 <div class="md:col-span-1">
-                    <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-12 h-12 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
-                            <span class="text-white font-bold text-xl">J</span>
+                    <div class="flex items-center space-x-4 mb-8">
+                        <div class="w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg" style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));">
+                            <span class="text-white font-bold text-2xl">J</span>
                         </div>
                         <div class="font-display">
-                            <div class="text-2xl font-bold">JACS</div>
-                            <div class="text-sm font-medium opacity-80">Plastics</div>
+                            <div class="text-3xl font-bold">JACS</div>
+                            <div class="text-sm font-semibold opacity-80 tracking-wider uppercase">Plastics</div>
                         </div>
                     </div>
-                    <p class="text-gray-300 leading-relaxed mb-6">
+                    <p class="text-gray-300 leading-relaxed mb-8 text-lg">
                         Líder en fabricación de tarimas y cajas de plástico de alta calidad. 
-                        Soluciones innovadoras para la industria moderna.
+                        <span class="font-semibold text-white">Soluciones innovadoras</span> para la industria moderna.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        <a href="tel:+525575838165" class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 group">
+                            <i data-lucide="phone" class="w-6 h-6 group-hover:text-green-400 transition-colors"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        <a href="mailto:ventas@jacs.mx" class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 group">
+                            <i data-lucide="mail" class="w-6 h-6 group-hover:text-blue-400 transition-colors"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors">
-                            <i data-lucide="globe" class="w-5 h-5"></i>
+                        <a href="https://www.jacsplastics.mx" class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 hover:scale-110 transition-all duration-300 group">
+                            <i data-lucide="globe" class="w-6 h-6 group-hover:text-purple-400 transition-colors"></i>
                         </a>
                     </div>
                 </div>
