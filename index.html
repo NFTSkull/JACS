@@ -286,10 +286,55 @@
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.6s ease;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Professional text animations */
+        .text-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .text-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .title-elegant {
+            opacity: 0;
+            transform: translateY(25px) scale(0.98);
+            transition: all 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .title-elegant.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        
+        .subtitle-refined {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s;
+        }
+        
+        .subtitle-refined.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .content-smooth {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+        }
+        
+        .content-smooth.visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -1026,10 +1071,10 @@
         <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6">
             <div class="fade-in">
                 <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight text-white">
-                    <span class="block">Soluciones Industriales</span>
-                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold" style="color: var(--primary-light);">de Clase Mundial</span>
+                    <span class="block title-elegant">Soluciones Industriales</span>
+                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold subtitle-refined" style="color: var(--primary-light);">de Clase Mundial</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 font-medium px-2">
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 font-medium px-2 content-smooth">
                     Líder en fabricación de tarimas y cajas de plástico de alta calidad. 
                     <span class="font-semibold text-white">Productos certificados</span> para la industria moderna con los más altos estándares de calidad.
                 </p>
@@ -1053,10 +1098,10 @@
     <section class="py-12 sm:py-16 bg-white border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 sm:mb-16">
-                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6" style="color: var(--gray-charcoal);">
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 title-elegant" style="color: var(--gray-charcoal);">
                     Certificaciones Internacionales
                 </h2>
-                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium px-2">
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium px-2 content-smooth">
                     Certificados bajo los más rigurosos estándares internacionales de calidad, 
                     seguridad y gestión ambiental para garantizar la excelencia en nuestros productos.
                 </p>
@@ -1124,14 +1169,14 @@
         <div class="max-w-8xl mx-auto px-4 sm:px-6 relative z-10">
             <!-- Header Section -->
             <div class="text-center mb-12 sm:mb-16 fade-in">
-                <div class="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-4 sm:mb-6">
+                <div class="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-4 sm:mb-6 text-reveal">
                     <i data-lucide="award" class="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-600"></i>
                     <span class="text-xs font-semibold tracking-wide text-blue-600">VENTAJAS COMPETITIVAS</span>
                 </div>
-                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-gray-800">
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-gray-800 title-elegant">
                     Beneficios Técnicos y Operacionales
                 </h2>
-                <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
+                <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2 content-smooth">
                     Soluciones industriales avanzadas que optimizan procesos operativos con tecnología de punta y estándares de calidad internacional
                 </p>
             </div>
@@ -1292,14 +1337,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <!-- Header Section -->
             <div class="text-center mb-12 sm:mb-16">
-                <div class="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-4 sm:mb-6">
+                <div class="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-4 sm:mb-6 text-reveal">
                     <i data-lucide="layers" class="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-600"></i>
                     <span class="text-xs font-semibold tracking-wide text-blue-600">SOLUCIONES ESPECIALIZADAS</span>
                 </div>
-                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-gray-800">
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-gray-800 title-elegant">
                     Productos de Polipropileno Reciclado
                 </h2>
-                <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
+                <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2 content-smooth">
                     Diseñados para aplicaciones industriales específicas con certificación de calidad y cumplimiento normativo
                 </p>
             </div>
@@ -1510,10 +1555,10 @@
     <section class="py-24 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-gray-800">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-gray-800 title-elegant">
                     Soluciones Industriales Completas
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto content-smooth">
                     Desde tarimas hasta cajas especializadas, ofrecemos la gama más completa de productos plásticos
                 </p>
             </div>
@@ -1569,10 +1614,10 @@
     <section id="contacto" class="py-24 section-divider" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 title-elegant" style="color: var(--gray-charcoal);">
                     Solicita tu Cotización
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto content-smooth">
                     Obtén una cotización personalizada para tus necesidades industriales
                 </p>
             </div>
@@ -1724,11 +1769,11 @@
                 </div>
                 
                 <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-tight">
-                    Optimice sus Operaciones
-                    <span class="block text-3xl md:text-4xl lg:text-5xl mt-2 text-yellow-500">Industriales</span>
+                    <span class="title-elegant">Optimice sus Operaciones</span>
+                    <span class="block text-3xl md:text-4xl lg:text-5xl mt-2 text-yellow-500 subtitle-refined">Industriales</span>
                 </h2>
                 
-                <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+                <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-medium content-smooth">
                     Más de <span class="font-bold text-white">500 empresas líderes</span> confían en JACS Plastics 
                     para sus soluciones de embalaje industrial certificadas y de alta performance.
                 </p>
@@ -1954,8 +1999,8 @@
             });
         }, observerOptions);
         
-        // Observe all fade-in elements
-        document.querySelectorAll('.fade-in').forEach(el => {
+        // Observe all animation elements
+        document.querySelectorAll('.fade-in, .text-reveal, .title-elegant, .subtitle-refined, .content-smooth').forEach(el => {
             observer.observe(el);
         });
         
