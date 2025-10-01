@@ -376,29 +376,216 @@
             background: white;
         }
         
-        /* Responsive optimizations for images */
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            .card {
-                padding: 24px;
+            /* Header optimizations */
+            .header-logo img {
+                height: 2.5rem;
             }
             
+            /* Hero section optimizations */
+            #inicio {
+                background-attachment: scroll !important;
+                min-height: 100vh;
+                padding: 2rem 0;
+            }
+            
+            .hero-gradient h1 {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+            
+            .hero-gradient h1 span:last-child {
+                font-size: 2rem !important;
+            }
+            
+            .hero-gradient p {
+                font-size: 1.1rem !important;
+                margin-bottom: 2rem;
+            }
+            
+            /* Card optimizations */
+            .card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .benefit-card {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .benefit-title {
+                font-size: 1.25rem;
+            }
+            
+            .benefit-description {
+                font-size: 0.9rem;
+            }
+            
+            /* Product cards */
             .product-card {
-                margin-bottom: 24px;
+                margin-bottom: 1.5rem;
             }
             
             .product-image {
                 height: 200px;
             }
             
-            /* Disable parallax on mobile for better performance */
-            #inicio {
-                background-attachment: scroll !important;
+            /* Performance summary */
+            .performance-summary {
+                padding: 1.5rem;
+            }
+            
+            .performance-title {
+                font-size: 1.5rem;
+            }
+            
+            .performance-metrics {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .metric-value {
+                font-size: 1.5rem;
+            }
+            
+            /* Contact form */
+            .form-input, .form-textarea {
+                padding: 0.75rem 1rem;
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+            
+            /* Buttons */
+            .btn-primary, .btn-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 3rem 0;
+            }
+            
+            footer .grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            /* Trust section */
+            .grid.grid-cols-2.sm\\:grid-cols-3.md\\:grid-cols-4.lg\\:grid-cols-6 {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            /* Solutions section */
+            .grid.grid-cols-1.lg\\:grid-cols-3 {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            /* Product showcase */
+            .grid.grid-cols-1.lg\\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            /* Contact section */
+            .grid.grid-cols-1.lg\\:grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            /* Extra small mobile optimizations */
+            .hero-gradient h1 {
+                font-size: 2rem !important;
+            }
+            
+            .hero-gradient h1 span:last-child {
+                font-size: 1.5rem !important;
+            }
+            
+            .hero-gradient p {
+                font-size: 1rem !important;
+            }
+            
+            .product-image {
+                height: 180px;
+            }
+            
+            .card {
+                padding: 1rem;
+            }
+            
+            .benefit-card {
+                padding: 1rem;
+            }
+            
+            .performance-summary {
+                padding: 1rem;
+            }
+            
+            .performance-title {
+                font-size: 1.25rem;
+            }
+            
+            .metric-value {
+                font-size: 1.25rem;
+            }
+            
+            /* Trust section - single column on very small screens */
+            .grid.grid-cols-2.sm\\:grid-cols-3.md\\:grid-cols-4.lg\\:grid-cols-6 {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Footer logo */
+            footer .flex.items-center.mb-8 img {
+                height: 3rem;
+            }
+            
+            /* Mobile menu improvements */
+            #mobile-menu {
+                padding: 1rem;
+            }
+            
+            #mobile-menu a {
+                padding: 0.75rem 0;
+                font-size: 1rem;
             }
         }
         
         @media (max-width: 480px) {
+            /* Ultra small screens */
+            .hero-gradient h1 {
+                font-size: 1.75rem !important;
+            }
+            
+            .hero-gradient h1 span:last-child {
+                font-size: 1.25rem !important;
+            }
+            
             .product-image {
-                height: 180px;
+                height: 160px;
+            }
+            
+            .btn-primary, .btn-secondary {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+            
+            /* Reduce padding on all sections */
+            section {
+                padding: 2rem 0;
+            }
+            
+            .py-24 {
+                padding: 2rem 0;
+            }
+            
+            .py-16 {
+                padding: 1.5rem 0;
             }
         }
         
@@ -672,6 +859,34 @@
             }
         }
         
+        @media (max-width: 768px) {
+            .performance-metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefit-header {
+                flex-direction: column;
+                gap: 16px;
+            }
+            
+            .benefit-specs {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+            
+            .spec-item {
+                padding: 0.75rem;
+            }
+            
+            .spec-label {
+                font-size: 0.7rem;
+            }
+            
+            .spec-value {
+                font-size: 0.8rem;
+            }
+        }
+        
         @media (max-width: 640px) {
             .performance-metrics {
                 grid-template-columns: 1fr;
@@ -680,6 +895,16 @@
             .benefit-header {
                 flex-direction: column;
                 gap: 16px;
+            }
+            
+            .benefit-icon {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .benefit-badge {
+                font-size: 0.6rem;
+                padding: 4px 8px;
             }
         }
     </style>
@@ -750,16 +975,36 @@
             
             <!-- Mobile Menu -->
             <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 bg-white/98 backdrop-blur-md">
-                <div class="px-8 py-6 space-y-4">
-                    <a href="#inicio" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">INICIO</a>
-                    <a href="#productos" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">PRODUCTOS</a>
-                    <a href="#beneficios" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">BENEFICIOS</a>
-                    <a href="#contacto" class="block text-sm font-medium tracking-wide py-2" style="color: var(--gray-charcoal);">CONTACTO</a>
-                    <div class="pt-4 border-t border-gray-100">
-                        <a href="#contacto" class="btn-primary text-sm px-6 py-3 w-full justify-center">
+                <div class="px-6 py-4 space-y-3">
+                    <a href="#inicio" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
+                        <i data-lucide="home" class="w-4 h-4 inline mr-3"></i>
+                        INICIO
+                    </a>
+                    <a href="#productos" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
+                        <i data-lucide="package" class="w-4 h-4 inline mr-3"></i>
+                        PRODUCTOS
+                    </a>
+                    <a href="#beneficios" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
+                        <i data-lucide="award" class="w-4 h-4 inline mr-3"></i>
+                        BENEFICIOS
+                    </a>
+                    <a href="#contacto" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
+                        <i data-lucide="phone" class="w-4 h-4 inline mr-3"></i>
+                        CONTACTO
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4">
+                        <a href="#contacto" class="btn-primary text-base px-6 py-4 w-full justify-center">
                             <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            COTIZAR
+                            COTIZAR AHORA
                         </a>
+                    </div>
+                    <div class="pt-2">
+                        <div class="flex items-center justify-center space-x-4 text-sm text-gray-600">
+                            <a href="tel:+525575838165" class="flex items-center space-x-2 hover:text-primary transition-colors">
+                                <i data-lucide="phone" class="w-4 h-4"></i>
+                                <span>(55) 7583 8165</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
         </div>
@@ -769,23 +1014,23 @@
     <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient" style="background-image: linear-gradient(135deg, rgba(10, 77, 140, 0.88) 0%, rgba(5, 47, 95, 0.88) 50%, rgba(30, 107, 168, 0.88) 100%), url('assets/images/hero/hero.png'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-black/15"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10"></div>
-        <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-6">
+        <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6">
             <div class="fade-in">
-                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight text-white">
+                <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight text-white">
                     <span class="block">Soluciones Industriales</span>
-                    <span class="block text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold" style="color: var(--primary-light);">de Clase Mundial</span>
+                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold" style="color: var(--primary-light);">de Clase Mundial</span>
                 </h1>
-                <p class="text-lg md:text-xl lg:text-2xl mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 font-medium">
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 font-medium px-2">
                     Líder en fabricación de tarimas y cajas de plástico de alta calidad. 
                     <span class="font-semibold text-white">Productos certificados</span> para la industria moderna con los más altos estándares de calidad.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                    <a href="#productos" class="btn-primary text-lg px-10 py-4">
-                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+                    <a href="#productos" class="btn-primary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 w-full sm:w-auto">
+                        <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         Ver Catálogo de Productos
                     </a>
-                    <a href="#contacto" class="btn-secondary text-lg px-10 py-4 bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary">
-                        <i data-lucide="phone" class="w-5 h-5"></i>
+                    <a href="#contacto" class="btn-secondary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 bg-white/10 border-white/30 text-white hover:bg-white hover:text-primary w-full sm:w-auto">
+                        <i data-lucide="phone" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                         Solicitar Información Comercial
                     </a>
                 </div>
@@ -796,64 +1041,64 @@
     </section>
 
     <!-- Trust & Certifications -->
-    <section class="py-16 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-display text-4xl font-bold mb-6" style="color: var(--gray-charcoal);">
+    <section class="py-12 sm:py-16 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 sm:mb-16">
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6" style="color: var(--gray-charcoal);">
                     Certificaciones Internacionales
                 </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto font-medium">
+                <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-medium px-2">
                     Certificados bajo los más rigurosos estándares internacionales de calidad, 
                     seguridad y gestión ambiental para garantizar la excelencia en nuestros productos.
                 </p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
-                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
-                    <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 items-center">
+                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                        <i data-lucide="shield-check" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                     </div>
-                    <span class="text-sm font-semibold text-gray-700 text-center">ISO 9001</span>
+                    <span class="text-xs sm:text-sm font-semibold text-gray-700 text-center">ISO 9001</span>
                     <span class="text-xs text-gray-500 text-center">Calidad</span>
                 </div>
                 
-                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
-                    <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                        <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
+                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                        <i data-lucide="leaf" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                     </div>
-                    <span class="text-sm font-semibold text-gray-700 text-center">ISO 14001</span>
+                    <span class="text-xs sm:text-sm font-semibold text-gray-700 text-center">ISO 14001</span>
                     <span class="text-xs text-gray-500 text-center">Ambiental</span>
                 </div>
                 
-                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
-                    <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                        <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                        <i data-lucide="users" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                     </div>
-                    <span class="text-sm font-semibold text-gray-700 text-center">OHSAS 18001</span>
+                    <span class="text-xs sm:text-sm font-semibold text-gray-700 text-center">OHSAS 18001</span>
                     <span class="text-xs text-gray-500 text-center">Seguridad</span>
                 </div>
                 
-                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
-                    <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                        <i data-lucide="globe" class="w-8 h-8 text-white"></i>
+                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                        <i data-lucide="globe" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                     </div>
-                    <span class="text-sm font-semibold text-gray-700 text-center">FDA</span>
+                    <span class="text-xs sm:text-sm font-semibold text-gray-700 text-center">FDA</span>
                     <span class="text-xs text-gray-500 text-center">Alimentario</span>
                 </div>
                 
-                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
-                    <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                        <i data-lucide="truck" class="w-8 h-8 text-white"></i>
+                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                        <i data-lucide="truck" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                     </div>
-                    <span class="text-sm font-semibold text-gray-700 text-center">Exportación</span>
+                    <span class="text-xs sm:text-sm font-semibold text-gray-700 text-center">Exportación</span>
                     <span class="text-xs text-gray-500 text-center">Internacional</span>
                 </div>
                 
-                <div class="flex flex-col items-center p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
-                    <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                        <i data-lucide="recycle" class="w-8 h-8 text-white"></i>
+                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-gray-50/50 hover:bg-white transition-all duration-300 hover:shadow-md">
+                    <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                        <i data-lucide="recycle" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                     </div>
-                    <span class="text-sm font-semibold text-gray-700 text-center">100%</span>
+                    <span class="text-xs sm:text-sm font-semibold text-gray-700 text-center">100%</span>
                     <span class="text-xs text-gray-500 text-center">Reciclado</span>
                 </div>
             </div>
@@ -861,31 +1106,29 @@
     </section>
 
     <!-- Benefits -->
-    <section id="beneficios" class="py-32 relative overflow-hidden" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);">
+    <section id="beneficios" class="py-16 sm:py-20 md:py-24 relative overflow-hidden" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);">
         <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-[0.02]">
             <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><defs><pattern id=\"tech\" width=\"50\" height=\"50\" patternUnits=\"userSpaceOnUse\"><path d=\"M 50 0 L 0 0 0 50\" fill=\"none\" stroke=\"%23000\" stroke-width=\"0.5\"/></pattern></defs><rect width=\"100\" height=\"100\" fill=\"url(%23tech)\"/></svg>');"></div>
         </div>
         
-        <div class="max-w-8xl mx-auto px-6 relative z-10">
+        <div class="max-w-8xl mx-auto px-4 sm:px-6 relative z-10">
             <!-- Header Section -->
-            <div class="text-center mb-20 fade-in">
-                <div class="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/50 mb-8 shadow-sm">
-                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mr-3"></div>
-                    <i data-lucide="award" class="w-5 h-5 mr-3" style="color: var(--primary);"></i>
-                    <span class="text-sm font-bold tracking-wide" style="color: var(--primary);">VENTAJAS COMPETITIVAS TÉCNICAS</span>
+            <div class="text-center mb-12 sm:mb-16 fade-in">
+                <div class="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-4 sm:mb-6">
+                    <i data-lucide="award" class="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-600"></i>
+                    <span class="text-xs font-semibold tracking-wide text-blue-600">VENTAJAS COMPETITIVAS</span>
                 </div>
-                <h2 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight" style="color: var(--gray-charcoal);">
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-gray-800">
                     Beneficios Técnicos y Operacionales
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-medium">
-                    Soluciones industriales avanzadas que optimizan procesos operativos con 
-                    <span class="font-bold text-gray-800">tecnología de punta y estándares de calidad internacional</span>
+                <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
+                    Soluciones industriales avanzadas que optimizan procesos operativos con tecnología de punta y estándares de calidad internacional
                 </p>
             </div>
             
             <!-- Interactive Benefits Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
                 <!-- Benefit 1: Higiene Industrial -->
                 <div class="benefit-card group fade-in stagger-1">
                     <div class="benefit-header">
@@ -1036,84 +1279,72 @@
     </section>
 
     <!-- Solutions Section -->
-    <section id="productos" class="py-32" style="background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);">
-        <div class="max-w-7xl mx-auto px-6">
+    <section id="productos" class="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-slate-50 via-white to-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <!-- Header Section -->
-            <div class="text-center mb-24">
-                <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/80 backdrop-blur-sm border border-gray-200/50 mb-8 shadow-sm">
-                    <i data-lucide="layers" class="w-5 h-5 mr-3" style="color: var(--primary);"></i>
-                    <span class="text-sm font-semibold tracking-wide" style="color: var(--gray-charcoal);">SOLUCIONES ESPECIALIZADAS</span>
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-flex items-center px-3 sm:px-4 py-2 rounded-full bg-blue-50 border border-blue-200 mb-4 sm:mb-6">
+                    <i data-lucide="layers" class="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-600"></i>
+                    <span class="text-xs font-semibold tracking-wide text-blue-600">SOLUCIONES ESPECIALIZADAS</span>
                 </div>
-                <h2 class="font-display text-6xl md:text-7xl font-bold mb-8 leading-tight" style="color: var(--gray-charcoal);">
-                    <span class="block">Soluciones Especializadas</span>
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 leading-tight text-gray-800">
+                    Productos de Polipropileno Reciclado
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-600 max-w-5xl mx-auto leading-relaxed font-medium">
-                    Productos técnicos de polipropileno reciclado diseñados para aplicaciones industriales específicas 
-                    con certificación de calidad y cumplimiento normativo
+                <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed px-2">
+                    Diseñados para aplicaciones industriales específicas con certificación de calidad y cumplimiento normativo
                 </p>
             </div>
 
             <!-- Tarimas Section -->
-            <div class="mb-32">
-                <div class="flex items-center justify-between mb-16">
-                    <div class="flex-1">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mr-6 shadow-lg" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                                <i data-lucide="package" class="w-8 h-8 text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-4xl font-bold mb-2" style="color: var(--gray-charcoal);">
-                                    Sistemas de Tarimas Industriales
-                                </h3>
-                                <div class="w-24 h-1 rounded-full" style="background: linear-gradient(90deg, var(--primary), var(--primary-dark));"></div>
-                            </div>
-                        </div>
-                        <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
-                            Plataformas sanitizables de polipropileno para almacenamiento y transporte industrial
-                        </p>
+            <div class="mb-16 sm:mb-20">
+                <div class="text-center mb-8 sm:mb-12">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 mb-3 sm:mb-4">
+                        <i data-lucide="package" class="w-3 h-3 sm:w-4 sm:h-4 mr-2 text-blue-600"></i>
+                        <span class="text-xs font-medium text-gray-500">TARIMAS INDUSTRIALES</span>
                     </div>
-                    <div class="hidden lg:block">
-                        <div class="w-32 h-32 rounded-3xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(5, 47, 95, 0.1));">
-                            <i data-lucide="layers" class="w-16 h-16" style="color: var(--primary);"></i>
-                        </div>
-                    </div>
+                    <h3 class="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800">
+                        Sistemas de Almacenamiento y Transporte
+                    </h3>
+                    <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-2">
+                        Plataformas sanitizables de polipropileno para operaciones industriales
+                    </p>
                 </div>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
                     <!-- Tarima JS-01 -->
                     <div class="group relative">
-                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(5, 47, 95, 0.1));"></div>
-                        <div class="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-                            <div class="aspect-square rounded-2xl overflow-hidden mb-6 shadow-lg">
+                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500 bg-blue-50/50"></div>
+                        <div class="relative bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                            <div class="aspect-square rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 shadow-lg">
                                 <img src="assets/images/products/tarima-js-01.png" alt="Tarima JS-01 - Tarima estándar rackeable" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             </div>
-                            <div class="space-y-4">
+                            <div class="space-y-3 sm:space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <div class="px-4 py-2 rounded-full border" style="background: rgba(10, 77, 140, 0.1); border-color: rgba(10, 77, 140, 0.2);">
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">Rackeable</span>
+                                    <div class="px-3 sm:px-4 py-1 sm:py-2 rounded-full border bg-blue-50 border-blue-200">
+                                        <span class="text-xs sm:text-sm font-semibold text-blue-600">Rackeable</span>
                                     </div>
-                                    <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: var(--primary);">
-                                        <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
-                                    </div>
-                                </div>
-                                <h4 class="font-display text-2xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-01</h4>
-                                <p class="text-gray-600 leading-relaxed">Tarima estándar rackeable para almacenamiento industrial</p>
-                                <div class="space-y-3 pt-4 border-t border-gray-100">
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-gray-500">Dimensiones:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">48" × 40"</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-gray-500">Carga Estática:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">3,000 kg</span>
-                                    </div>
-                                    <div class="flex justify-between items-center">
-                                        <span class="text-sm text-gray-500">Peso:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">9.7 kg</span>
+                                    <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full flex items-center justify-center bg-blue-600">
+                                        <i data-lucide="arrow-right" class="w-3 h-3 sm:w-4 sm:h-4 text-white"></i>
                                     </div>
                                 </div>
-                                <a href="tarima-js-01.html" class="block w-full mt-6 px-6 py-4 text-white rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                                    <i data-lucide="external-link" class="w-4 h-4 inline mr-2"></i>
+                                <h4 class="font-display text-xl sm:text-2xl font-bold text-gray-800">Tarima JS-01</h4>
+                                <p class="text-sm sm:text-base text-gray-600 leading-relaxed">Tarima estándar rackeable para almacenamiento industrial</p>
+                                <div class="space-y-2 sm:space-y-3 pt-3 sm:pt-4 border-t border-gray-100">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs sm:text-sm text-gray-500">Dimensiones:</span>
+                                        <span class="text-xs sm:text-sm font-semibold text-gray-800">48" × 40"</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs sm:text-sm text-gray-500">Carga Estática:</span>
+                                        <span class="text-xs sm:text-sm font-semibold text-blue-600">3,000 kg</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs sm:text-sm text-gray-500">Peso:</span>
+                                        <span class="text-xs sm:text-sm font-semibold text-gray-800">9.7 kg</span>
+                                    </div>
+                                </div>
+                                <a href="tarima-js-01.html" class="block w-full mt-4 sm:mt-6 px-4 sm:px-6 py-3 sm:py-4 text-white rounded-lg sm:rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl bg-gradient-to-r from-blue-600 to-blue-700 text-sm sm:text-base">
+                                    <i data-lucide="external-link" class="w-3 h-3 sm:w-4 sm:h-4 inline mr-2"></i>
                                     Ver Especificaciones Completas
                                 </a>
                             </div>
@@ -1122,37 +1353,37 @@
                     
                     <!-- Tarima JS-15 -->
                     <div class="group relative">
-                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(5, 47, 95, 0.1));"></div>
+                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500 bg-blue-50/50"></div>
                         <div class="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
                             <div class="aspect-square rounded-2xl overflow-hidden mb-6 shadow-lg">
                                 <img src="assets/images/products/tarima-js-15.png" alt="Tarima JS-15 - Tarima one-way para exportación" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <div class="px-4 py-2 rounded-full border" style="background: rgba(10, 77, 140, 0.1); border-color: rgba(10, 77, 140, 0.2);">
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">One-way</span>
+                                    <div class="px-4 py-2 rounded-full border bg-blue-50 border-blue-200">
+                                        <span class="text-sm font-semibold text-blue-600">One-way</span>
                                     </div>
-                                    <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: var(--primary);">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center bg-blue-600">
                                         <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
                                     </div>
                                 </div>
-                                <h4 class="font-display text-2xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-15</h4>
+                                <h4 class="font-display text-2xl font-bold text-gray-800">Tarima JS-15</h4>
                                 <p class="text-gray-600 leading-relaxed">Tarima one-way para exportación internacional</p>
                                 <div class="space-y-3 pt-4 border-t border-gray-100">
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Dimensiones:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">1.20m × 1.00m</span>
+                                        <span class="text-sm font-semibold text-gray-800">1.20m × 1.00m</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Carga Estática:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">1,000 kg</span>
+                                        <span class="text-sm font-semibold text-blue-600">1,000 kg</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Peso:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">6.7 kg</span>
+                                        <span class="text-sm font-semibold text-gray-800">6.7 kg</span>
                                     </div>
                                 </div>
-                                <a href="tarima-js-15.html" class="block w-full mt-6 px-6 py-4 text-white rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                                <a href="tarima-js-15.html" class="block w-full mt-6 px-6 py-4 text-white rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl bg-gradient-to-r from-blue-600 to-blue-700">
                                     <i data-lucide="external-link" class="w-4 h-4 inline mr-2"></i>
                                     Ver Especificaciones Completas
                                 </a>
@@ -1162,37 +1393,37 @@
                     
                     <!-- Tarima JS-32 -->
                     <div class="group relative">
-                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(5, 47, 95, 0.1));"></div>
+                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500 bg-blue-50/50"></div>
                         <div class="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
                             <div class="aspect-square rounded-2xl overflow-hidden mb-6 shadow-lg">
                                 <img src="assets/images/products/tarima-js-32.png" alt="Tarima JS-32 - Tarima con ceja para uso pesado" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <div class="px-4 py-2 rounded-full border" style="background: rgba(10, 77, 140, 0.1); border-color: rgba(10, 77, 140, 0.2);">
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">Uso Pesado</span>
+                                    <div class="px-4 py-2 rounded-full border bg-blue-50 border-blue-200">
+                                        <span class="text-sm font-semibold text-blue-600">Uso Pesado</span>
                                     </div>
-                                    <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: var(--primary);">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center bg-blue-600">
                                         <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
                                     </div>
                                 </div>
-                                <h4 class="font-display text-2xl font-bold" style="color: var(--gray-charcoal);">Tarima JS-32</h4>
+                                <h4 class="font-display text-2xl font-bold text-gray-800">Tarima JS-32</h4>
                                 <p class="text-gray-600 leading-relaxed">Tarima con ceja para uso pesado industrial</p>
                                 <div class="space-y-3 pt-4 border-t border-gray-100">
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Dimensiones:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">1.20m × 1.00m</span>
+                                        <span class="text-sm font-semibold text-gray-800">1.20m × 1.00m</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Carga Estática:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">5,000 kg</span>
+                                        <span class="text-sm font-semibold text-blue-600">5,000 kg</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Peso:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">14 kg</span>
+                                        <span class="text-sm font-semibold text-gray-800">14 kg</span>
                                     </div>
                                 </div>
-                                <a href="tarima-js-32.html" class="block w-full mt-6 px-6 py-4 text-white rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                                <a href="tarima-js-32.html" class="block w-full mt-6 px-6 py-4 text-white rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl bg-gradient-to-r from-blue-600 to-blue-700">
                                     <i data-lucide="external-link" class="w-4 h-4 inline mr-2"></i>
                                     Ver Especificaciones Completas
                                 </a>
@@ -1204,68 +1435,57 @@
             
             <!-- Cajas Section -->
             <div>
-                <div class="flex items-center justify-between mb-16">
-                    <div class="flex-1">
-                        <div class="flex items-center mb-6">
-                            <div class="w-16 h-16 rounded-2xl flex items-center justify-center mr-6 shadow-lg" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                                <i data-lucide="leaf" class="w-8 h-8 text-white"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-display text-4xl font-bold mb-2" style="color: var(--gray-charcoal);">
-                                    Contenedores Agrícolas
-                                </h3>
-                                <div class="w-24 h-1 rounded-full" style="background: linear-gradient(90deg, var(--primary), var(--primary-dark));"></div>
-                            </div>
-                        </div>
-                        <p class="text-lg text-gray-600 max-w-2xl leading-relaxed">
-                            Sistemas de ventilación optimizada para conservación; apilables, de alta resistencia y personalizables
-                        </p>
+                <div class="text-center mb-12">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 mb-4">
+                        <i data-lucide="leaf" class="w-4 h-4 mr-2 text-blue-600"></i>
+                        <span class="text-xs font-medium text-gray-500">CONTENEDORES AGRÍCOLAS</span>
                     </div>
-                    <div class="hidden lg:block">
-                        <div class="w-32 h-32 rounded-3xl flex items-center justify-center" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(5, 47, 95, 0.1));">
-                            <i data-lucide="package" class="w-16 h-16" style="color: var(--primary);"></i>
-                        </div>
-                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800">
+                        Sistemas de Conservación y Ventilación
+                    </h3>
+                    <p class="text-gray-600 max-w-2xl mx-auto">
+                        Apilables, de alta resistencia y personalizables para productos frescos
+                    </p>
                 </div>
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Caja Allende -->
                     <div class="group relative lg:col-span-1">
-                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500" style="background: linear-gradient(135deg, rgba(10, 77, 140, 0.1), rgba(5, 47, 95, 0.1));"></div>
+                        <div class="absolute inset-0 rounded-3xl transform group-hover:scale-105 transition-all duration-500 bg-blue-50/50"></div>
                         <div class="relative bg-white/90 backdrop-blur-sm rounded-3xl p-8 border border-gray-200/50 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
                             <div class="aspect-square rounded-2xl overflow-hidden mb-6 shadow-lg">
                                 <img src="assets/images/products/caja-allende.png" alt="Caja Allende - Caja agrícola ventilada y apilable" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                             </div>
                             <div class="space-y-4">
                                 <div class="flex items-center justify-between">
-                                    <div class="px-4 py-2 rounded-full border" style="background: rgba(10, 77, 140, 0.1); border-color: rgba(10, 77, 140, 0.2);">
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">Apilable</span>
+                                    <div class="px-4 py-2 rounded-full border bg-blue-50 border-blue-200">
+                                        <span class="text-sm font-semibold text-blue-600">Apilable</span>
                                     </div>
-                                    <div class="w-8 h-8 rounded-full flex items-center justify-center" style="background: var(--primary);">
+                                    <div class="w-8 h-8 rounded-full flex items-center justify-center bg-blue-600">
                                         <i data-lucide="arrow-right" class="w-4 h-4 text-white"></i>
                                     </div>
                                 </div>
-                                <h4 class="font-display text-2xl font-bold" style="color: var(--gray-charcoal);">Caja Allende</h4>
+                                <h4 class="font-display text-2xl font-bold text-gray-800">Caja Allende</h4>
                                 <p class="text-gray-600 leading-relaxed">Caja agrícola ventilada y apilable para productos frescos</p>
                                 <div class="space-y-3 pt-4 border-t border-gray-100">
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Capacidad:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--primary);">30 kg</span>
+                                        <span class="text-sm font-semibold text-blue-600">30 kg</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Dimensiones:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">54×35×32 cm</span>
+                                        <span class="text-sm font-semibold text-gray-800">54×35×32 cm</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Peso:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">2.0 kg</span>
+                                        <span class="text-sm font-semibold text-gray-800">2.0 kg</span>
                                     </div>
                                     <div class="flex justify-between items-center">
                                         <span class="text-sm text-gray-500">Personalización:</span>
-                                        <span class="text-sm font-semibold" style="color: var(--gray-charcoal);">Alto relieve / Hot stamping</span>
+                                        <span class="text-sm font-semibold text-gray-800">Alto relieve / Hot stamping</span>
                                     </div>
                                 </div>
-                                <a href="caja-allende.html" class="block w-full mt-6 px-6 py-4 text-white rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                                <a href="caja-allende.html" class="block w-full mt-6 px-6 py-4 text-white rounded-xl font-semibold text-center transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl bg-gradient-to-r from-blue-600 to-blue-700">
                                     <i data-lucide="external-link" class="w-4 h-4 inline mr-2"></i>
                                     Ver Especificaciones Completas
                                 </a>
@@ -1278,10 +1498,10 @@
     </section>
 
     <!-- Product Showcase -->
-    <section class="py-24" style="background: linear-gradient(135deg, var(--gray-light) 0%, white 100%);">
+    <section class="py-24 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 fade-in">
-                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" style="color: var(--gray-charcoal);">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 text-gray-800">
                     Soluciones Industriales Completas
                 </h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -1298,7 +1518,7 @@
                 </div>
                 
                 <div class="fade-in stagger-2">
-                    <h3 class="font-display text-3xl font-bold mb-6" style="color: var(--primary);">
+                    <h3 class="font-display text-3xl font-bold mb-6 text-blue-600">
                         Más de 15 Años de Experiencia
                     </h3>
                     <p class="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -1308,7 +1528,7 @@
                     
                     <div class="grid grid-cols-2 gap-6">
                         <div class="text-center">
-                            <div class="text-3xl font-bold mb-2" style="color: var(--primary);">500+</div>
+                            <div class="text-3xl font-bold mb-2 text-blue-600">500+</div>
                             <div class="text-sm text-gray-600">Clientes Satisfechos</div>
                         </div>
                         <div class="text-center">
@@ -1490,13 +1710,13 @@
         <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
             <div class="fade-in">
                 <div class="inline-flex items-center px-6 py-3 rounded-full bg-white/15 backdrop-blur-md border border-white/25 mb-12 shadow-lg">
-                    <i data-lucide="rocket" class="w-5 h-5 mr-3" style="color: #D4AF37;"></i>
+                    <i data-lucide="rocket" class="w-5 h-5 mr-3 text-yellow-500"></i>
                     <span class="text-sm font-semibold tracking-wide text-white">Listo para Transformar tu Industria</span>
                 </div>
                 
                 <h2 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-white leading-tight">
                     Optimice sus Operaciones
-                    <span class="block text-3xl md:text-4xl lg:text-5xl mt-2" style="color: #D4AF37;">Industriales</span>
+                    <span class="block text-3xl md:text-4xl lg:text-5xl mt-2 text-yellow-500">Industriales</span>
                 </h2>
                 
                 <p class="text-xl md:text-2xl text-white/90 mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
@@ -1545,10 +1765,10 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: linear-gradient(135deg, var(--gray-charcoal) 0%, var(--gray-dark) 100%);" class="text-white py-20 relative overflow-hidden">
+    <footer class="bg-gradient-to-br from-gray-800 to-gray-900 text-white py-20 relative overflow-hidden">
         <!-- Background Pattern -->
         <div class="absolute inset-0 opacity-5">
-            <div class="absolute inset-0" style="background-image: radial-gradient(circle at 25% 25%, var(--primary) 2px, transparent 2px), radial-gradient(circle at 75% 75%, var(--accent) 2px, transparent 2px); background-size: 50px 50px;"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10"></div>
         </div>
         
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -1578,7 +1798,7 @@
                 <!-- Products -->
                 <div>
                     <h3 class="text-lg font-bold mb-6 flex items-center">
-                        <i data-lucide="package" class="w-5 h-5 mr-2" style="color: var(--primary);"></i>
+                        <i data-lucide="package" class="w-5 h-5 mr-2 text-blue-400"></i>
                         Productos
                     </h3>
                     <ul class="space-y-3 text-sm">
@@ -1600,7 +1820,7 @@
                 <!-- Contact -->
                 <div>
                     <h3 class="text-lg font-bold mb-6 flex items-center">
-                        <i data-lucide="phone" class="w-5 h-5 mr-2" style="color: var(--primary);"></i>
+                        <i data-lucide="phone" class="w-5 h-5 mr-2 text-blue-400"></i>
                         Contacto
                     </h3>
                     <div class="space-y-4 text-sm">
@@ -1630,7 +1850,7 @@
                 <!-- Locations -->
                 <div>
                     <h3 class="text-lg font-bold mb-6 flex items-center">
-                        <i data-lucide="map-pin" class="w-5 h-5 mr-2" style="color: var(--primary);"></i>
+                        <i data-lucide="map-pin" class="w-5 h-5 mr-2 text-blue-400"></i>
                         Ubicaciones
                     </h3>
                     <div class="space-y-4 text-sm">
