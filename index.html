@@ -377,14 +377,14 @@
             opacity: 1;
         }
         
-        /* Hero Zoom Animation */
+        /* Hero Zoom Animation with Multiple Images */
         .hero-gradient {
             animation: hero-zoom 20s ease-in-out infinite;
             background-attachment: fixed !important;
             position: relative;
         }
         
-        /* Hero Background Layer for smooth animation */
+        /* Hero Background Images - Two layers for seamless transition */
         .hero-gradient::before {
             content: '';
             position: absolute;
@@ -396,12 +396,32 @@
             background-size: 110% auto;
             background-position: center center;
             background-attachment: fixed;
-            animation: background-zoom 25s ease-in-out infinite;
+            animation: 
+                background-zoom-1 20s ease-in-out infinite,
+                image-fade-1 8s ease-in-out infinite;
+            z-index: -3;
+        }
+        
+        /* Second image layer */
+        .hero-gradient::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/images/hero/tarima hero 2.png');
+            background-size: 110% auto;
+            background-position: center center;
+            background-attachment: fixed;
+            animation: 
+                background-zoom-2 20s ease-in-out infinite 4s,
+                image-fade-2 8s ease-in-out infinite 4s;
             z-index: -2;
         }
         
         /* Gradient overlay */
-        .hero-gradient::after {
+        .hero-gradient .gradient-overlay {
             content: '';
             position: absolute;
             top: 0;
@@ -421,23 +441,50 @@
             }
         }
         
-        @keyframes background-zoom {
+        @keyframes background-zoom-1 {
             0%, 100% {
                 background-size: 110% auto;
                 opacity: 1;
             }
-            25% {
+            50% {
                 background-size: 115% auto;
                 opacity: 0.95;
+            }
+        }
+        
+        @keyframes background-zoom-2 {
+            0%, 100% {
+                background-size: 110% auto;
+                opacity: 1;
             }
             50% {
-                background-size: 120% auto;
-                opacity: 0.9;
-            }
-            75% {
                 background-size: 115% auto;
                 opacity: 0.95;
             }
+        }
+        
+        @keyframes image-fade-1 {
+            0%, 47%, 53%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+        }
+        
+        @keyframes image-fade-2 {
+            0%, 47%, 53%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        /* Enhanced transition for smoother visual experience */
+        .hero-gradient::before,
+        .hero-gradient::after {
+            transition: opacity 0.5s ease-in-out;
         }
         
         /* Hero Content Floating Animation */
@@ -1219,8 +1266,9 @@
 
     <!-- Hero -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-black/15"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10"></div>
+        <div class="gradient-overlay"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-black/15 z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10 z-0"></div>
         <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6">
             <div class="fade-in hero-content" style="animation: hero-float 15000ms ease-in-out infinite;">
                 <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight text-white">
