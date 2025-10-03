@@ -397,8 +397,8 @@
             background-position: center center;
             background-attachment: fixed;
             animation: 
-                background-zoom-1 20s ease-in-out infinite,
-                image-fade-1 8s ease-in-out infinite;
+                background-zoom-1 30s ease-in-out infinite,
+                image-fade-1 12s ease-in-out infinite;
             z-index: -3;
         }
         
@@ -415,8 +415,8 @@
             background-position: center center;
             background-attachment: fixed;
             animation: 
-                background-zoom-2 20s ease-in-out infinite 4s,
-                image-fade-2 8s ease-in-out infinite 4s;
+                background-zoom-2 30s ease-in-out infinite 6s,
+                image-fade-2 12s ease-in-out infinite 6s;
             z-index: -2;
         }
         
@@ -446,9 +446,17 @@
                 background-size: 110% auto;
                 opacity: 1;
             }
-            50% {
+            25% {
                 background-size: 115% auto;
+                opacity: 0.98;
+            }
+            50% {
+                background-size: 120% auto;
                 opacity: 0.95;
+            }
+            75% {
+                background-size: 115% auto;
+                opacity: 0.98;
             }
         }
         
@@ -457,14 +465,22 @@
                 background-size: 110% auto;
                 opacity: 1;
             }
-            50% {
+            25% {
                 background-size: 115% auto;
+                opacity: 0.98;
+            }
+            50% {
+                background-size: 120% auto;
                 opacity: 0.95;
+            }
+            75% {
+                background-size: 115% auto;
+                opacity: 0.98;
             }
         }
         
         @keyframes image-fade-1 {
-            0%, 47%, 53%, 100% {
+            0%, 45%, 55%, 100% {
                 opacity: 1;
             }
             50% {
@@ -473,7 +489,7 @@
         }
         
         @keyframes image-fade-2 {
-            0%, 47%, 53%, 100% {
+            0%, 45%, 55%, 100% {
                 opacity: 0;
             }
             50% {
@@ -484,7 +500,7 @@
         /* Enhanced transition for smoother visual experience */
         .hero-gradient::before,
         .hero-gradient::after {
-            transition: opacity 0.5s ease-in-out;
+            transition: opacity 1s ease-in-out;
         }
         
         /* Hero Content Floating Animation */
@@ -1337,7 +1353,7 @@
                                         <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant" style="color: var(--text-primary);">
                                             Tarima JS-01
                                         </h3>
-                                        <p class="text-lg text-gray-600 content-smooth">
+                                        <p class="text-lg text-black content-smooth">
                                             Tarima estándar rackeable para almacenamiento industrial con certificación internacional
                                         </p>
                                     </div>
@@ -1439,7 +1455,7 @@
                                         <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant" style="color: var(--text-primary);">
                                             Tarima JS-32
                                         </h3>
-                                        <p class="text-lg text-gray-600 content-smooth">
+                                        <p class="text-lg text-black content-smooth">
                                             Tarima reforzada con ceja para aplicaciones de uso pesado industrial y alta durabilidad
                                         </p>
                                     </div>
