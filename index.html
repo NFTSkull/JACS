@@ -346,6 +346,37 @@
             transform: translateY(0);
         }
         
+        /* Product Carousel Styles */
+        .carousel-dot {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .carousel-dot.active {
+            background-color: var(--primary);
+            width: 2rem;
+        }
+        
+        #product-carousel {
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .product-slide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(97,181,191,0.05));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .product-slide-container:hover::before {
+            opacity: 1;
+        }
+        
         .stagger-1 { transition-delay: 0.1s; }
         .stagger-2 { transition-delay: 0.2s; }
         .stagger-3 { transition-delay: 0.3s; }
@@ -1100,6 +1131,251 @@
             
         </div>
         
+    </section>
+
+    <!-- Product Carousel -->
+    <section id="productos-carousel" class="py-16 sm:py-20 bg-gradient-to-br from-primary-light/8 via-white to-accent-light/8 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <!-- Header -->
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="inline-flex items-center px-4 py-3 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 mb-6 text-reveal shadow-lg">
+                    <i data-lucide="package" class="w-4 h-4 mr-2 text-primary"></i>
+                    <span class="text-sm font-bold tracking-wide text-primary">GAMA DE PRODUCTOS</span>
+                </div>
+                <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 title-elegant" style="color: var(--text-primary);">
+                    Tarimas Plásticas Especializadas
+                </h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto content-smooth" style="color: var(--text-secondary);">
+                    Descubre nuestra completa línea de soluciones en polipropileno para todas tus necesidades industriales
+                </p>
+            </div>
+
+            <!-- Carousel Container -->
+            <div class="relative">
+                <!-- Carousel Slides -->
+                <div id="product-carousel" class="flex transition-transform duration-700 ease-in-out">
+                    <!-- Slide 1: Tarima JS-01 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="max-w-4xl mx-auto">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                                <div class="order-2 lg:order-1">
+                                    <div class="relative group">
+                                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 transform rotate-2 group-hover:rotate-3 transition-transform duration-300"></div>
+                                        <div class="relative bg-white rounded-3xl p-2 shadow-2xl">
+                                            <img src="assets/images/products/tarima-js-01.png" alt="Tarima JS-01 - Tarima estándar rackeable" class="w-full h-auto rounded-2xl">
+                                            <div class="absolute top-4 right-4 bg-gradient-to-r from-primary to-primary-dark text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                                Rackeable
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-1 lg:order-2 space-y-6">
+                                    <div class="space-y-4">
+                                        <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant" style="color: var(--text-primary);">
+                                            Tarima JS-01
+                                        </h3>
+                                        <p class="text-lg text-gray-600 content-smooth">
+                                            Tarima estándar rackeable para almacenamiento industrial con certificación internacional
+                                        </p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-white p-4 rounded-xl border border-primary-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Dimensiones</div>
+                                            <div class="font-bold text-lg text-primary">48" × 40"</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-primary-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Carga Estática</div>
+                                            <div class="font-bold text-lg text-primary">3,000 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-primary-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Peso</div>
+                                            <div class="font-bold text-lg text-primary">9.7 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-primary-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Material</div>
+                                            <div class="font-bold text-lg text-primary">PP-HD</div>
+                                        </div>
+                                    </div>
+                                    <a href="tarima-js-01.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-primary to-primary-dark text-white rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                                        <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
+                                        Ver Especificaciones Completas
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Tarima JS-15 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="max-w-4xl mx-auto">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                                <div class="order-2 lg:order-1">
+                                    <div class="relative group">
+                                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-light/20 to-accent/20 transform rotate-2 group-hover:rotate-3 transition-transform duration-300"></div>
+                                        <div class="relative bg-white rounded-3xl p-2 shadow-2xl">
+                                            <img src="assets/images/products/tarima-js-15.png" alt="Tarima JS-15 - Tarima one-way para exportación" class="w-full h-auto rounded-2xl">
+                                            <div class="absolute top-4 right-4 bg-gradient-to-r from-accent to-accent-light text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                                Exportación
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-1 lg:order-2 space-y-6">
+                                    <div class="space-y-4">
+                                        <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant" style="color: var(--text-primary);">
+                                            Tarima JS-15
+                                        </h3>
+                                        <p class="text-lg text-gray-600 content-smooth">
+                                            Tarima one-way optimizada para exportación internacional con estándares internacionales
+                                        </p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-white p-4 rounded-xl border border-accent-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Dimensiones</div>
+                                            <div class="font-bold text-lg text-accent">1.20m × 1.00m</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Carga Estática</div>
+                                            <div class="font-bold text-lg text-accent">1,000 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Peso</div>
+                                            <div class="font-bold text-lg text-accent">6.7 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-light/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Uso</div>
+                                            <div class="font-bold text-lg text-accent">One-way</div>
+                                        </div>
+                                    </div>
+                                    <a href="tarima-js-15.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent to-accent-light text-white rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                                        <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
+                                        Ver Especificaciones Completas
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Tarima JS-32 -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="max-w-4xl mx-auto">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                                <div class="order-2 lg:order-1">
+                                    <div class="relative group">
+                                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-orange/20 to-accent-purple/20 transform rotate-2 group-hover:rotate-3 transition-transform duration-300"></div>
+                                        <div class="relative bg-white rounded-3xl p-2 shadow-2xl">
+                                            <img src="assets/images/products/tarima-js-32.png" alt="Tarima JS-32 - Tarima con ceja para uso pesado" class="w-full h-auto rounded-2xl">
+                                            <div class="absolute top-4 right-4 bg-gradient-to-r from-accent-orange to-accent-purple text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                                Uso Pesado
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-1 lg:order-2 space-y-6">
+                                    <div class="space-y-4">
+                                        <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant" style="color: var(--text-primary);">
+                                            Tarima JS-32
+                                        </h3>
+                                        <p class="text-lg text-gray-600 content-smooth">
+                                            Tarima reforzada con ceja para aplicaciones de uso pesado industrial y alta durabilidad
+                                        </p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-white p-4 rounded-xl border border-accent-orange/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Dimensiones</div>
+                                            <div class="font-bold text-lg text-accent-orange">1.20m × 1.00m</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-orange/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Carga Estática</div>
+                                            <div class="font-bold text-lg text-accent-orange">5,000 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-orange/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Peso</div>
+                                            <div class="font-bold text-lg text-accent-orange">14 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-orange/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Característica</div>
+                                            <div class="font-bold text-lg text-accent-orange">Con Ceja</div>
+                                        </div>
+                                    </div>
+                                    <a href="tarima-js-32.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-orange to-accent-purple text-white rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                                        <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
+                                        Ver Especificaciones Completas
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Caja Allende -->
+                    <div class="w-full flex-shrink-0 px-4">
+                        <div class="max-w-4xl mx-auto">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                                <div class="order-2 lg:order-1">
+                                    <div class="relative group">
+                                        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-purple/20 to-primary/20 transform rotate-2 group-hover:rotate-3 transition-transform duration-300"></div>
+                                        <div class="relative bg-white rounded-3xl p-2 shadow-2xl">
+                                            <img src="assets/images/products/caja-allende.png" class="w-full h-auto rounded-2xl">
+                                            <div class="absolute top-4 right-4 bg-gradient-to-r from-accent-purple to-primary text-white px-3 py-1 rounded-full text-sm font-bold shadow-lg">
+                                                Agrícola
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-1 lg:order-2 space-y-6">
+                                    <div class="space-y-4">
+                                        <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant" style="color: var(--text-primary);">
+                                            Caja Allende
+                                        </h3>
+                                        <p class="text-lg text-gray-600 content-smooth">
+                                            Caja agrícola ventilada y apilable con personalización disponible para productos frescos
+                                        </p>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div class="bg-white p-4 rounded-xl border border-accent-purple/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Capacidad</div>
+                                            <div class="font-bold text-lg text-accent-purple">30 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-purple/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Dimensiones</div>
+                                            <div class="font-bold text-lg text-accent-purple">54×35×32 cm</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-purple/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Peso</div>
+                                            <div class="font-bold text-lg text-accent-purple">2.0 kg</div>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-accent-purple/20 shadow-lg">
+                                            <div class="text-sm text-text-light mb-1">Característica</div>
+                                            <div class="font-bold text-lg text-accent-purple">Ventilada</div>
+                                        </div>
+                                    </div>
+                                    <a href="caja-allende.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-accent-purple to-primary text-white rounded-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                                        <i data-lucide="external-link" class="w-5 h-5 mr-2"></i>
+                                        Ver Especificaciones Completas
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Controls -->
+                <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-primary-dark rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-primary-dark rounded-full p-3 shadow-xl hover:shadow-2xl transition-all duration-300 backdrop-blur-sm">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+
+                <!-- Dots Indicator -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-primary/30 hover:bg-primary/50 transition-all duration-300" data-slide="0"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-primary/30 hover:bg-primary/50 transition-all duration-300" data-slide="1"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-primary/30 hover:bg-primary/50 transition-all duration-300" data-slide="2"></button>
+                    <button class="carousel-dot w-3 h-3 rounded-full bg-primary/30 hover:bg-primary/50 transition-all duration-300" data-slide="3"></button>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Trust & Certifications -->
@@ -2068,6 +2344,70 @@
                 mobileMenu.classList.add('hidden');
             });
         });
+        
+        // Product Carousel Functionality
+        let currentSlide = 0;
+        const totalSlides = 4;
+        const carousel = document.getElementById('product-carousel');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        function showSlide(slideIndex) {
+            currentSlide = slideIndex;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('bg-primary', index === currentSlide);
+                dot.classList.toggle('bg-primary/30', index !== currentSlide);
+                dot.classList.toggle('w-8', index === currentSlide);
+                dot.classList.toggle('w-3', index !== currentSlide);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlide);
+        }
+        
+        // Event listeners
+        nextBtn?.addEventListener('click', nextSlide);
+        prevBtn?.addEventListener('click', prevSlide);
+        
+        // Dot navigation
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+        
+        // Auto-play carousel
+        setInterval(nextSlide, 8000);
+        
+        // Initialize carousel
+        showSlide(0);
+        
+        // Add automatic carousel dots animation
+        function animateDots() {
+            dots.forEach(dot => {
+                dot.classList.remove('animate-pulse');
+            });
+            if (dots[currentSlide]) {
+                dots[currentSlide].classList.add('animate-pulse');
+            }
+        }
+        
+        // Call animateDots on slide change
+        const originalShowSlide = showSlide;
+        showSlide = function(slideIndex) {
+            originalShowSlide(slideIndex);
+            // Add slight delay for dot animation
+            setTimeout(animateDots, 100);
+        };
     </script>
 </body>
 </html>
