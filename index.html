@@ -426,20 +426,6 @@
             -webkit-mask-image: radial-gradient(120% 120% at 50% 40%, #000 60%, transparent 100%);
         }
         
-        /* Video loading optimization */
-        .video-loading-bg {
-            z-index: 1;
-        }
-        
-        .video-loading-bg.video-loaded {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        /* Video opacity transition */
-        video[class*="opacity-100"] {
-            z-index: 2;
-        }
         
         /* Hero Content Floating Animation */
         @keyframes hero-float {
@@ -2113,37 +2099,34 @@
 
     <!-- Hero -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Video Background Optimizado -->
-        <video
-            class="absolute inset-0 w-full h-full object-cover brightness-[.8] contrast-[1.1] saturate-[1.05] transition-opacity duration-700 opacity-0"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="hero-poster.webp"
-            onloadeddata="this.classList.add('opacity-100')"
-        >
+
+        <!-- Video -->
+        <video id="heroVideo"
+            class="absolute inset-0 w-full h-full object-cover brightness-[.82] contrast-[1.08] saturate-[1.05] transition-opacity duration-700 opacity-0 z-[1]"
+            autoplay muted loop playsinline preload="metadata"
+            poster="hero-poster.webp">
             <source src="video-hero.webm" type="video/webm" />
             <source src="video-hero.mp4" type="video/mp4" />
         </video>
 
-        <!-- Blur de fondo temporal hasta que cargue el video -->
-        <div class="absolute inset-0 bg-[linear-gradient(125deg,#083A6B,#61B5BF_35%,#0A4D8C)] opacity-100 transition-opacity duration-700 video-loading-bg"></div>
+        <!-- Capa base por si falla el video (no tapa porque va debajo y el video hace cover) -->
+        <div class="absolute inset-0 bg-[linear-gradient(125deg,#083A6B,#61B5BF_35%,#0A4D8C)] z-0"></div>
 
-        <!-- Overlay institucional en marca (turquesa JACS) -->
-        <div class="absolute inset-0
-                    bg-[linear-gradient(125deg,#61B5BFcc, #4A9AA5aa 35%, #7BC9D2cc)]
-                    mix-blend-multiply"></div>
+        <!-- Overlay institucional con ALPHA (tinte, no cubre) -->
+        <div class="absolute inset-0 z-[2]
+                    bg-[linear-gradient(125deg,#083A6Bcc,#61B5BF66_35%,#0A4D8Ccc)]
+                    mix-blend-multiply pointer-events-none"></div>
 
-        <!-- Capa de ajuste sutil para más solidez -->
-        <div class="absolute inset-0 bg-[#61B5BF]/30"></div>
+        <!-- Lavado sutil azul, con transparencia -->
+        <div class="absolute inset-0 z-[2] bg-[#0A4D8C]/25 pointer-events-none"></div>
 
-        <!-- Vignette suave para foco al centro (no tapa el video) -->
-        <div class="pointer-events-none absolute inset-0 bg-black/10 hero-vignette"></div>
+        <!-- Vignette suave (enmascara sin tapar) -->
+        <div class="pointer-events-none absolute inset-0 z-[3]
+                    bg-black/10
+                    [mask-image:radial-gradient(120%_120%_at_50%_40%,#000_60%,transparent_100%)]"></div>
 
         <!-- Contenido -->
-        <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="relative z-[4] text-center text-white max-w-7xl mx-auto px-4 sm:px-6">
             <div class="fade-in hero-content visible" style="animation: hero-float 15000ms ease-in-out infinite;">
                 <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight">
                     <span class="block">Tarimas Plásticas</span>
@@ -2180,6 +2163,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- Script: muestra el video en cuanto pueda reproducirse -->
+        <script>
+            (function () {
+                const v = document.getElementById('heroVideo');
+                const show = () => v.classList.replace('opacity-0', 'opacity-100');
+
+                // iOS a veces no dispara loadeddata; cubrimos más eventos:
+                v.addEventListener('loadeddata', show, { once: true });
+                v.addEventListener('canplay', show, { once: true });
+                v.addEventListener('canplaythrough', show, { once: true });
+
+                // Si el autoplay fue bloqueado, intentamos play() silencioso:
+                const tryPlay = () => v.play().then(show).catch(() => {/* queda el poster+degradé */});
+                if (v.readyState >= 2) show(); else document.addEventListener('visibilitychange', () => !document.hidden && tryPlay(), { once: true });
+                tryPlay();
+            })();
+        </script>
     </section>
 
     <!-- Product Carousel -->
@@ -3256,40 +3257,7 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
-        // Handle video loading - optimized for fast display
-        function initializeHeroVideo() {
-            const video = document.querySelector('video');
-            const loadingBg = document.querySelector('.video-loading-bg');
-            
-            if (video) {
-                // Handle video loaded event
-                video.addEventListener('loadeddata', function() {
-                    // Show video with smooth transition
-                    video.classList.add('opacity-100');
-                    
-                    // Hide loading background
-                    if (loadingBg) {
-                        loadingBg.classList.add('video-loaded');
-                    }
-                });
-                
-                // Force play for better compatibility
-                video.play().catch(function(error) {
-                    console.log('Video autoplay prevented:', error);
-                });
-                
-                // Fallback: hide loading bg after 3 seconds even if video doesn't load
-                setTimeout(function() {
-                    if (loadingBg && !loadingBg.classList.contains('video-loaded')) {
-                        loadingBg.classList.add('video-loaded');
-                    }
-                }, 3000);
-                
-                video.addEventListener('canplay', function() {
-                    video.classList.add('loaded');
-                });
-            }
-        }
+        // Video loading is now handled inline in the hero section
         
         // Preselect product based on URL parameter and scroll to contact
         function preselectProduct() {
@@ -3343,7 +3311,6 @@
         
         // Call functions when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            initializeHeroVideo();
             preselectProduct();
             handleHashNavigation();
         });
