@@ -524,6 +524,173 @@
             animation-delay: 0.5s;
         }
         
+        /* Elegant text reveal animations */
+        .title-elegant {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: elegant-reveal 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
+        }
+        
+        .subtitle-refined {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: elegant-reveal 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s forwards;
+        }
+        
+        .content-smooth {
+            opacity: 0;
+            transform: translateY(15px);
+            animation: elegant-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.6s forwards;
+        }
+        
+        @keyframes elegant-reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Intelligent information presentation */
+        .hero-stats {
+            opacity: 0;
+            transform: translateY(25px);
+            animation: elegant-reveal 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s forwards;
+        }
+        
+        .hero-cta {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: elegant-reveal 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.4s forwards;
+        }
+        
+        /* Subtle text glow effect */
+        .title-elegant {
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+        
+        .subtitle-refined {
+            text-shadow: 0 0 20px rgba(123, 201, 210, 0.2);
+        }
+        
+        /* Professional hover effects for buttons */
+        .hero-cta .btn-primary,
+        .hero-cta .btn-secondary {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-cta .btn-primary::before,
+        .hero-cta .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .hero-cta .btn-primary:hover::before,
+        .hero-cta .btn-secondary:hover::before {
+            left: 100%;
+        }
+        
+        /* Intelligent spacing and typography */
+        .hero-content p {
+            letter-spacing: 0.02em;
+            word-spacing: 0.1em;
+        }
+        
+        /* Subtle parallax effect for text */
+        .hero-content {
+            transform: translateZ(0);
+            will-change: transform;
+        }
+        
+        /* Intelligent micro-interactions */
+        .hero-stats > div {
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: default;
+        }
+        
+        .hero-stats > div:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-stats > div:hover .w-2 {
+            transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Professional text highlighting */
+        .hero-content p span[class*="relative"] {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-content p span[class*="relative"]:hover {
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Elegant button enhancements */
+        .hero-cta .btn-primary,
+        .hero-cta .btn-secondary {
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-cta .btn-primary:hover,
+        .hero-cta .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Sophisticated loading states */
+        .hero-content {
+            opacity: 0;
+            animation: hero-fade-in 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+        }
+        
+        @keyframes hero-fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Intelligent responsive typography */
+        .hero-content h1 {
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Subtle depth and layering */
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.02) 0%, transparent 70%);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        
+        .hero-content:hover::before {
+            opacity: 1;
+        }
+        
         /* WhatsApp Button Styles */
         #whatsapp-button {
             animation: bounce-in-right 2s ease-in-out;
@@ -572,222 +739,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-        
-        /* Elegant Text Animations */
-        .text-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: textReveal 0.8s ease-out forwards;
-        }
-        
-        .text-reveal-delay-1 {
-            animation-delay: 0.2s;
-        }
-        
-        .text-reveal-delay-2 {
-            animation-delay: 0.4s;
-        }
-        
-        .text-reveal-delay-3 {
-            animation-delay: 0.6s;
-        }
-        
-        @keyframes textReveal {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* Smooth Fade In */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Elegant Scale Animation */
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .scale-in.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        /* Professional Slide Animation */
-        .slide-in-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .slide-in-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .slide-in-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .slide-in-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        /* Elegant Card Hover Effects */
-        .card-elegant {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(0);
-        }
-        
-        .card-elegant:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Professional Button Animations */
-        .btn-elegant {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .btn-elegant::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .btn-elegant:hover::before {
-            left: 100%;
-        }
-        
-        /* Intelligent Parallax Effect */
-        .parallax-element {
-            transition: transform 0.1s ease-out;
-        }
-        
-        /* Modern Loading Animation */
-        .loading-shimmer {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        /* Elegant Typography Animation */
-        .title-elegant {
-            background: linear-gradient(135deg, var(--gray-charcoal) 0%, var(--primary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: titleGlow 3s ease-in-out infinite alternate;
-        }
-        
-        @keyframes titleGlow {
-            0% { filter: brightness(1); }
-            100% { filter: brightness(1.1); }
-        }
-        
-        /* Professional Content Smooth */
-        .content-smooth {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .content-smooth:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Intelligent Intersection Observer */
-        .observe-element {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .observe-element.in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Elegant Preloader */
-        body.loading {
-            overflow: hidden;
-        }
-        
-        body.loading::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease-out;
-        }
-        
-        body.loaded::before {
-            opacity: 0;
-            pointer-events: none;
-        }
-        
-        /* Elegant Loading Animation */
-        .loading-shimmer-elegant {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        .loading-shimmer-elegant::before {
-            content: '';
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        body.loaded .loading-shimmer-elegant {
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
         }
         
         .floating {
@@ -871,23 +822,6 @@
         
         /* Mobile Optimizations */
         @media (max-width: 768px) {
-            /* Reduce animation complexity on mobile for better performance */
-            .text-reveal {
-                animation-duration: 0.6s;
-            }
-            
-            .fade-in, .scale-in, .slide-in-left, .slide-in-right {
-                transition-duration: 0.4s;
-            }
-            
-            .card-elegant:hover {
-                transform: translateY(-4px);
-            }
-            
-            /* Optimize parallax for mobile */
-            .parallax-element {
-                transform: none !important;
-            }
             /* Header optimizations */
             .header-logo img {
                 height: 2.5rem;
@@ -1727,10 +1661,6 @@
     </style>
 </head>
 <body class="font-sans bg-white text-gray-900">
-    <!-- Elegant Loading Animation -->
-    <div class="loading-shimmer-elegant">
-        JACS Plastics
-    </div>
     <!-- Header -->
     <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100/80">
         <div class="max-w-7xl mx-auto px-8">
@@ -1830,24 +1760,56 @@
         <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-black/15 z-0"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10 z-0"></div>
         <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="fade-in hero-content text-reveal" style="animation: hero-float 15000ms ease-in-out infinite;">
+            <div class="fade-in hero-content" style="animation: hero-float 15000ms ease-in-out infinite;">
                 <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight text-white">
-                    <span class="block title-elegant text-reveal-delay-1">Tarimas Plásticas</span>
-                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold subtitle-refined text-reveal-delay-2" style="color: var(--primary-light);">Certificadas</span>
+                    <span class="block title-elegant">Tarimas Plásticas</span>
+                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold subtitle-refined" style="color: var(--primary-light);">Certificadas</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 font-medium px-2 content-smooth text-reveal-delay-3">
-                    Especialistas en <span class="font-semibold text-white">tarimas de polipropileno</span> y cajas agrícolas higiénicas. 
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed text-white/95 font-medium px-2 content-smooth">
+                    Especialistas en <span class="font-semibold text-white relative inline-block">
+                        <span class="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent rounded-sm opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+                        tarimas de polipropileno
+                    </span> y cajas agrícolas higiénicas. 
                     <br class="hidden sm:block">
-                    <span class="font-semibold text-white">Soluciones sanitarias</span> para exportación, almacenamiento y transporte industrial de nivel internacional.
+                    <span class="font-semibold text-white relative inline-block">
+                        <span class="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent rounded-sm opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
+                        Soluciones sanitarias
+                    </span> para exportación, almacenamiento y transporte industrial de nivel internacional.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4 text-reveal-delay-3">
-                    <a href="#productos" class="btn-primary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 w-full sm:w-auto bg-white text-primary-dark hover:bg-gray-100 shadow-xl font-bold btn-elegant">
-                        <i data-lucide="package" class="w-4 h-4 sm:w-5 sm:h-5"></i>
-                        Ver Tarimas Plásticas
+                
+                <!-- Intelligent stats presentation -->
+                <div class="hero-stats flex flex-wrap justify-center gap-6 sm:gap-8 mb-8 sm:mb-12 text-white/90">
+                    <div class="flex items-center space-x-2 text-sm sm:text-base">
+                        <div class="w-2 h-2 bg-gradient-to-r from-white to-white/60 rounded-full animate-pulse"></div>
+                        <span class="font-medium">15+ Años</span>
+                        <span class="text-white/70">de experiencia</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-sm sm:text-base">
+                        <div class="w-2 h-2 bg-gradient-to-r from-white to-white/60 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                        <span class="font-medium">500+</span>
+                        <span class="text-white/70">clientes satisfechos</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-sm sm:text-base">
+                        <div class="w-2 h-2 bg-gradient-to-r from-white to-white/60 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+                        <span class="font-medium">ISO 9001</span>
+                        <span class="text-white/70">certificado</span>
+                    </div>
+                </div>
+                
+                <div class="hero-cta flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+                    <a href="#productos" class="btn-primary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 w-full sm:w-auto bg-white text-primary-dark hover:bg-gray-100 shadow-xl font-bold group">
+                        <i data-lucide="package" class="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="relative">
+                            Ver Tarimas Plásticas
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-dark/30 group-hover:w-full transition-all duration-300"></span>
+                        </span>
                     </a>
-                    <a href="#contacto" class="btn-secondary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 bg-white border-white text-black hover:bg-gray-100 shadow-xl font-bold w-full sm:w-auto btn-elegant">
-                        <i data-lucide="calculator" class="w-4 h-4 sm:w-5 sm:h-5 text-black"></i>
-                        Cotizar Tarimas
+                    <a href="#contacto" class="btn-secondary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 bg-white border-white text-black hover:bg-gray-100 shadow-xl font-bold w-full sm:w-auto group">
+                        <i data-lucide="calculator" class="w-4 h-4 sm:w-5 sm:h-5 text-black group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="relative">
+                            Cotizar Tarimas
+                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black/30 group-hover:w-full transition-all duration-300"></span>
+                        </span>
                     </a>
                 </div>
             </div>
@@ -1881,20 +1843,20 @@
                     <div class="w-full flex-shrink-0 px-4">
                         <div class="max-w-4xl mx-auto">
                             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                                <div class="order-2 lg:order-1 slide-in-left">
+                                <div class="order-2 lg:order-1">
                                     <div class="relative group">
                                         <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 transform rotate-2 group-hover:rotate-3 transition-transform duration-300"></div>
-                                        <div class="relative bg-white rounded-3xl p-2 shadow-2xl card-elegant">
+                                        <div class="relative bg-white rounded-3xl p-2 shadow-2xl">
                                             <img src="assets/images/products/tarima-js-01.png" alt="Tarima JS-01 - Tarima estándar rackeable" class="w-full h-auto rounded-2xl">
-                                            <div class="absolute top-4 right-4 bg-white text-black px-3 py-1 rounded-full text-sm font-bold shadow-lg border border-gray-200 scale-in">
+                                            <div class="absolute top-4 right-4 bg-white text-black px-3 py-1 rounded-full text-sm font-bold shadow-lg border border-gray-200">
                                                 Rackeable
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="order-1 lg:order-2 space-y-6 slide-in-right">
+                                <div class="order-1 lg:order-2 space-y-6">
                                     <div class="space-y-4">
-                                        <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant text-reveal" style="color: var(--text-primary);">
+                                        <h3 class="font-display text-3xl sm:text-4xl font-bold title-elegant" style="color: var(--text-primary);">
                                             Tarima JS-01
                                         </h3>
                                         <p class="text-lg text-black content-smooth">
@@ -2119,7 +2081,7 @@
             </div>
             
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 items-center">
-                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-white border border-gray-200 hover:bg-gray-50 transition-all duration-300 hover:shadow-lg hover:scale-105 group card-elegant scale-in">
+                <div class="flex flex-col items-center p-4 sm:p-6 rounded-2xl bg-white border border-gray-200 hover:bg-gray-50 transition-all duration-300 hover:shadow-lg hover:scale-105 group">
                     <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-xl flex items-center justify-center mb-3 sm:mb-4 transition-all duration-300 shadow-lg" style="background: var(--primary);" onmouseover="this.style.background='var(--primary-dark)'" onmouseout="this.style.background='var(--primary)'">
                         <i data-lucide="shield-check" class="w-6 h-6 sm:w-8 sm:h-8 text-white"></i>
                     </div>
@@ -2890,61 +2852,6 @@
             });
         });
         
-        // Elegant Animations and Intersection Observer
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible', 'in-view');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all animated elements
-        document.querySelectorAll('.fade-in, .scale-in, .slide-in-left, .slide-in-right, .observe-element').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Parallax effect for hero background
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax-element');
-            
-            parallaxElements.forEach(element => {
-                const speed = element.dataset.speed || 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
-
-        // Smooth reveal animations on load
-        window.addEventListener('load', () => {
-            // Add text-reveal animations
-            document.querySelectorAll('.text-reveal').forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-            
-            // Add elegant loading completion
-            document.body.classList.add('loaded');
-        });
-
-        // Preloader animation
-        window.addEventListener('DOMContentLoaded', () => {
-            // Add loading class to body
-            document.body.classList.add('loading');
-            
-            // Remove loading class after a short delay
-            setTimeout(() => {
-                document.body.classList.remove('loading');
-            }, 500);
-        });
-
         // Product Carousel Functionality
         let currentSlide = 0;
         const totalSlides = 4;
