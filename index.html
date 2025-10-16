@@ -410,10 +410,10 @@
             /* No filters to ensure visibility */
         }
         
-        /* Video loading state */
+        /* Video loading state - show immediately */
         .hero-video.loading {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out;
         }
         
         .hero-video.loaded {
@@ -2093,10 +2093,10 @@
     <!-- Hero -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
         <!-- Video Background -->
-        <video class="hero-video loading" autoplay muted loop playsinline preload="auto" webkit-playsinline>
+        <video class="hero-video loading" autoplay muted loop playsinline preload="auto" webkit-playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%231a1a1a'/%3E%3C/svg%3E">
             <source src="video hero.mp4" type="video/mp4">
             <!-- Fallback for browsers that don't support video -->
-            <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary-light"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
         </video>
         
         <!-- Professional institutional overlay -->
@@ -3235,27 +3235,27 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
-        // Handle video loading
+        // Handle video loading - optimized for fast display
         function initializeHeroVideo() {
             const video = document.querySelector('.hero-video');
             if (video) {
+                // Show video immediately
+                video.classList.remove('loading');
+                video.classList.add('loaded');
+                
+                // Force play for better compatibility
+                video.play().catch(function(error) {
+                    console.log('Video autoplay prevented:', error);
+                });
+                
+                // Additional event listeners for smooth loading
                 video.addEventListener('loadeddata', function() {
-                    video.classList.remove('loading');
                     video.classList.add('loaded');
                 });
                 
                 video.addEventListener('canplay', function() {
-                    video.classList.remove('loading');
                     video.classList.add('loaded');
                 });
-                
-                // Fallback for slow connections
-                setTimeout(() => {
-                    if (video.classList.contains('loading')) {
-                        video.classList.remove('loading');
-                        video.classList.add('loaded');
-                    }
-                }, 3000);
             }
         }
         
