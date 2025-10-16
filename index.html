@@ -2979,7 +2979,7 @@
                         </div>
                         <div>
                             <label class="block text-sm font-semibold mb-2" style="color: var(--gray-charcoal);">Producto de interés *</label>
-                            <select required class="form-input">
+                            <select id="producto-select" required class="form-input">
                                 <option value="">Selecciona un producto</option>
                                 <option value="tarima-js-01">Tarima JS-01</option>
                                 <option value="tarima-js-15">Tarima JS-15</option>
@@ -3312,6 +3312,33 @@
     <script>
         // Initialize Lucide icons
         lucide.createIcons();
+        
+        // Preselect product based on URL parameter
+        function preselectProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const product = urlParams.get('product');
+            
+            if (product) {
+                const select = document.getElementById('producto-select');
+                if (select) {
+                    // Map product names to select values
+                    const productMap = {
+                        'Tarima JS-01': 'tarima-js-01',
+                        'Tarima JS-15': 'tarima-js-15',
+                        'Tarima JS-32': 'tarima-js-32',
+                        'Caja Allende': 'caja-allende'
+                    };
+                    
+                    const selectValue = productMap[product];
+                    if (selectValue) {
+                        select.value = selectValue;
+                    }
+                }
+            }
+        }
+        
+        // Call preselectProduct when page loads
+        document.addEventListener('DOMContentLoaded', preselectProduct);
         
         
         // Handle form submission
