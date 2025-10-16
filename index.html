@@ -426,6 +426,21 @@
             -webkit-mask-image: radial-gradient(120% 120% at 50% 40%, #000 60%, transparent 100%);
         }
         
+        /* Video loading optimization */
+        .video-loading-bg {
+            z-index: 1;
+        }
+        
+        .video-loading-bg.video-loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Video opacity transition */
+        video[class*="opacity-100"] {
+            z-index: 2;
+        }
+        
         /* Hero Content Floating Animation */
         @keyframes hero-float {
             0%, 100% {
@@ -2098,13 +2113,23 @@
 
     <!-- Hero -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <!-- Video Background -->
+        <!-- Video Background Optimizado -->
         <video
-            class="absolute inset-0 w-full h-full object-cover brightness-[.78] contrast-[1.07] saturate-[1.05]"
-            autoplay muted loop playsinline preload="auto"
-            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%231a1a1a'/%3E%3C/svg%3E">
-            <source src="video hero.mp4" type="video/mp4" />
+            class="absolute inset-0 w-full h-full object-cover brightness-[.8] contrast-[1.1] saturate-[1.05] transition-opacity duration-700 opacity-0"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="hero-poster.webp"
+            onloadeddata="this.classList.add('opacity-100')"
+        >
+            <source src="video-hero.webm" type="video/webm" />
+            <source src="video-hero.mp4" type="video/mp4" />
         </video>
+
+        <!-- Blur de fondo temporal hasta que cargue el video -->
+        <div class="absolute inset-0 bg-[linear-gradient(125deg,#083A6B,#61B5BF_35%,#0A4D8C)] opacity-100 transition-opacity duration-700 video-loading-bg"></div>
 
         <!-- Overlay institucional en marca (turquesa JACS) -->
         <div class="absolute inset-0
@@ -3233,21 +3258,32 @@
         
         // Handle video loading - optimized for fast display
         function initializeHeroVideo() {
-            const video = document.querySelector('.hero-video');
+            const video = document.querySelector('video');
+            const loadingBg = document.querySelector('.video-loading-bg');
+            
             if (video) {
-                // Show video immediately
-                video.classList.remove('loading');
-                video.classList.add('loaded');
+                // Handle video loaded event
+                video.addEventListener('loadeddata', function() {
+                    // Show video with smooth transition
+                    video.classList.add('opacity-100');
+                    
+                    // Hide loading background
+                    if (loadingBg) {
+                        loadingBg.classList.add('video-loaded');
+                    }
+                });
                 
                 // Force play for better compatibility
                 video.play().catch(function(error) {
                     console.log('Video autoplay prevented:', error);
                 });
                 
-                // Additional event listeners for smooth loading
-                video.addEventListener('loadeddata', function() {
-                    video.classList.add('loaded');
-                });
+                // Fallback: hide loading bg after 3 seconds even if video doesn't load
+                setTimeout(function() {
+                    if (loadingBg && !loadingBg.classList.contains('video-loaded')) {
+                        loadingBg.classList.add('video-loaded');
+                    }
+                }, 3000);
                 
                 video.addEventListener('canplay', function() {
                     video.classList.add('loaded');
