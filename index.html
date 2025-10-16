@@ -691,49 +691,62 @@
             opacity: 1;
         }
         
-        /* Professional Certifications Carousel */
-        .certifications-carousel {
+        /* Professional Certifications Band */
+        .certifications-band {
             position: relative;
             overflow: hidden;
-            border-radius: 24px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.98) 100%);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
             box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
         }
         
-        .certifications-track {
+        .certifications-scroll {
             display: flex;
-            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            animation: scroll-horizontal 25s linear infinite;
             will-change: transform;
         }
         
-        .certification-card {
-            flex: 0 0 100%;
-            padding: 3rem 2rem;
-            text-align: center;
-            position: relative;
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .certifications-scroll:hover {
+            animation-play-state: paused;
         }
         
-        .certification-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
+        .certification-item {
+            flex: 0 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            margin-right: 3rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            border: 1px solid rgba(97, 181, 191, 0.1);
+            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            min-width: 280px;
+        }
+        
+        .certification-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .cert-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            flex-shrink: 0;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
         }
         
-        .certification-icon::before {
+        .cert-icon::before {
             content: '';
             position: absolute;
             top: 0;
@@ -741,88 +754,50 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
-            border-radius: 20px;
+            border-radius: 12px;
         }
         
-        .certification-icon svg {
-            width: 40px;
-            height: 40px;
+        .cert-icon svg {
+            width: 24px;
+            height: 24px;
             z-index: 2;
             position: relative;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
         }
         
-        .certification-title {
-            font-size: 1.5rem;
+        .cert-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .cert-title {
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
             color: var(--gray-charcoal);
-            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
         }
         
-        .certification-subtitle {
-            font-size: 1rem;
+        .cert-subtitle {
+            font-size: 0.85rem;
             color: var(--gray-medium);
             font-weight: 500;
-            margin-bottom: 1rem;
         }
         
-        .certification-description {
-            font-size: 0.9rem;
-            color: var(--gray-medium);
-            line-height: 1.6;
-            max-width: 300px;
-            margin: 0 auto;
+        @keyframes scroll-horizontal {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
         
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(97, 181, 191, 0.3);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            border: 2px solid transparent;
-        }
-        
-        .carousel-dot.active {
-            background: var(--primary);
-            transform: scale(1.2);
-            box-shadow: 0 0 0 4px rgba(97, 181, 191, 0.2);
-        }
-        
-        .carousel-dot:hover {
-            background: var(--primary-light);
-            transform: scale(1.1);
-        }
-        
-        /* Professional institutional icons */
-        .institutional-icon {
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-        }
-        
-        /* Auto-rotation animation */
-        @keyframes carousel-rotate {
-            0%, 16.66% { transform: translateX(0%); }
-            16.67%, 33.33% { transform: translateX(-100%); }
-            33.34%, 50% { transform: translateX(-200%); }
-            50.01%, 66.66% { transform: translateX(-300%); }
-            66.67%, 83.33% { transform: translateX(-400%); }
-            83.34%, 100% { transform: translateX(-500%); }
-        }
-        
-        .certifications-track.auto-rotate {
-            animation: carousel-rotate 30s infinite ease-in-out;
-        }
-        
-        .certifications-track.auto-rotate:hover {
-            animation-play-state: paused;
+        /* Duplicate content for seamless loop */
+        .certifications-scroll::after {
+            content: '';
+            display: block;
+            width: 100%;
         }
         
         /* WhatsApp Button Styles */
@@ -2210,103 +2185,191 @@
                 </p>
             </div>
             
-            <!-- Professional Certifications Carousel -->
-            <div class="certifications-carousel max-w-4xl mx-auto">
-                <div class="certifications-track auto-rotate" id="certificationsTrack">
+            <!-- Professional Certifications Band -->
+            <div class="certifications-band">
+                <div class="certifications-scroll">
                     <!-- ISO 9001 - Quality -->
-                    <div class="certification-card">
-                        <div class="certification-icon" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                            <svg class="institutional-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                                 <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
-                        <h3 class="certification-title">ISO 9001</h3>
-                        <p class="certification-subtitle">Sistema de Gestión de Calidad</p>
-                        <p class="certification-description">Certificación internacional que garantiza la excelencia en nuestros procesos de fabricación y control de calidad.</p>
+                        <div class="cert-content">
+                            <div class="cert-title">ISO 9001</div>
+                            <div class="cert-subtitle">Sistema de Gestión de Calidad</div>
+                        </div>
                     </div>
                     
                     <!-- ISO 14001 - Environmental -->
-                    <div class="certification-card">
-                        <div class="certification-icon" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
-                            <svg class="institutional-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                                 <path d="M2 17l10 5 10-5"/>
                                 <path d="M2 12l10 5 10-5"/>
                             </svg>
                         </div>
-                        <h3 class="certification-title">ISO 14001</h3>
-                        <p class="certification-subtitle">Gestión Ambiental</p>
-                        <p class="certification-description">Compromiso con la sostenibilidad y el cuidado del medio ambiente en todos nuestros procesos industriales.</p>
+                        <div class="cert-content">
+                            <div class="cert-title">ISO 14001</div>
+                            <div class="cert-subtitle">Gestión Ambiental</div>
+                        </div>
                     </div>
                     
                     <!-- OHSAS 18001 - Safety -->
-                    <div class="certification-card">
-                        <div class="certification-icon" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);">
-                            <svg class="institutional-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                                 <circle cx="9" cy="7" r="4"/>
                                 <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                                 <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                             </svg>
                         </div>
-                        <h3 class="certification-title">OHSAS 18001</h3>
-                        <p class="certification-subtitle">Seguridad y Salud Ocupacional</p>
-                        <p class="certification-description">Garantizamos un entorno de trabajo seguro y saludable para todos nuestros colaboradores y procesos.</p>
+                        <div class="cert-content">
+                            <div class="cert-title">OHSAS 18001</div>
+                            <div class="cert-subtitle">Seguridad y Salud Ocupacional</div>
+                        </div>
                     </div>
                     
                     <!-- FDA - Food Grade -->
-                    <div class="certification-card">
-                        <div class="certification-icon" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);">
-                            <svg class="institutional-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="12" cy="12" r="10"/>
                                 <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
                                 <line x1="9" y1="9" x2="9.01" y2="9"/>
                                 <line x1="15" y1="9" x2="15.01" y2="9"/>
                             </svg>
                         </div>
-                        <h3 class="certification-title">FDA</h3>
-                        <p class="certification-subtitle">Grado Alimentario</p>
-                        <p class="certification-description">Materiales aprobados para contacto directo con alimentos, cumpliendo los más altos estándares de inocuidad.</p>
+                        <div class="cert-content">
+                            <div class="cert-title">FDA</div>
+                            <div class="cert-subtitle">Grado Alimentario</div>
+                        </div>
                     </div>
                     
                     <!-- International Export -->
-                    <div class="certification-card">
-                        <div class="certification-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
-                            <svg class="institutional-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 3h18v18H3zM12 8v8m-4-4h8"/>
                                 <path d="M16 8l4 4-4 4"/>
                             </svg>
                         </div>
-                        <h3 class="certification-title">Exportación</h3>
-                        <p class="certification-subtitle">Comercio Internacional</p>
-                        <p class="certification-description">Cumplimiento con normativas internacionales para exportación a mercados globales y certificaciones fitosanitarias.</p>
+                        <div class="cert-content">
+                            <div class="cert-title">Exportación</div>
+                            <div class="cert-subtitle">Comercio Internacional</div>
+                        </div>
                     </div>
                     
                     <!-- 100% Recycled -->
-                    <div class="certification-card">
-                        <div class="certification-icon" style="background: linear-gradient(135deg, #374151 0%, #1F2937 100%);">
-                            <svg class="institutional-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #374151 0%, #1F2937 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M3 3v5h5"/>
                                 <path d="M3 8a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                                 <path d="M21 21v-5h-5"/>
                                 <path d="M21 16a9 9 0 1 0-9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
                             </svg>
                         </div>
-                        <h3 class="certification-title">100% Reciclado</h3>
-                        <p class="certification-subtitle">Material Sostenible</p>
-                        <p class="certification-description">Productos fabricados con material 100% reciclado, contribuyendo a la economía circular y sostenibilidad ambiental.</p>
+                        <div class="cert-content">
+                            <div class="cert-title">100% Reciclado</div>
+                            <div class="cert-subtitle">Material Sostenible</div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Carousel Indicators -->
-                <div class="carousel-indicators">
-                    <button class="carousel-dot active" data-slide="0"></button>
-                    <button class="carousel-dot" data-slide="1"></button>
-                    <button class="carousel-dot" data-slide="2"></button>
-                    <button class="carousel-dot" data-slide="3"></button>
-                    <button class="carousel-dot" data-slide="4"></button>
-                    <button class="carousel-dot" data-slide="5"></button>
+                    
+                    <!-- Duplicate set for seamless loop -->
+                    <!-- ISO 9001 - Quality -->
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <div class="cert-title">ISO 9001</div>
+                            <div class="cert-subtitle">Sistema de Gestión de Calidad</div>
+                        </div>
+                    </div>
+                    
+                    <!-- ISO 14001 - Environmental -->
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <div class="cert-title">ISO 14001</div>
+                            <div class="cert-subtitle">Gestión Ambiental</div>
+                        </div>
+                    </div>
+                    
+                    <!-- OHSAS 18001 - Safety -->
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <div class="cert-title">OHSAS 18001</div>
+                            <div class="cert-subtitle">Seguridad y Salud Ocupacional</div>
+                        </div>
+                    </div>
+                    
+                    <!-- FDA - Food Grade -->
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <div class="cert-title">FDA</div>
+                            <div class="cert-subtitle">Grado Alimentario</div>
+                        </div>
+                    </div>
+                    
+                    <!-- International Export -->
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3h18v18H3zM12 8v8m-4-4h8"/>
+                                <path d="M16 8l4 4-4 4"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <div class="cert-title">Exportación</div>
+                            <div class="cert-subtitle">Comercio Internacional</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 100% Recycled -->
+                    <div class="certification-item">
+                        <div class="cert-icon" style="background: linear-gradient(135deg, #374151 0%, #1F2937 100%);">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v5h5"/>
+                                <path d="M3 8a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                                <path d="M21 21v-5h-5"/>
+                                <path d="M21 16a9 9 0 1 0-9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <div class="cert-title">100% Reciclado</div>
+                            <div class="cert-subtitle">Material Sostenible</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2917,58 +2980,6 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
-        // Professional Certifications Carousel
-        let currentCertSlide = 0;
-        const totalCertSlides = 6;
-        const certTrack = document.getElementById('certificationsTrack');
-        const certDots = document.querySelectorAll('.carousel-dot');
-        
-        function showCertSlide(slideIndex) {
-            currentCertSlide = slideIndex;
-            if (certTrack) {
-                certTrack.style.transform = `translateX(-${currentCertSlide * 100}%)`;
-            }
-            
-            // Update dots
-            certDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentCertSlide);
-            });
-        }
-        
-        function nextCertSlide() {
-            currentCertSlide = (currentCertSlide + 1) % totalCertSlides;
-            showCertSlide(currentCertSlide);
-        }
-        
-        function prevCertSlide() {
-            currentCertSlide = (currentCertSlide - 1 + totalCertSlides) % totalCertSlides;
-            showCertSlide(currentCertSlide);
-        }
-        
-        // Dot navigation
-        certDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showCertSlide(index);
-                // Pause auto-rotation temporarily
-                if (certTrack) {
-                    certTrack.classList.remove('auto-rotate');
-                    setTimeout(() => {
-                        certTrack.classList.add('auto-rotate');
-                    }, 10000); // Resume after 10 seconds
-                }
-            });
-        });
-        
-        // Pause auto-rotation on hover
-        if (certTrack) {
-            certTrack.addEventListener('mouseenter', () => {
-                certTrack.classList.remove('auto-rotate');
-            });
-            
-            certTrack.addEventListener('mouseleave', () => {
-                certTrack.classList.add('auto-rotate');
-            });
-        }
         
         // Handle form submission
         function handleSubmit(event) {
