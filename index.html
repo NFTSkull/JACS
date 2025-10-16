@@ -793,11 +793,13 @@
             }
         }
         
-        /* Duplicate content for seamless loop */
-        .certifications-scroll::after {
-            content: '';
-            display: block;
-            width: 100%;
+        /* Perfect seamless loop - no visible cut */
+        .certifications-scroll {
+            width: 200%; /* Double width to accommodate duplicates */
+        }
+        
+        .certifications-scroll > * {
+            flex: 0 0 auto;
         }
         
         /* WhatsApp Button Styles */
@@ -2209,6 +2211,8 @@
                                 <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                                 <path d="M2 17l10 5 10-5"/>
                                 <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2221,10 +2225,10 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M12 2v20"/>
+                                <path d="M16 8l4 4-4 4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2237,10 +2241,12 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
                                 <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                                <line x1="9" y1="9" x2="9.01" y2="9"/>
-                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2253,8 +2259,12 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 3h18v18H3zM12 8v8m-4-4h8"/>
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
                                 <path d="M16 8l4 4-4 4"/>
+                                <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2267,10 +2277,13 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, #374151 0%, #1F2937 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
                                 <path d="M3 3v5h5"/>
-                                <path d="M3 8a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                                 <path d="M21 21v-5h-5"/>
-                                <path d="M21 16a9 9 0 1 0-9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                                <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2301,6 +2314,8 @@
                                 <path d="M12 2L2 7l10 5 10-5-10-5z"/>
                                 <path d="M2 17l10 5 10-5"/>
                                 <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
+                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2313,10 +2328,10 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M12 2v20"/>
+                                <path d="M16 8l4 4-4 4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2329,10 +2344,12 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
                                 <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                                <line x1="9" y1="9" x2="9.01" y2="9"/>
-                                <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2345,8 +2362,12 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 3h18v18H3zM12 8v8m-4-4h8"/>
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
                                 <path d="M16 8l4 4-4 4"/>
+                                <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
@@ -2359,10 +2380,13 @@
                     <div class="certification-item">
                         <div class="cert-icon" style="background: linear-gradient(135deg, #374151 0%, #1F2937 100%);">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                                <path d="M12 2v20"/>
                                 <path d="M3 3v5h5"/>
-                                <path d="M3 8a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                                 <path d="M21 21v-5h-5"/>
-                                <path d="M21 16a9 9 0 1 0-9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                                <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
                         <div class="cert-content">
