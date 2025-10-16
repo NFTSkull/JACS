@@ -717,8 +717,7 @@
             flex: 0 0 auto;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem 2rem;
+            padding: 1.5rem 2rem;
             margin-right: 3rem;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -736,36 +735,6 @@
             border-color: rgba(97, 181, 191, 0.4);
         }
         
-        .cert-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cert-icon::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
-            border-radius: 12px;
-        }
-        
-        .cert-icon svg {
-            width: 24px;
-            height: 24px;
-            z-index: 2;
-            position: relative;
-            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
-        }
         
         .cert-content {
             flex: 1;
@@ -2194,12 +2163,6 @@
                 <div class="certifications-scroll">
                     <!-- ISO 9001 - Quality -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">ISO 9001</div>
                             <div class="cert-subtitle">Sistema de Gestión de Calidad</div>
@@ -2208,14 +2171,6 @@
                     
                     <!-- ISO 14001 - Environmental -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                                <path d="M12 2v20"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">ISO 14001</div>
                             <div class="cert-subtitle">Gestión Ambiental</div>
@@ -2224,13 +2179,6 @@
                     
                     <!-- OHSAS 18001 - Safety -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                                <path d="M12 2v20"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">OHSAS 18001</div>
                             <div class="cert-subtitle">Seguridad y Salud Ocupacional</div>
@@ -2239,15 +2187,6 @@
                     
                     <!-- FDA - Food Grade -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                                <path d="M12 2v20"/>
-                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">FDA</div>
                             <div class="cert-subtitle">Grado Alimentario</div>
@@ -2256,15 +2195,6 @@
                     
                     <!-- International Export -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                                <path d="M12 2v20"/>
-                                <path d="M16 8l4 4-4 4"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">Exportación</div>
                             <div class="cert-subtitle">Comercio Internacional</div>
@@ -2273,14 +2203,6 @@
                     
                     <!-- 100% Recycled -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 3v5h5"/>
-                                <path d="M3 8a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                                <path d="M21 21v-5h-5"/>
-                                <path d="M21 16a9 9 0 1 0-9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">100% Reciclado</div>
                             <div class="cert-subtitle">Material Sostenible</div>
@@ -2290,12 +2212,6 @@
                     <!-- Duplicate set for seamless loop -->
                     <!-- ISO 9001 - Quality -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">ISO 9001</div>
                             <div class="cert-subtitle">Sistema de Gestión de Calidad</div>
@@ -2304,14 +2220,6 @@
                     
                     <!-- ISO 14001 - Environmental -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                                <path d="M12 2v20"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">ISO 14001</div>
                             <div class="cert-subtitle">Gestión Ambiental</div>
@@ -2320,13 +2228,6 @@
                     
                     <!-- OHSAS 18001 - Safety -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                                <path d="M12 2v20"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">OHSAS 18001</div>
                             <div class="cert-subtitle">Seguridad y Salud Ocupacional</div>
@@ -2335,15 +2236,6 @@
                     
                     <!-- FDA - Food Grade -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                                <path d="M12 2v20"/>
-                                <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">FDA</div>
                             <div class="cert-subtitle">Grado Alimentario</div>
@@ -2352,15 +2244,6 @@
                     
                     <!-- International Export -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                                <path d="M12 2v20"/>
-                                <path d="M16 8l4 4-4 4"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">Exportación</div>
                             <div class="cert-subtitle">Comercio Internacional</div>
@@ -2369,14 +2252,6 @@
                     
                     <!-- 100% Recycled -->
                     <div class="certification-item">
-                        <div class="cert-icon" style="background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M3 3v5h5"/>
-                                <path d="M3 8a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
-                                <path d="M21 21v-5h-5"/>
-                                <path d="M21 16a9 9 0 1 0-9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
-                            </svg>
-                        </div>
                         <div class="cert-content">
                             <div class="cert-title">100% Reciclado</div>
                             <div class="cert-subtitle">Material Sostenible</div>
