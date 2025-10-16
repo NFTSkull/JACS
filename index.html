@@ -420,6 +420,12 @@
             opacity: 1;
         }
         
+        /* Vignette mask for professional focus */
+        .hero-vignette {
+            mask-image: radial-gradient(120% 120% at 50% 40%, #000 60%, transparent 100%);
+            -webkit-mask-image: radial-gradient(120% 120% at 50% 40%, #000 60%, transparent 100%);
+        }
+        
         /* Hero Content Floating Animation */
         @keyframes hero-float {
             0%, 100% {
@@ -2091,76 +2097,64 @@
     </header>
 
     <!-- Hero -->
-    <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Video Background -->
-        <video class="hero-video loading" autoplay muted loop playsinline preload="auto" webkit-playsinline poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%231a1a1a'/%3E%3C/svg%3E">
-            <source src="video hero.mp4" type="video/mp4">
-            <!-- Fallback for browsers that don't support video -->
-            <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
+        <video
+            class="absolute inset-0 w-full h-full object-cover brightness-[.78] contrast-[1.07] saturate-[1.05]"
+            autoplay muted loop playsinline preload="auto"
+            poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1920 1080'%3E%3Crect width='1920' height='1080' fill='%231a1a1a'/%3E%3C/svg%3E">
+            <source src="video hero.mp4" type="video/mp4" />
         </video>
-        
-        <!-- Professional institutional overlay - Much darker -->
-        <div class="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/95 z-2"></div>
-        <!-- Additional overlay for maximum professional opacity -->
-        <div class="absolute inset-0 bg-slate-900/40 z-2"></div>
-        
+
+        <!-- Overlay institucional en marca (azules) -->
+        <div class="absolute inset-0
+                    bg-[linear-gradient(125deg,#083A6Bcc, #61B5BF66 35%, #0A4D8Ccc)]
+                    mix-blend-multiply"></div>
+
+        <!-- Capa de ajuste sutil para más solidez -->
+        <div class="absolute inset-0 bg-[#0A4D8C]/30"></div>
+
+        <!-- Vignette suave para foco al centro (no tapa el video) -->
+        <div class="pointer-events-none absolute inset-0 bg-black/10 hero-vignette"></div>
+
+        <!-- Contenido -->
         <div class="relative z-10 text-center text-white max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="fade-in hero-content" style="animation: hero-float 15000ms ease-in-out infinite;">
-                <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight text-white drop-shadow-2xl">
-                    <span class="block title-elegant text-white drop-shadow-lg">Tarimas Plásticas</span>
-                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold subtitle-refined text-white drop-shadow-lg" style="color: #7BC9D2;">Certificadas</span>
+            <div class="fade-in hero-content visible" style="animation: hero-float 15000ms ease-in-out infinite;">
+                <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 sm:mb-8 leading-tight tracking-tight">
+                    <span class="block">Tarimas Plásticas</span>
+                    <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-2 font-semibold" style="color:#61B5BF">Certificadas</span>
                 </h1>
-                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed text-white font-medium px-2 content-smooth drop-shadow-lg">
-                    Especialistas en <span class="font-semibold text-white relative inline-block">
-                        <span class="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent rounded-sm opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
-                        tarimas de polipropileno
-                    </span> y cajas agrícolas higiénicas. 
-                    <br class="hidden sm:block">
-                    <span class="font-semibold text-white relative inline-block">
-                        <span class="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent rounded-sm opacity-0 hover:opacity-100 transition-opacity duration-300"></span>
-                        Soluciones sanitarias
-                    </span> para exportación, almacenamiento y transporte industrial de nivel internacional.
+
+                <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-4xl mx-auto leading-relaxed font-medium">
+                    Especialistas en <span class="font-semibold">tarimas de polipropileno</span> y cajas agrícolas higiénicas.
+                    <br class="hidden sm:block">Soluciones sanitarias para exportación, almacenamiento y transporte industrial.
                 </p>
-                
-                <!-- Intelligent stats presentation -->
-                <div class="hero-stats flex flex-wrap justify-center gap-6 sm:gap-8 mb-8 sm:mb-12 text-white drop-shadow-md">
+
+                <div class="hero-stats flex flex-wrap justify-center gap-6 sm:gap-8 mb-8 sm:mb-12">
                     <div class="flex items-center space-x-2 text-sm sm:text-base">
-                        <div class="w-2 h-2 bg-gradient-to-r from-white to-white/60 rounded-full animate-pulse"></div>
-                        <span class="font-medium">15+ Años</span>
-                        <span class="text-white/90">de experiencia</span>
+                        <div class="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                        <span class="font-medium">15+ Años</span><span class="text-white/90">de experiencia</span>
                     </div>
                     <div class="flex items-center space-x-2 text-sm sm:text-base">
-                        <div class="w-2 h-2 bg-gradient-to-r from-white to-white/60 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
-                        <span class="font-medium">500+</span>
-                        <span class="text-white/90">clientes satisfechos</span>
+                        <div class="w-2 h-2 bg-white rounded-full animate-pulse" style="animation-delay:.5s"></div>
+                        <span class="font-medium">500+</span><span class="text-white/90">clientes</span>
                     </div>
                     <div class="flex items-center space-x-2 text-sm sm:text-base">
-                        <div class="w-2 h-2 bg-gradient-to-r from-white to-white/60 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
-                        <span class="font-medium">ISO 9001</span>
-                        <span class="text-white/90">certificado</span>
+                        <div class="w-2 h-2 bg-white rounded-full animate-pulse" style="animation-delay:1s"></div>
+                        <span class="font-medium">ISO 9001</span><span class="text-white/90">certificado</span>
                     </div>
                 </div>
-                
-                <div class="hero-cta flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
-                    <a href="#productos" class="btn-primary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 w-full sm:w-auto bg-white text-primary-dark hover:bg-gray-100 shadow-xl font-bold group">
-                        <i data-lucide="package" class="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-300"></i>
-                        <span class="relative">
-                            Ver Tarimas Plásticas
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-dark/30 group-hover:w-full transition-all duration-300"></span>
-                        </span>
+
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
+                    <a href="#productos" class="text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 w-full sm:w-auto bg-white text-[#0A4D8C] hover:bg-gray-100 shadow-xl font-bold group">
+                        Ver Tarimas Plásticas
                     </a>
-                    <a href="#contacto" class="btn-secondary text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 bg-white border-white text-black hover:bg-gray-100 shadow-xl font-bold w-full sm:w-auto group">
-                        <i data-lucide="calculator" class="w-4 h-4 sm:w-5 sm:h-5 text-black group-hover:scale-110 transition-transform duration-300"></i>
-                        <span class="relative">
-                            Cotizar Tarimas
-                            <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-black/30 group-hover:w-full transition-all duration-300"></span>
-                        </span>
+                    <a href="#contacto" class="text-base sm:text-lg px-8 sm:px-10 py-3 sm:py-4 bg-white/0 border border-white text-white hover:bg-white/10 shadow-xl font-bold w-full sm:w-auto group">
+                        Cotizar Tarimas
                     </a>
                 </div>
             </div>
-            
         </div>
-        
     </section>
 
     <!-- Product Carousel -->
