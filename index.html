@@ -377,50 +377,23 @@
             opacity: 1;
         }
         
-        /* Hero Zoom Animation with Multiple Images */
+        /* Hero Video Background */
         .hero-gradient {
-            animation: hero-zoom 20s ease-in-out infinite;
-            background-attachment: fixed !important;
             position: relative;
+            overflow: hidden;
         }
         
-        /* Hero Background Images - Two layers for seamless transition */
-        .hero-gradient::before {
-            content: '';
+        .hero-video {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('assets/images/hero/nuevo hero.png');
-            background-size: 110% auto;
-            background-position: center center;
-            background-attachment: fixed;
-            animation: 
-                background-zoom-1 25s ease-in-out infinite,
-                image-fade-1 18s ease-in-out infinite;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             z-index: -3;
         }
         
-        /* Second image layer */
-        .hero-gradient::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('assets/images/hero/tarima hero 2.png');
-            background-size: 110% auto;
-            background-position: center center;
-            background-attachment: fixed;
-            animation: 
-                background-zoom-2 25s ease-in-out infinite 9s,
-                image-fade-2 18s ease-in-out infinite 9s;
-            z-index: -2;
-        }
-        
-        /* Gradient overlay */
+        /* Gradient overlay for video */
         .hero-gradient .gradient-overlay {
             content: '';
             position: absolute;
@@ -428,79 +401,23 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(97, 181, 191, 0.88) 0%, rgba(74, 154, 165, 0.90) 30%, rgba(79, 172, 149, 0.85) 70%, rgba(123, 201, 210, 0.82) 100%);
+            background: linear-gradient(135deg, rgba(97, 181, 191, 0.85) 0%, rgba(74, 154, 165, 0.88) 30%, rgba(79, 172, 149, 0.82) 70%, rgba(123, 201, 210, 0.80) 100%);
             z-index: -1;
         }
         
-        @keyframes hero-zoom {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.02);
-            }
+        /* Video optimization styles */
+        .hero-video {
+            filter: brightness(0.8) contrast(1.1);
         }
         
-        @keyframes background-zoom-1 {
-            0%, 100% {
-                background-size: 110% auto;
-                opacity: 1;
-            }
-            25% {
-                background-size: 115% auto;
-                opacity: 0.98;
-            }
-            50% {
-                background-size: 120% auto;
-                opacity: 0.95;
-            }
-            75% {
-                background-size: 115% auto;
-                opacity: 0.98;
-            }
+        /* Video loading state */
+        .hero-video.loading {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
         }
         
-        @keyframes background-zoom-2 {
-            0%, 100% {
-                background-size: 110% auto;
-                opacity: 1;
-            }
-            25% {
-                background-size: 115% auto;
-                opacity: 0.98;
-            }
-            50% {
-                background-size: 120% auto;
-                opacity: 0.95;
-            }
-            75% {
-                background-size: 115% auto;
-                opacity: 0.98;
-            }
-        }
-        
-        @keyframes image-fade-1 {
-            0%, 47%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-        }
-        
-        @keyframes image-fade-2 {
-            0%, 47%, 100% {
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-        
-        /* Enhanced transition for smoother visual experience */
-        .hero-gradient::before,
-        .hero-gradient::after {
-            transition: opacity 1s ease-in-out;
+        .hero-video.loaded {
+            opacity: 1;
         }
         
         /* Hero Content Floating Animation */
@@ -1258,12 +1175,10 @@
                 justify-content: center;
             }
             
-            /* Fix hero background images for mobile - change background-attachment from fixed to scroll */
-            .hero-gradient::before,
-            .hero-gradient::after {
-                background-attachment: scroll !important;
-                background-size: cover !important;
-                background-position: center center !important;
+            /* Video optimization for mobile */
+            .hero-video {
+                object-fit: cover !important;
+                object-position: center center !important;
             }
             
             .hero-gradient .hero-content {
@@ -2177,6 +2092,13 @@
 
     <!-- Hero -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
+        <!-- Video Background -->
+        <video class="hero-video loading" autoplay muted loop playsinline preload="metadata">
+            <source src="video hero.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-primary-light"></div>
+        </video>
+        
         <div class="gradient-overlay"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-black/5 to-black/15 z-0"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10 z-0"></div>
@@ -3313,6 +3235,30 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
+        // Handle video loading
+        function initializeHeroVideo() {
+            const video = document.querySelector('.hero-video');
+            if (video) {
+                video.addEventListener('loadeddata', function() {
+                    video.classList.remove('loading');
+                    video.classList.add('loaded');
+                });
+                
+                video.addEventListener('canplay', function() {
+                    video.classList.remove('loading');
+                    video.classList.add('loaded');
+                });
+                
+                // Fallback for slow connections
+                setTimeout(() => {
+                    if (video.classList.contains('loading')) {
+                        video.classList.remove('loading');
+                        video.classList.add('loaded');
+                    }
+                }, 3000);
+            }
+        }
+        
         // Preselect product based on URL parameter and scroll to contact
         function preselectProduct() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -3365,6 +3311,7 @@
         
         // Call functions when page loads
         document.addEventListener('DOMContentLoaded', function() {
+            initializeHeroVideo();
             preselectProduct();
             handleHashNavigation();
         });
