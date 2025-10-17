@@ -178,16 +178,18 @@
     <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100/80">
         <div class="max-w-7xl mx-auto px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
+                <!-- Logo Section -->
+                <div class="flex items-center header-logo">
                     <img src="logo_plastics.png" alt="JACS Plastics" class="h-12 w-auto">
                 </div>
                 
+                <!-- Navigation -->
                 <nav class="hidden lg:flex items-center space-x-8">
                     <a href="index.html" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">INICIO</a>
                     <div class="relative group">
-                        <button class="nav-link text-sm font-medium tracking-wide flex items-center space-x-1" style="color: var(--primary);">
+                        <button class="nav-link text-sm font-medium tracking-wide flex items-center space-x-1" style="color: var(--gray-charcoal);">
                             <span>PRODUCTOS</span>
-                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 transition-transform group-hover:rotate-180"><path d="m6 9 6 6 6-6"></path></svg>
                         </button>
                         <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-300 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                             <div class="py-4">
@@ -222,71 +224,81 @@
                     <a href="index.html#contacto" class="nav-link text-sm font-medium tracking-wide" style="color: var(--gray-charcoal);">CONTACTO</a>
                 </nav>
                 
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()">
-                    <i data-lucide="menu" class="w-5 h-5" style="color: var(--gray-charcoal);"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 bg-white/98 backdrop-blur-md">
-            <div class="px-6 py-4 space-y-3">
-                <a href="index.html" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
-                    <i data-lucide="home" class="w-4 h-4 inline mr-3"></i>
-                    INICIO
-                </a>
-                <div class="relative">
-                    <button class="w-full text-left text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between" style="color: var(--gray-charcoal);" onclick="toggleMobileProducts()">
-                        <span><i data-lucide="package" class="w-4 h-4 inline mr-3"></i>PRODUCTOS</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" id="mobile-products-arrow"></i>
+                <!-- CTA Section -->
+                <div class="flex items-center space-x-4">
+                    <a href="index.html#contacto" class="btn-primary text-sm px-6 py-3 header-cta hidden sm:flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+                        COTIZAR
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-5 h-5" style="color: var(--gray-charcoal);"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
                     </button>
-                    <div id="mobile-products-menu" class="hidden mt-2 ml-4 space-y-2">
-                        <a href="tarima-js-01.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                            <div class="font-semibold">Tarima JS-01</div>
-                            <div class="text-xs text-gray-500">Estándar Rackeable</div>
-                        </a>
-                        <a href="tarima-js-15.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                            <div class="font-semibold">Tarima JS-15</div>
-                            <div class="text-xs text-gray-500">One-way Exportación</div>
-                        </a>
-                        <a href="tarima-js-32.html" class="block text-sm font-medium py-2 px-4 rounded-lg bg-blue-50 text-primary">
-                            <div class="font-semibold">Tarima JS-32</div>
-                            <div class="text-xs text-primary/70">Uso Pesado</div>
-                        </a>
-                        <a href="tarima-js-30.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                            <div class="font-semibold">Tarima JS-30</div>
-                            <div class="text-xs text-gray-500">Exportación</div>
-                        </a>
-                        <a href="caja-allende.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                            <div class="font-semibold">Caja Montemorelos</div>
-                            <div class="text-xs text-gray-500">Agrícola Apilable</div>
-                        </a>
-                        <a href="jacspana.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                            <div class="font-semibold">JACSPANA</div>
-                            <div class="text-xs text-gray-500">Especializada</div>
-                        </a>
-                        <a href="jacspana.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                            <div class="font-semibold">JACSPANA</div>
-                            <div class="text-xs text-gray-500">Especializada</div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="lg:hidden hidden border-t border-gray-100 bg-white/98 backdrop-blur-md">
+                <div class="px-6 py-4 space-y-3">
+                    <a href="index.html" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="home" class="lucide lucide-home w-4 h-4 inline mr-3"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                        INICIO
+                    </a>
+                    <div class="relative">
+                        <button class="w-full text-left text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between" style="color: var(--gray-charcoal);" onclick="toggleMobileProducts()">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="package" class="lucide lucide-package w-4 h-4 inline mr-3"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"></path><path d="M12 22V12"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><path d="m7.5 4.27 9 5.15"></path></svg>PRODUCTOS</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevron-down" class="lucide lucide-chevron-down w-4 h-4 transition-transform" id="mobile-products-arrow"><path d="m6 9 6 6 6-6"></path></svg>
+                        </button>
+                        <div id="mobile-products-menu" class="hidden mt-2 ml-4 space-y-2">
+                            <a href="tarima-js-01.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-01</div>
+                                <div class="text-xs text-gray-500">Estándar Rackeable</div>
+                            </a>
+                            <a href="tarima-js-15.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-15</div>
+                                <div class="text-xs text-gray-500">One-way Exportación</div>
+                            </a>
+                            <a href="tarima-js-32.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-32</div>
+                                <div class="text-xs text-gray-500">Uso Pesado</div>
+                            </a>
+                            <a href="tarima-js-30.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-30</div>
+                                <div class="text-xs text-gray-500">Exportación</div>
+                            </a>
+                            <a href="caja-allende.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Caja Montemorelos</div>
+                                <div class="text-xs text-gray-500">Agrícola Apilable</div>
+                            </a>
+                            <a href="jacspana.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">JACSPANA</div>
+                                <div class="text-xs text-gray-500">Especializada</div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="index.html#beneficios" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="award" class="lucide lucide-award w-4 h-4 inline mr-3"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg>
+                        BENEFICIOS
+                    </a>
+                    <a href="index.html#contacto" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-4 h-4 inline mr-3"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+                        CONTACTO
+                    </a>
+                    <div class="pt-4 border-t border-gray-100 mt-4">
+                        <a href="index.html#contacto" class="btn-primary text-base px-6 py-4 w-full justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                            COTIZAR AHORA
                         </a>
                     </div>
-                </div>
-                <a href="index.html#beneficios" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
-                    <i data-lucide="award" class="w-4 h-4 inline mr-3"></i>
-                    BENEFICIOS
-                </a>
-                <a href="index.html#contacto" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
-                    <i data-lucide="phone" class="w-4 h-4 inline mr-3"></i>
-                    CONTACTO
-                </a>
-                <div class="pt-4 border-t border-gray-100 mt-4">
-                    <a href="index.html#contacto" class="btn-primary text-base px-6 py-4 w-full justify-center">
-                        <i data-lucide="phone" class="w-4 h-4 mr-2"></i>
-                        Solicitar Cotización
-                    </a>
+                    <div class="pt-2">
+                        <div class="flex items-center justify-center space-x-4 text-sm text-gray-600">
+                            <a href="tel:+525575838165" class="flex items-center space-x-2 hover:text-primary transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="phone" class="lucide lucide-phone w-4 h-4"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+                                <span>(55) 7583 8165</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
