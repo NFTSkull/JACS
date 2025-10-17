@@ -2132,10 +2132,38 @@
                         <i data-lucide="home" class="w-4 h-4 inline mr-3"></i>
                         INICIO
                     </a>
-                    <a href="#productos" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
-                        <i data-lucide="package" class="w-4 h-4 inline mr-3"></i>
-                        PRODUCTOS
-                    </a>
+                    <div class="relative">
+                        <button class="w-full text-left text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-between" style="color: var(--gray-charcoal);" onclick="toggleMobileProducts()">
+                            <span><i data-lucide="package" class="w-4 h-4 inline mr-3"></i>PRODUCTOS</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 transition-transform" id="mobile-products-arrow"></i>
+                        </button>
+                        <div id="mobile-products-menu" class="hidden mt-2 ml-4 space-y-2">
+                            <a href="tarima-js-01.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-01</div>
+                                <div class="text-xs text-gray-500">Estándar Rackeable</div>
+                            </a>
+                            <a href="tarima-js-15.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-15</div>
+                                <div class="text-xs text-gray-500">One-way Exportación</div>
+                            </a>
+                            <a href="tarima-js-32.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-32</div>
+                                <div class="text-xs text-gray-500">Uso Pesado</div>
+                            </a>
+                            <a href="tarima-js-30.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Tarima JS-30</div>
+                                <div class="text-xs text-gray-500">Exportación</div>
+                            </a>
+                            <a href="caja-allende.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">Caja Montemorelos</div>
+                                <div class="text-xs text-gray-500">Agrícola Apilable</div>
+                            </a>
+                            <a href="jacspana.html" class="block text-sm font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors">
+                                <div class="font-semibold">JACSPANA</div>
+                                <div class="text-xs text-gray-500">Especializada</div>
+                            </a>
+                        </div>
+                    </div>
                     <a href="#beneficios" class="block text-base font-medium tracking-wide py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors" style="color: var(--gray-charcoal);">
                         <i data-lucide="award" class="w-4 h-4 inline mr-3"></i>
                         BENEFICIOS
@@ -3575,6 +3603,20 @@
                 setTimeout(() => {
                     mobileMenu.classList.add('hidden');
                 }, 300);
+            }
+        }
+        
+        function toggleMobileProducts() {
+            const productsMenu = document.getElementById('mobile-products-menu');
+            const arrow = document.getElementById('mobile-products-arrow');
+            const isHidden = productsMenu.classList.contains('hidden');
+            
+            if (isHidden) {
+                productsMenu.classList.remove('hidden');
+                arrow.style.transform = 'rotate(180deg)';
+            } else {
+                productsMenu.classList.add('hidden');
+                arrow.style.transform = 'rotate(0deg)';
             }
         }
         
