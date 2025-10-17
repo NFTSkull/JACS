@@ -34,7 +34,7 @@ Sitio web institucional para JACS Plastics México, especializado en tarimas pl�
 - **JS-32**: 1.20m × 1.00m, carga estática 5,000 kg
 
 ### Cajas Agrícolas
-- **Caja Allende**: 30 kg, ventilación ideal, apilable
+- **Caja Montemorelos**: 30 kg, ventilación ideal, apilable
 
 ## 🛠️ Instalación y Uso
 
@@ -66,7 +66,7 @@ JACS Plastics/
 │       ├── hero/
 │       │   └── hero.png   # Imagen principal del hero
 │       └── products/
-│           ├── caja-allende.png      # Caja agrícola
+│           ├── caja-allende.png      # Caja agrícola Montemorelos
 │           ├── tarima-js-01.png      # Tarima estándar
 │           ├── tarima-js-15.png      # Tarima one-way
 │           ├── tarima-js-32.png      # Tarima con ceja
